@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: ef4789a4660c14875adfdadf0794c260
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: root
+    100002: //RootNode
+    100004: SEAGULL_
+    100006: SEAGULL_ Head
+    100008: SEAGULL_ L Calf
+    100010: SEAGULL_ L Clavicle
+    100012: SEAGULL_ L Foot
+    100014: SEAGULL_ L Forearm
+    100016: SEAGULL_ L Hand
+    100018: SEAGULL_ L HorseLink
+    100020: SEAGULL_ L Thigh
+    100022: SEAGULL_ L Toe0
+    100024: SEAGULL_ L Toe01
+    100026: SEAGULL_ L Toe02
+    100028: SEAGULL_ L UpperArm
+    100030: SEAGULL_ Neck
+    100032: SEAGULL_ Pelvis
+    100034: SEAGULL_ Queue de cheval 1
+    100036: SEAGULL_ R Calf
+    100038: SEAGULL_ R Clavicle
+    100040: SEAGULL_ R Foot
+    100042: SEAGULL_ R Forearm
+    100044: SEAGULL_ R Hand
+    100046: SEAGULL_ R HorseLink
+    100048: SEAGULL_ R Thigh
+    100050: SEAGULL_ R Toe0
+    100052: SEAGULL_ R Toe01
+    100054: SEAGULL_ R Toe02
+    100056: SEAGULL_ R UpperArm
+    100058: SEAGULL_ Spine
+    100060: SEAGULL_ Tail
+    100062: SEAGULL_ TailL
+    100064: SEAGULL_ TailR
+    100066: SEAGULL_FeatherL_A
+    100068: SEAGULL_FeatherL_B
+    100070: SEAGULL_FeatherL_C
+    100072: SEAGULL_FeatherL_D
+    100074: SEAGULL_FeatherR_A
+    100076: SEAGULL_FeatherR_B
+    100078: SEAGULL_FeatherR_C
+    100080: SEAGULL_FeatherR_D
+    100082: SK_Seagull
+    400000: root
+    400002: //RootNode
+    400004: SEAGULL_
+    400006: SEAGULL_ Head
+    400008: SEAGULL_ L Calf
+    400010: SEAGULL_ L Clavicle
+    400012: SEAGULL_ L Foot
+    400014: SEAGULL_ L Forearm
+    400016: SEAGULL_ L Hand
+    400018: SEAGULL_ L HorseLink
+    400020: SEAGULL_ L Thigh
+    400022: SEAGULL_ L Toe0
+    400024: SEAGULL_ L Toe01
+    400026: SEAGULL_ L Toe02
+    400028: SEAGULL_ L UpperArm
+    400030: SEAGULL_ Neck
+    400032: SEAGULL_ Pelvis
+    400034: SEAGULL_ Queue de cheval 1
+    400036: SEAGULL_ R Calf
+    400038: SEAGULL_ R Clavicle
+    400040: SEAGULL_ R Foot
+    400042: SEAGULL_ R Forearm
+    400044: SEAGULL_ R Hand
+    400046: SEAGULL_ R HorseLink
+    400048: SEAGULL_ R Thigh
+    400050: SEAGULL_ R Toe0
+    400052: SEAGULL_ R Toe01
+    400054: SEAGULL_ R Toe02
+    400056: SEAGULL_ R UpperArm
+    400058: SEAGULL_ Spine
+    400060: SEAGULL_ Tail
+    400062: SEAGULL_ TailL
+    400064: SEAGULL_ TailR
+    400066: SEAGULL_FeatherL_A
+    400068: SEAGULL_FeatherL_B
+    400070: SEAGULL_FeatherL_C
+    400072: SEAGULL_FeatherL_D
+    400074: SEAGULL_FeatherR_A
+    400076: SEAGULL_FeatherR_B
+    400078: SEAGULL_FeatherR_C
+    400080: SEAGULL_FeatherR_D
+    400082: SK_Seagull
+    2100000: M_Seagull
+    4300000: SK_Seagull
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: SK_Seagull
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
