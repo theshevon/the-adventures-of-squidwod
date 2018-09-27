@@ -1,5 +1,5 @@
-﻿// Code to control the Giant Seagull in the game being developed for 
-// Project 02 of COMP30019.
+﻿// Code to control the Giant Seagull in the game developed by Adam Turner,
+// Amie Xie & Shevon Mendis for Project 02 of COMP30019.
 //
 // Written by Shevon Mendis, September 2018.
 
@@ -11,34 +11,36 @@ public class SeagullController : MonoBehaviour
 {
 
     public GameObject laserPrefab;
+    public Transform leftEye;
+    public Transform rightEye;
+    public AudioSource audioSrc;
+    public AudioClip clip;
 
-    private GameObject target;
-    private GameObject laser;
-    private const float orbitSpeed = 1.5f;
-    private const float heightChangeSpeed = 0.5f;
-    private const float radiusOfOrbit = 120.0f;
-    private const float height = 125.0f;
-    private const float maxHeightChange = 25.0f;
-    private const float bankAngle = -20.0f;
-    private float fireFrequency = 2;
-    //private const float frequencyStep = 0.25f;
-    private Vector3[] laserPositions = new Vector3[] { new Vector3(3.0f, 34.5f, 20.0f), new Vector3(-3.0f, 34.5f, 20.0f) };
+    const float radiusOfOrbit = 120.0f;
+    const float orbitSpeed = 1.5f;
+    const float soarHeight = 125.0f;
+    const float ySpeed = 0.5f;
+    const float maxHeightChange = 25.0f;
+    const float bankAngle = -20.0f;
+    //const float frequencyStepTime = 10f;
+    //const float frequencyStep = 0.25f;
 
-    private float totalTime = 0;
-    private float delta;
-    private float timeSinceFire = 0;
+    GameObject target;
+    float totalTime;
+    float delta;
+    float timeSinceFire;
+    float fireFrequency = 2;
 
     void Start()
     {
         // set starting position & oritentation for seagull
-        this.transform.position = new Vector3(0.0f, height, radiusOfOrbit);
+        this.transform.position = new Vector3(0.0f, soarHeight, radiusOfOrbit);
         this.transform.Rotate(Vector3.up, 90, Space.Self);
-
-        // bank towards the arena
-        this.transform.Rotate(Vector3.right, bankAngle, Space.Self); //NEEDS TO BE FIXED
 
         // identify squidward as targer
         target = GameObject.Find("squidward");
+
+        audioSrc.clip = clip;
     }
 
     void Update()
@@ -49,25 +51,41 @@ public class SeagullController : MonoBehaviour
         timeSinceFire += delta;
 
         // make the seagull move in an orbit over the arena
-        this.transform.position = new Vector3(radiusOfOrbit * Mathf.Sin(totalTime * orbitSpeed), height, radiusOfOrbit * Mathf.Cos(totalTime * orbitSpeed));
-        this.transform.position += new Vector3(0.0f, maxHeightChange * Mathf.Sin(totalTime * heightChangeSpeed), 0.0f);
+        this.transform.position = new Vector3(radiusOfOrbit * Mathf.Sin(totalTime * orbitSpeed), 
+                                              soarHeight + maxHeightChange * Mathf.Sin(totalTime * ySpeed), 
+                                              radiusOfOrbit * Mathf.Cos(totalTime * orbitSpeed));
 
         // orient the seagull to face the right direction
-        this.transform.Rotate(Vector3.up, (delta / (Mathf.PI * 2)) * 360 * orbitSpeed, Space.Self);
+        this.transform.Rotate(Vector3.up, delta / (Mathf.PI * 2) * 360 * orbitSpeed, Space.Self);
 
+        // fire lasers from the seagull's eyes
         if (timeSinceFire >= fireFrequency)
         {
+            audioSrc.Play();
+
             timeSinceFire = 0;
 
             Debug.Log("Squidward's position: " + target.transform.position);
 
-            for (int i = 0; i < laserPositions.Length; i++)
-            {
-                Vector3 laserPos = this.transform.position + laserPositions[i];
-                Vector3 direction = target.transform.position - laserPos;
-                laser = Instantiate<GameObject>(laserPrefab, laserPos, Quaternion.LookRotation(new Vector3(0,0,0)));
-                laser.GetComponent<LaserController>().direction = direction;
-            }
+            // left eye laser
+            Vector3 direction = target.transform.position - leftEye.position;
+            GameObject laser = Instantiate(laserPrefab);
+            laser.transform.position = leftEye.position;
+            //laser.transform.LookAt(Vector3.zero);
+            laser.GetComponent<LaserController>().direction = direction;
+
+            //Debug.Log("Laser position: " + leftEye.position);
+            //Debug.DrawLine(Vector3.zero, -direction);
+
+            // right eye laser
+            direction = target.transform.position - rightEye.position;
+            laser = Instantiate(laserPrefab);
+            laser.transform.position = rightEye.position;
+            //laser.transform.LookAt(Vector3.zero);
+            laser.GetComponent<LaserController>().direction = direction;
+
+            //Debug.Log("Laser position: " + rightEye.position);
+            //Debug.DrawLine(Vector3.zero, -direction);
         }
     }
 }
