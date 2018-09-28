@@ -3,36 +3,39 @@
 //
 // Written by Shevon Mendis, September 2018.
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserController : MonoBehaviour {
+public class LaserController : MonoBehaviour
+{
 
+    public GameObject explosionEffect;
     public Vector3 direction;
-    const float velocity = 1.0f;
 
-    void Update () {
+    const float velocity = 0.75f;
+    bool exploded;
 
+    void Update()
+    {
         // move lasers in direction of target
-        this.transform.Translate(direction * Time.deltaTime * velocity, Space.World);
+        transform.Translate(direction * Time.deltaTime * velocity, Space.World);
 
-        // dummy code to destroy laser objects
-        if (this.transform.position.y < -12){
-            Destroy(this.gameObject);
+        // code to combat tunneling
+        if (transform.position.y <= -12){
+            Destroy(gameObject);
         }
     }
 
-    //void OnTriggerEnter(Collider col)
-    //{
-    //    if (col.gameObject.tag == tagToDamage)
-    //    {
-    //        // Damage object with relevant tag
-    //        HealthManager healthManager = col.gameObject.GetComponent<HealthManager>();
-    //        healthManager.ApplyDamage(damageAmount);
+    void OnTriggerEnter(Collider col)
+    {
 
-    //        // Destroy self
-    //        Destroy(this.gameObject);
-    //    }
-    //}
+        if ((col.gameObject.tag == "Terrain" || col.gameObject.tag == "Player") && !exploded)
+        {
+            exploded = true;
+
+            GameObject explosion = Instantiate(explosionEffect);
+            explosion.transform.position = transform.position;
+
+            Destroy(gameObject);
+        }
+    }
 }
