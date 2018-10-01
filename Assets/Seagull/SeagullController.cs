@@ -57,7 +57,7 @@ public class SeagullController : MonoBehaviour
         // fire lasers from the seagull's eyes
         if (countdown <= 0)
         {
-            //audioSrc.Play();
+            audioSrc.Play();
 
             countdown = fireDelay;
 

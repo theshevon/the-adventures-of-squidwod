@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ThirdPersonCameraController : MonoBehaviour {
 
+    public bool lockCursor;
     public Transform target;
     public float mouseSensitivity = 10;
     public float distanceFromTarget = 2;
@@ -19,6 +20,14 @@ public class ThirdPersonCameraController : MonoBehaviour {
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
 
+    void Start () {
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+    
     void LateUpdate () {
 
         // get yaw and pitch based on mouse movement

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\FruitSalad\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\FruitSalad\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_A2-COMP30019.46531492.00" t="ExcludeRecursive" />
+    <e p="G:\Documents\Github\A2-COMP30019" t="IncludeRecursive">
+      <e p="A2-COMP30019.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="EffectExamples" t="Include">
+          <e p="Shared" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="DecalDestroyer.cs" t="Include" />
+              <e p="ExtinguishableFire.cs" t="Include" />
+              <e p="GunAim.cs" t="Include" />
+              <e p="GunShoot.cs" t="Include" />
+              <e p="ParticleCollision.cs" t="Include" />
+              <e p="ParticleExamples.cs" t="Include" />
+              <e p="ParticleMenu.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="SurfaceShader_VC.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Laser" t="Include">
+          <e p="LaserController.cs" t="Include" />
+        </e>
+        <e p="Seagull" t="Include">
+          <e p="SeagullController.cs" t="Include" />
+        </e>
+        <e p="Squidward" t="Include">
+          <e p="cameraControl.cs" t="Include" />
+          <e p="movement.cs" t="Include" />
+        </e>
+        <e p="ThirdPersonCameraController.cs" t="Include" />
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

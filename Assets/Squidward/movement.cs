@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
-
 	public float speed = 3;
 	
-    public int rotateSpeed;
     private Transform cameraT;
 
 	public float turnSmoothTime = 0.2f;
@@ -16,11 +14,14 @@ public class movement : MonoBehaviour
 	public float speedSmoothTime = 0.1f;
 	private float speedSmoothVelocity;
 	private float currentSpeed;
+
+	private Animator animator;
 	
 	// Use this for initialization
 	void Start ()
 	{
 	    cameraT = Camera.main.transform;
+		animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -37,9 +38,13 @@ public class movement : MonoBehaviour
 		}
 
 		float targetSpeed = speed * inputDir.magnitude;
+
 		currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 		
 		transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
-		
+
+		float animationSpeedPercent = 1 * inputDir.magnitude;
+		animator.SetFloat("motion", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+
 	}
 }
