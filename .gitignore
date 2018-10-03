@@ -4,7 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
-Assets/Sand textures pack*
+Assets/ignore*
 
 # Visual Studio cache directory
 .vs/
