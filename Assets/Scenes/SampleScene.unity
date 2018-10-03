@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66139096, g: 0.79166424, b: 0.9365254, a: 1}
+  m_IndirectSpecularColor: {r: 0.6614109, g: 0.7916608, b: 0.936772, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -230,7 +230,7 @@ MonoBehaviour:
   leftEye: {fileID: 1772616711}
   rightEye: {fileID: 975200815}
   audioSrc: {fileID: 7945193}
-  clip: {fileID: 8300000, guid: dd170b9cb79ba4334bbd0786085dcbf5, type: 3}
+  clip: {fileID: 8300000, guid: f77d3cdb3f9fa497cacf1bf58f5c97c5, type: 3}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 270537852}
   m_Layer: 0
   m_Name: TrackComponent
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 378273478}
   m_Layer: 0
   m_Name: Nest
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -742,7 +742,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400032, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 400032, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -844,7 +844,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ef4789a4660c14875adfdadf0794c260, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ef4789a4660c14875adfdadf0794c260, type: 3}
       propertyPath: m_LocalPosition.z
@@ -896,7 +896,7 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 7d1f7cca6601e47a6b693e602a2e7b6c, type: 2}
     - target: {fileID: 100002, guid: ef4789a4660c14875adfdadf0794c260, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4789a4660c14875adfdadf0794c260, type: 3}
