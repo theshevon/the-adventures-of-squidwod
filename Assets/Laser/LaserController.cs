@@ -11,7 +11,7 @@ public class LaserController : MonoBehaviour
     public GameObject explosionEffect;
     public Vector3 direction;
 
-    const float velocity = 0.75f;
+    const float velocity = 2.0f;
     bool exploded;
 
     void Update()

@@ -63,8 +63,8 @@ public class SeagullController : MonoBehaviour
 
             // left eye laser
             Vector3 direction = target.transform.position - leftEye.position;
-            GameObject laser = Instantiate(laserPrefab);
-            laser.transform.position = leftEye.position;
+            GameObject laser = Instantiate(laserPrefab, leftEye.position, Quaternion.LookRotation(direction));
+            //laser.transform.position = leftEye.position;
             //laser.transform.LookAt(Vector3.zero);
             laser.GetComponent<LaserController>().direction = direction;
 
@@ -72,8 +72,8 @@ public class SeagullController : MonoBehaviour
 
             // right eye laser
             direction = target.transform.position - rightEye.position;
-            laser = Instantiate(laserPrefab);
-            laser.transform.position = rightEye.position;
+            laser = Instantiate(laserPrefab, rightEye.position, Quaternion.LookRotation(direction));
+            //laser.transform.position = rightEye.position;
             //laser.transform.LookAt(Vector3.zero);
             laser.GetComponent<LaserController>().direction = direction;
 

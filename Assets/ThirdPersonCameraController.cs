@@ -21,11 +21,11 @@ public class ThirdPersonCameraController : MonoBehaviour {
     Vector3 currentRotation;
 
     void Start () {
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        //if (lockCursor)
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.visible = false;
+        //}
     }
     
     void LateUpdate () {
