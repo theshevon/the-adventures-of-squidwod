@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66139096, g: 0.79166424, b: 0.9365254, a: 1}
+  m_IndirectSpecularColor: {r: 0.6614109, g: 0.7916608, b: 0.936772, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 7945191}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70e3e3665a8944fb79e4746cee348966, type: 3}
   m_Name: 
@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 282840814}
   - component: {fileID: 282840813}
   - component: {fileID: 282840811}
+  - component: {fileID: 282840815}
   - component: {fileID: 282840812}
   m_Layer: 0
   m_Name: Main Camera
@@ -357,7 +358,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfb797b9863f46caab3d6c2a619c5c6, type: 3}
   m_Name: 
@@ -423,6 +424,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 51.209003, z: 0}
+--- !u!114 &282840815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282840810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2cba794c33a415d9348e06e89d4792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockCursor: 0
+  target: {fileID: 270537852}
+  mouseSensitivity: 10
+  distanceFromTarget: 20
+  pitchMin: -40
+  pitchMax: 80
+  rotationSmoothTime: 0.12
 --- !u!1 &378273477
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +920,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EggPrefab: {fileID: 1819932385686340, guid: 355fd08a8f770bb44b8e050fec0d6e55, type: 2}
-  currentEgg: {fileID: 0}
   centre: {x: 0, y: 0, z: 0}
   diameter: 170
 --- !u!4 &1594063653
@@ -915,7 +933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1772616710
 GameObject:

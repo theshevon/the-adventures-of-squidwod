@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// NOTE: SQUIDWARDS CONTROLLER MUST TURN ALONG WITH CAMERA
-
 public class ThirdPersonCameraController : MonoBehaviour {
 
     public bool lockCursor;
     public Transform target;
-    public Transform rotationTarget;
     public float mouseSensitivity = 10;
     public float distanceFromTarget = 2;
     public float pitchMin = -40;
@@ -39,11 +36,9 @@ public class ThirdPersonCameraController : MonoBehaviour {
         // or goes below ground
         pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
 
-        //currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
-        //transform.eulerAngles = currentRotation;
-        transform.LookAt(rotationTarget.transform, Vector3.up);
-        transform.Rotate(Vector3.up * -5);
+        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+        transform.eulerAngles = currentRotation;
 
-        transform.position = target.position - rotationTarget.position- transform.forward * distanceFromTarget;
+        transform.position = target.position - transform.forward * distanceFromTarget;
 	}
 }
