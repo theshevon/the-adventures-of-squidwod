@@ -14,16 +14,21 @@ public class EggSpawner : MonoBehaviour {
         SpawnEgg();
     }
 
+    private void Update()
+    {
+
+    }
+
     public void SpawnEgg()
     {
         Vector3 pos = centre + new Vector3(Random.Range(-diameter/2, diameter/2), transform.position.y,  Random.Range(-diameter/ 2, diameter/ 2));
         Instantiate(EggPrefab, pos, Quaternion.identity);
     }
 
-    private void OnCollisionEnter(Collision collisionInfo)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Egg has collided!");
-        if (collisionInfo.collider.tag == "Player")
+        if (other.tag == "Player")
         {
             SpawnEgg();
             Destroy(gameObject);
