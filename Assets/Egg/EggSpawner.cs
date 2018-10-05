@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class EggSpawner : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
-        SpawnEgg();
+        SpawnEgg(new Vector3(0,transform.position.y,0));
     }
 
     private void Update()

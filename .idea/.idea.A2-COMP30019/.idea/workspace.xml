@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Egg/Egg.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Egg/Egg.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/collectEgg.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/collectEgg.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_shadowmask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_shadowmask.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_light.exr" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,37 +34,37 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="7454" />
+          <entry key="cs" value="8033" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="7454" />
+          <entry key="C#" value="8033" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="22" />
+          <entry key="cs" value="24" />
           <entry key="shader" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="22" />
+          <entry key="C#" value="24" />
           <entry key="ShaderLab" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49565217">
+    <splitter split-orientation="horizontal" split-proportion="0.5604738">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-661">
-                  <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+                <state relative-caret-position="817">
+                  <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
                   <folding>
                     <marker date="1538745043734" expanded="false" signature="6:108" ph="..." />
                     <marker date="1538745043734" expanded="true" signature="147:3187" ph="{...}" />
@@ -86,15 +86,35 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="395">
-                  <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+                <state relative-caret-position="480">
+                  <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
                   <folding>
-                    <marker date="1538743806409" expanded="false" signature="6:78" ph="..." />
-                    <marker date="1538743806409" expanded="true" signature="137:1295" ph="{...}" />
-                    <marker date="1538743806409" expanded="true" signature="505:656" ph="{...}" />
-                    <marker date="1538743806409" expanded="true" signature="515:650" ph="/* if (lockCursor) ... */" />
-                    <marker date="1538743806409" expanded="true" signature="685:1293" ph="{...}" />
-                    <marker date="1538743806409" expanded="true" signature="872:960" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+                    <marker date="1538751284192" expanded="false" signature="6:78" ph="..." />
+                    <marker date="1538751284192" expanded="true" signature="137:1887" ph="{...}" />
+                    <marker date="1538751284192" expanded="true" signature="542:780" ph="{...}" />
+                    <marker date="1538751284192" expanded="true" signature="552:687" ph="/* if (lockCursor) ... */" />
+                    <marker date="1538751284192" expanded="true" signature="809:1885" ph="{...}" />
+                    <marker date="1538751284192" expanded="true" signature="995:1083" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+                    <marker date="1538751284192" expanded="true" signature="1522:1872" ph="{...}" />
+                    <marker date="1538751284192" expanded="true" signature="1760:1862" ph="/* Debug.DrawLine(transform.position, hit.point, Color.green); ... */" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Assets/Egg/EggSpawner.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="504">
+                  <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+                  <folding>
+                    <marker date="1538746381817" expanded="false" signature="6:78" ph="..." />
+                    <marker date="1538746381817" expanded="true" signature="120:1034" ph="{...}" />
+                    <marker date="1538746381817" expanded="true" signature="260:324" ph="{...}" />
+                    <marker date="1538746381817" expanded="true" signature="351:364" ph="{...}" />
+                    <marker date="1538746381817" expanded="true" signature="432:649" ph="{...}" />
+                    <marker date="1538746381817" expanded="true" signature="730:800" ph="{...}" />
+                    <marker date="1538746381817" expanded="true" signature="805:1032" ph="/* private void OnCollisionEnter(Collision col) ... */" />
                   </folding>
                 </state>
               </provider>
@@ -122,7 +142,7 @@
             <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-301">
-                  <caret line="68" column="45" lean-forward="true" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+                  <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
                   <folding>
                     <marker date="1538744849498" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
                     <marker date="1538744849498" expanded="false" signature="183:269" ph="..." />
@@ -202,6 +222,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/TSF/Shaders/TSF.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Laser/LaserController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/aimCameraControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -222,6 +243,8 @@
         <option value="$PROJECT_DIR$/Assets/Squidward/movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Squidward/collectEgg.cs" />
         <option value="$PROJECT_DIR$/Assets/Squidward/interaction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" />
       </list>
     </option>
   </component>
@@ -232,10 +255,27 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1525" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Internationalization</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>LossyEncoding</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -301,12 +341,12 @@
       <workItem from="1538665369234" duration="4617000" />
       <workItem from="1538703654967" duration="2616000" />
       <workItem from="1538723762821" duration="404000" />
-      <workItem from="1538740363686" duration="4800000" />
+      <workItem from="1538740363686" duration="8893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44741000" />
+    <option name="totallyTimeSpent" value="48834000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -318,7 +358,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14498934" />
@@ -491,31 +531,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-661">
-          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-          <folding>
-            <marker date="1538745043734" expanded="false" signature="6:108" ph="..." />
-            <marker date="1538745043734" expanded="true" signature="147:3187" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="865:1043" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="1095:3094" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="1263:1546" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="1708:1924" ph="/* Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below ... */" />
-            <marker date="1538745043734" expanded="true" signature="1927:2223" ph="/* transform.position = new Vector3(transform.position.x, transform.position.y - gravity * Time.deltaTime, ... */" />
-            <marker date="1538745043734" expanded="true" signature="2343:2471" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="2424:2467" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="2478:2536" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="2600:2766" ph="{...}" />
-            <marker date="1538745043734" expanded="true" signature="3155:3185" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-301">
-          <caret line="68" column="45" lean-forward="true" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
           <folding>
             <marker date="1538744849498" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
             <marker date="1538744849498" expanded="false" signature="183:269" ph="..." />
@@ -541,17 +560,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Egg/EggSpawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <folding>
+            <marker date="1538746381817" expanded="false" signature="6:78" ph="..." />
+            <marker date="1538746381817" expanded="true" signature="120:1034" ph="{...}" />
+            <marker date="1538746381817" expanded="true" signature="260:324" ph="{...}" />
+            <marker date="1538746381817" expanded="true" signature="351:364" ph="{...}" />
+            <marker date="1538746381817" expanded="true" signature="432:649" ph="{...}" />
+            <marker date="1538746381817" expanded="true" signature="730:800" ph="{...}" />
+            <marker date="1538746381817" expanded="true" signature="805:1032" ph="/* private void OnCollisionEnter(Collision col) ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+          <folding>
+            <marker date="1538745043734" expanded="false" signature="6:108" ph="..." />
+            <marker date="1538745043734" expanded="true" signature="147:3187" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="865:1043" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="1095:3094" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="1263:1546" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="1708:1924" ph="/* Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below ... */" />
+            <marker date="1538745043734" expanded="true" signature="1927:2223" ph="/* transform.position = new Vector3(transform.position.x, transform.position.y - gravity * Time.deltaTime, ... */" />
+            <marker date="1538745043734" expanded="true" signature="2343:2471" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="2424:2467" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="2478:2536" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="2600:2766" ph="{...}" />
+            <marker date="1538745043734" expanded="true" signature="3155:3185" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+        <state relative-caret-position="480">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding>
-            <marker date="1538743806409" expanded="false" signature="6:78" ph="..." />
-            <marker date="1538743806409" expanded="true" signature="137:1295" ph="{...}" />
-            <marker date="1538743806409" expanded="true" signature="505:656" ph="{...}" />
-            <marker date="1538743806409" expanded="true" signature="515:650" ph="/* if (lockCursor) ... */" />
-            <marker date="1538743806409" expanded="true" signature="685:1293" ph="{...}" />
-            <marker date="1538743806409" expanded="true" signature="872:960" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+            <marker date="1538751284192" expanded="false" signature="6:78" ph="..." />
+            <marker date="1538751284192" expanded="true" signature="137:1887" ph="{...}" />
+            <marker date="1538751284192" expanded="true" signature="542:780" ph="{...}" />
+            <marker date="1538751284192" expanded="true" signature="552:687" ph="/* if (lockCursor) ... */" />
+            <marker date="1538751284192" expanded="true" signature="809:1885" ph="{...}" />
+            <marker date="1538751284192" expanded="true" signature="995:1083" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+            <marker date="1538751284192" expanded="true" signature="1522:1872" ph="{...}" />
+            <marker date="1538751284192" expanded="true" signature="1760:1862" ph="/* Debug.DrawLine(transform.position, hit.point, Color.green); ... */" />
           </folding>
         </state>
       </provider>
