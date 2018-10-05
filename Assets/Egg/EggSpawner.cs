@@ -18,21 +18,26 @@ public class EggSpawner : MonoBehaviour {
     {
 
     }
-
+    // spawn an egg in a random location
     public void SpawnEgg()
     {
         Vector3 pos = centre + new Vector3(Random.Range(-diameter/2, diameter/2), transform.position.y,  Random.Range(-diameter/ 2, diameter/ 2));
         Instantiate(EggPrefab, pos, Quaternion.identity);
     }
-
-    private void OnTriggerEnter(Collider other)
+    // spawn an egg in a specific location
+    public void SpawnEgg(Vector3 pos)
+    {
+        Instantiate(EggPrefab, pos, Quaternion.identity);
+    }
+    /*
+    private void OnCollisionEnter(Collision col)
     {
         Debug.Log("Egg has collided!");
-        if (other.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
             SpawnEgg();
             Destroy(gameObject);
             
         }
-    }
+    }*/
 }
