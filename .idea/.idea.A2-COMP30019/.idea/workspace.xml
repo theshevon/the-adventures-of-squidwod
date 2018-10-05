@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Egg/EggMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Egg/EggMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Egg/EggSpin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Egg/EggSpin.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_shadowmask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-0_comp_shadowmask.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/Lightmap-1_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Squidward/interaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/interaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,23 +34,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="8033" />
+          <entry key="cs" value="8347" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="8033" />
+          <entry key="C#" value="8347" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="24" />
+          <entry key="cs" value="26" />
           <entry key="shader" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="24" />
+          <entry key="C#" value="26" />
           <entry key="ShaderLab" value="1" />
         </counts>
       </usages-collector>
@@ -83,11 +83,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+                <state relative-caret-position="216">
+                  <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
                   <folding>
                     <marker date="1538751284192" expanded="false" signature="6:78" ph="..." />
                     <marker date="1538751284192" expanded="true" signature="137:1887" ph="{...}" />
@@ -102,19 +102,51 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Assets/Egg/EggSpawner.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="504">
-                  <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+                <state relative-caret-position="576">
+                  <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
                   <folding>
-                    <marker date="1538746381817" expanded="false" signature="6:78" ph="..." />
-                    <marker date="1538746381817" expanded="true" signature="120:1034" ph="{...}" />
-                    <marker date="1538746381817" expanded="true" signature="260:324" ph="{...}" />
-                    <marker date="1538746381817" expanded="true" signature="351:364" ph="{...}" />
-                    <marker date="1538746381817" expanded="true" signature="432:649" ph="{...}" />
-                    <marker date="1538746381817" expanded="true" signature="730:800" ph="{...}" />
-                    <marker date="1538746381817" expanded="true" signature="805:1032" ph="/* private void OnCollisionEnter(Collision col) ... */" />
+                    <marker date="1538753172247" expanded="false" signature="6:78" ph="..." />
+                    <marker date="1538753172247" expanded="true" signature="120:1210" ph="{...}" />
+                    <marker date="1538753172247" expanded="true" signature="265:329" ph="{...}" />
+                    <marker date="1538753172247" expanded="true" signature="356:376" ph="{...}" />
+                    <marker date="1538753172247" expanded="true" signature="444:661" ph="{...}" />
+                    <marker date="1538753172247" expanded="true" signature="742:812" ph="{...}" />
+                    <marker date="1538753172247" expanded="true" signature="822:976" ph="/* public void CollectEgg() ... */" />
+                    <marker date="1538753172247" expanded="true" signature="981:1208" ph="/* private void OnCollisionEnter(Collision col) ... */" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Assets/Egg/spinEgg.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="384">
+                  <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+                  <folding>
+                    <marker date="1538753135317" expanded="false" signature="6:78" ph="..." />
+                    <marker date="1538753135317" expanded="true" signature="117:387" ph="{...}" />
+                    <marker date="1538753135317" expanded="true" signature="201:208" ph="{...}" />
+                    <marker date="1538753135317" expanded="true" signature="269:385" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+                  <folding>
+                    <marker date="1538752765739" expanded="true" signature="6:78" ph="..." />
+                    <marker date="1538752765739" expanded="true" signature="121:431" ph="{...}" />
+                    <marker date="1538752765739" expanded="true" signature="193:429" ph="{...}" />
+                    <marker date="1538752765739" expanded="true" signature="236:330" ph="{...}" />
+                    <marker date="1538752765739" expanded="true" signature="381:426" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -221,6 +253,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Seagull/SeagullController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TSF/Shaders/TSF.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Egg/spinEgg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Laser/LaserController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -242,9 +275,10 @@
         <option value="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" />
         <option value="$PROJECT_DIR$/Assets/Squidward/movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Squidward/collectEgg.cs" />
-        <option value="$PROJECT_DIR$/Assets/Squidward/interaction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Squidward/interaction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Egg/spinEgg.cs" />
+        <option value="$PROJECT_DIR$/Assets/Egg/EggSpawner.cs" />
       </list>
     </option>
   </component>
@@ -254,7 +288,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -341,12 +375,12 @@
       <workItem from="1538665369234" duration="4617000" />
       <workItem from="1538703654967" duration="2616000" />
       <workItem from="1538723762821" duration="404000" />
-      <workItem from="1538740363686" duration="8893000" />
+      <workItem from="1538740363686" duration="10870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48834000" />
+    <option name="totallyTimeSpent" value="50811000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -517,20 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <marker date="1538745542182" expanded="true" signature="6:78" ph="..." />
-            <marker date="1538745542182" expanded="true" signature="120:427" ph="{...}" />
-            <marker date="1538745542182" expanded="true" signature="190:425" ph="{...}" />
-            <marker date="1538745542182" expanded="true" signature="233:327" ph="{...}" />
-            <marker date="1538745542182" expanded="true" signature="377:422" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-301">
@@ -560,22 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Egg/EggSpawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <marker date="1538746381817" expanded="false" signature="6:78" ph="..." />
-            <marker date="1538746381817" expanded="true" signature="120:1034" ph="{...}" />
-            <marker date="1538746381817" expanded="true" signature="260:324" ph="{...}" />
-            <marker date="1538746381817" expanded="true" signature="351:364" ph="{...}" />
-            <marker date="1538746381817" expanded="true" signature="432:649" ph="{...}" />
-            <marker date="1538746381817" expanded="true" signature="730:800" ph="{...}" />
-            <marker date="1538746381817" expanded="true" signature="805:1032" ph="/* private void OnCollisionEnter(Collision col) ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
@@ -597,10 +601,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1538752765739" expanded="true" signature="6:78" ph="..." />
+            <marker date="1538752765739" expanded="true" signature="121:431" ph="{...}" />
+            <marker date="1538752765739" expanded="true" signature="193:429" ph="{...}" />
+            <marker date="1538752765739" expanded="true" signature="236:330" ph="{...}" />
+            <marker date="1538752765739" expanded="true" signature="381:426" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        <state relative-caret-position="216">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
             <marker date="1538751284192" expanded="false" signature="6:78" ph="..." />
             <marker date="1538751284192" expanded="true" signature="137:1887" ph="{...}" />
@@ -610,6 +628,36 @@
             <marker date="1538751284192" expanded="true" signature="995:1083" ph="/* ensure that the camera doesn't tumble over the player ... */" />
             <marker date="1538751284192" expanded="true" signature="1522:1872" ph="{...}" />
             <marker date="1538751284192" expanded="true" signature="1760:1862" ph="/* Debug.DrawLine(transform.position, hit.point, Color.green); ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Egg/spinEgg.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <marker date="1538753135317" expanded="false" signature="6:78" ph="..." />
+            <marker date="1538753135317" expanded="true" signature="117:387" ph="{...}" />
+            <marker date="1538753135317" expanded="true" signature="201:208" ph="{...}" />
+            <marker date="1538753135317" expanded="true" signature="269:385" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Egg/EggSpawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding>
+            <marker date="1538753172247" expanded="false" signature="6:78" ph="..." />
+            <marker date="1538753172247" expanded="true" signature="120:1210" ph="{...}" />
+            <marker date="1538753172247" expanded="true" signature="265:329" ph="{...}" />
+            <marker date="1538753172247" expanded="true" signature="356:376" ph="{...}" />
+            <marker date="1538753172247" expanded="true" signature="444:661" ph="{...}" />
+            <marker date="1538753172247" expanded="true" signature="742:812" ph="{...}" />
+            <marker date="1538753172247" expanded="true" signature="822:976" ph="/* public void CollectEgg() ... */" />
+            <marker date="1538753172247" expanded="true" signature="981:1208" ph="/* private void OnCollisionEnter(Collision col) ... */" />
           </folding>
         </state>
       </provider>

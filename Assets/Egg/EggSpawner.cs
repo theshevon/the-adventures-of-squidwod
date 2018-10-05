@@ -8,6 +8,7 @@ public class EggSpawner : MonoBehaviour {
 
     public Vector3 centre;
     public int diameter;
+    
 
     // Use this for initialization
 	void Start () {
@@ -16,7 +17,7 @@ public class EggSpawner : MonoBehaviour {
 
     private void Update()
     {
-
+       
     }
     // spawn an egg in a random location
     public void SpawnEgg()
@@ -29,6 +30,12 @@ public class EggSpawner : MonoBehaviour {
     {
         Instantiate(EggPrefab, pos, Quaternion.identity);
     }
+    
+    /*public void CollectEgg()
+    {
+        spinSpeed = Mathf.Pow(spinSpeed, 2.0f);
+        this.transform.position += transform.up * Time.deltaTime;
+    }*/
     /*
     private void OnCollisionEnter(Collision col)
     {

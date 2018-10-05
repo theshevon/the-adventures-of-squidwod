@@ -31,7 +31,7 @@
         </e>
         <e p="Egg" t="Include">
           <e p="EggSpawner.cs" t="Include" />
-          <e p="EggSpin.cs" t="Include" />
+          <e p="spinEgg.cs" t="Include" />
         </e>
         <e p="GameManager.cs" t="Include" />
         <e p="Laser" t="Include">
