@@ -8,6 +8,10 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="aimCameraControl.cs" t="Include" />
+        <e p="Camera" t="Include">
+          <e p="BossFightThirdPersonCameraController.cs" t="Include" />
+          <e p="ThirdPersonCameraController.cs" t="Include" />
+        </e>
         <e p="DestroySystem.cs" t="Include" />
         <e p="EffectExamples" t="Include">
           <e p="Shared" t="Include">
@@ -27,7 +31,9 @@
         </e>
         <e p="Egg" t="Include">
           <e p="EggSpawner.cs" t="Include" />
+          <e p="EggSpin.cs" t="Include" />
         </e>
+        <e p="GameManager.cs" t="Include" />
         <e p="Laser" t="Include">
           <e p="LaserController.cs" t="Include" />
         </e>
@@ -39,7 +45,7 @@
           <e p="asd.shader" t="Include" />
           <e p="bossControls.cs" t="Include" />
           <e p="cameraControl.cs" t="Include" />
-          <e p="collectEgg.cs" t="Include" />
+          <e p="interaction.cs" t="Include" />
           <e p="movement.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
@@ -67,7 +73,6 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
-        <e p="ThirdPersonCameraController.cs" t="Include" />
         <e p="throwableEgg" t="Include">
           <e p="eggController.cs" t="Include" />
         </e>

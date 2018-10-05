@@ -66,7 +66,7 @@ public class bossControls : MonoBehaviour
 			else
 			{
 				currentStep += Time.deltaTime;
-				cam.GetComponent<ThirdPersonCameraController>().enabled = false;
+				cam.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
 				GetComponent<movement>().enabled = false;
 				//cam.transform.position = Vector3.MoveTowards(cam.transform.position, 
 				//	aimCam.transform.position,  Time.deltaTime * smooth);
@@ -138,7 +138,7 @@ public class bossControls : MonoBehaviour
 
 			if (cam.transform.position == prevCamPos.position)
 			{
-				cam.GetComponent<ThirdPersonCameraController>().enabled = true;
+				cam.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
 				moveBack = false;
 			}
 		}
