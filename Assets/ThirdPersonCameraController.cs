@@ -46,4 +46,5 @@ public class ThirdPersonCameraController : MonoBehaviour {
 
         transform.position = target.position - rotationTarget.position- transform.forward * distanceFromTarget;
 	}
+    
 }
