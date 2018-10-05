@@ -79,7 +79,7 @@ public class movement : MonoBehaviour
 			if (Input.GetButtonDown("Jump"))
 			{
 				moveDirection.y = jumpSpeed;
-				//Debug.Log("test jump");
+				Debug.Log("test jump");
 			}
 		}
 		else
@@ -89,7 +89,7 @@ public class movement : MonoBehaviour
 		moveDirection.y -= gravity * Time.deltaTime;
 		if (isOnSlope)
 		{
-			//Debug.Log("on slope!");
+			Debug.Log("on slope!");
 			moveDirection.x += (1f - hitNormal.y) * hitNormal.x * (1f - slideFriction);
 			moveDirection.z += (1f - hitNormal.y) * hitNormal.z * (1f - slideFriction);
 		}
