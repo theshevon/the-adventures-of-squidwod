@@ -50,9 +50,9 @@
           <e p="SeagullController.cs" t="Include" />
         </e>
         <e p="Squidward" t="Include">
-          <e p="asd.shader" t="Include" />
           <e p="bossControls.cs" t="Include" />
           <e p="cameraControl.cs" t="Include" />
+          <e p="CelShader.shader" t="Include" />
           <e p="interaction.cs" t="Include" />
           <e p="movement.cs" t="Include" />
         </e>
@@ -83,12 +83,6 @@
         </e>
         <e p="throwableEgg" t="Include">
           <e p="eggController.cs" t="Include" />
-        </e>
-        <e p="TSF" t="Include">
-          <e p="Shaders" t="Include">
-            <e p="TSF.shader" t="Include" />
-            <e p="TSFOutline.shader" t="Include" />
-          </e>
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />

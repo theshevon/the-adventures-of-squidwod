@@ -1074,7 +1074,7 @@ Prefab:
     - target: {fileID: 13700000, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 92708b6a9094b4b5ea1c08529f33934a, type: 2}
+      objectReference: {fileID: 2100000, guid: f8e76c2d404d5574cb381c562f764787, type: 2}
     - target: {fileID: 100032, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1194,6 +1194,10 @@ Prefab:
     - target: {fileID: 100026, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
@@ -1468,6 +1472,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: ef4789a4660c14875adfdadf0794c260, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31c7bbf81e9f3e24ca64a116a4ff65ba, type: 2}
+    - target: {fileID: 13700000, guid: ef4789a4660c14875adfdadf0794c260, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4789a4660c14875adfdadf0794c260, type: 3}
   m_IsPrefabAsset: 0
@@ -1709,7 +1721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c3472ee30287e4b9fdd0b93afeeefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Crab: {fileID: 1226139909474338, guid: 2e44f80652d07e5499cad7dd901faf6a, type: 2}
+  Crab: {fileID: 1773048352787590, guid: 2e44f80652d07e5499cad7dd901faf6a, type: 2}
   CrabBurrow: {fileID: 1445165405186750, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}
   player: {fileID: 0}
   centre: {x: 0, y: 0, z: 0}
