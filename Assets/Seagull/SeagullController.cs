@@ -3,6 +3,7 @@
 //
 // Written by Shevon Mendis & Adam Turner September 2018.
 
+using System.Collections;
 using UnityEngine;
 
 public class SeagullController : MonoBehaviour
@@ -12,6 +13,7 @@ public class SeagullController : MonoBehaviour
     public GameObject laserPrefab;
     public Transform leftEye;
     public Transform rightEye;
+    public Transform mouth;
     public AudioSource audioSrc;
     public AudioClip clip;
 
@@ -33,6 +35,7 @@ public class SeagullController : MonoBehaviour
 
     private LineRenderer laser;
     public GameObject flame;
+    public GameObject fireball;
     public GameObject Player;
     private movement movement;
     
@@ -113,6 +116,7 @@ public class SeagullController : MonoBehaviour
             laser.positionCount = 0;
             countdown = fireDelay;
             ShootLaser();
+            StartCoroutine(ShootFireballs(3));
         }
     }
     
@@ -168,6 +172,17 @@ public class SeagullController : MonoBehaviour
             counterTime = Time.time;
             GameObject fire = Instantiate(flame);
             fire.transform.position = laserPosition;
+        }
+    }
+
+    IEnumerator ShootFireballs(int count)
+    {
+        for (int i = 0; i<count; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Vector3 direction = laserTarget - mouth.position;
+            GameObject fire = Instantiate(fireball, mouth.position, Quaternion.LookRotation(direction));
+            fire.GetComponent<flameCollision>().direction = direction;
         }
     }
 }

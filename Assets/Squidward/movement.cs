@@ -15,7 +15,7 @@ public class movement : MonoBehaviour
 	private CharacterController cc;
 	private int jumps;
 	
-    private Camera camera;
+    private Camera cam;
 	private Transform cameraT;
 
 	public float turnSmoothTime = 0.2f;
@@ -25,10 +25,9 @@ public class movement : MonoBehaviour
 	private float speedSmoothVelocity;
 	private float currentSpeed;
 	private float currentJump;
-	private bool isJump = false;
 
 	private Vector3 hitNormal;
-	private bool isOnSlope = false;
+	private bool isOnSlope;
 	public float slopeLimit = 45;
 	public float slideFriction = 0.3f;
 	public Vector2 inputDir;
@@ -39,9 +38,9 @@ public class movement : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		camera = Camera.main;
-		cameraT = camera.transform;
-		camera = GetComponent<Camera>();
+		cam = Camera.main;
+		cameraT = cam.transform;
+		cam = GetComponent<Camera>();
 		animator = GetComponent<Animator>();
 		cc = GetComponent<CharacterController>();
 	}

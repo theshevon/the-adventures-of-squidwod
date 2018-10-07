@@ -6,7 +6,6 @@ public class CrabMovement : MonoBehaviour
 {
 	private GameObject player;
 	public float crabSpeed;
-	private Vector3 directionToPlayer;
 	
 	// Use this for initialization
 	void Start ()
@@ -17,8 +16,6 @@ public class CrabMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
-		directionToPlayer = player.transform.position - transform.position;
 		transform.LookAt(player.transform, Vector3.up);
 		//transform.Translate(directionToPlayer * Time.deltaTime * crabSpeed, Space.World);
 		transform.position = Vector3.MoveTowards(transform.position, player.transform.position,

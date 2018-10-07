@@ -29,7 +29,6 @@ public class bossControls : MonoBehaviour
 	
 	public float panSteps = 10f; // 10 frames?
 	private float currentStep;
-	private Boolean moveBack;
 	private RaycastHit hit;
 	private Ray ray;
 
@@ -106,7 +105,6 @@ public class bossControls : MonoBehaviour
 			//cam.GetComponent<ThirdPersonCameraController>().enabled = true;
 			currentStep = 0;
 			lineRenderer.positionCount = 0;
-			moveBack = true;
 			GetComponent<movement>().enabled = true;
 			
 			egg = Instantiate(egg, startPoint.position + (4 * cam.transform.forward), Quaternion.identity);
@@ -139,7 +137,6 @@ public class bossControls : MonoBehaviour
 			if (cam.transform.position == prevCamPos.position)
 			{
 				cam.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
-				moveBack = false;
 			}
 		}
 	}

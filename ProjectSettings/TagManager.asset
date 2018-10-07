@@ -7,6 +7,9 @@ TagManager:
   - Terrain
   - Egg
   - LoseLife
+  - Flame
+  - Crab
+  - Fireball
   layers:
   - Default
   - TransparentFX

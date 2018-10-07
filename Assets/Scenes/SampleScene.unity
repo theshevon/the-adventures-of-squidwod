@@ -230,12 +230,14 @@ MonoBehaviour:
     type: 2}
   leftEye: {fileID: 1772616711}
   rightEye: {fileID: 975200815}
+  mouth: {fileID: 911242445}
   audioSrc: {fileID: 7945193}
   clip: {fileID: 8300000, guid: f77d3cdb3f9fa497cacf1bf58f5c97c5, type: 3}
   difficulty: 2
   laserMaterial: {fileID: 2100000, guid: 974b33ccbd786464a825203eb88b8dab, type: 2}
   laserMoveLength: 80
   flame: {fileID: 1764675830350840, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
+  fireball: {fileID: 1764675830350840, guid: eb67a113f454c6746a2ca96b8cbe176e, type: 2}
   Player: {fileID: 622643265}
 --- !u!1 &140203135 stripped
 GameObject:
@@ -1205,6 +1207,11 @@ Prefab:
 --- !u!1 &911242444 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: ef4789a4660c14875adfdadf0794c260,
+    type: 3}
+  m_PrefabInternal: {fileID: 1484496200}
+--- !u!4 &911242445 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400006, guid: ef4789a4660c14875adfdadf0794c260,
     type: 3}
   m_PrefabInternal: {fileID: 1484496200}
 --- !u!136 &911242446

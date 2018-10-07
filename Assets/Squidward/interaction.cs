@@ -10,7 +10,6 @@ public class interaction : MonoBehaviour {
 	{
 		if (col.gameObject.CompareTag("Egg"))
 		{
-			Debug.Log("Squid hit egg!");
 			eggSpawner.SpawnEgg();
 			Destroy(col.gameObject);
 		}

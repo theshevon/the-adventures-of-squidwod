@@ -47,7 +47,7 @@ public class CrabSpawner : MonoBehaviour {
     IEnumerator WaitToSpawn(Vector3 pos)
     {
         yield return new WaitForSeconds(5f);
-        GameObject crab = Instantiate(Crab, pos, Crab.transform.rotation);
+        Instantiate(Crab, pos, Crab.transform.rotation);
     }
 
 }
