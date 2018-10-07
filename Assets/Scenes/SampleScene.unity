@@ -233,7 +233,7 @@ MonoBehaviour:
   mouth: {fileID: 911242445}
   audioSrc: {fileID: 7945193}
   clip: {fileID: 8300000, guid: f77d3cdb3f9fa497cacf1bf58f5c97c5, type: 3}
-  difficulty: 2
+  difficulty: 3
   laserMaterial: {fileID: 2100000, guid: 974b33ccbd786464a825203eb88b8dab, type: 2}
   laserMoveLength: 80
   flame: {fileID: 1764675830350840, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
@@ -988,6 +988,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &677384383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677384385}
+  - component: {fileID: 677384384}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &677384384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677384383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06123ba74d9a4b6abd35d86d87b94ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 622643265}
+  enemy: {fileID: 7945191}
+  Crab: {fileID: 1773048352787590, guid: 2e44f80652d07e5499cad7dd901faf6a, type: 2}
+  CrabBurrow: {fileID: 1445165405186750, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}
+  centre: {x: 0, y: 0, z: 0}
+  diameter: 120
+--- !u!4 &677384385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677384383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &694023508 stripped
 GameObject:
