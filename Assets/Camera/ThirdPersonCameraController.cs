@@ -44,12 +44,19 @@ public class ThirdPersonCameraController : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Linecast(target.position, transform.position, out hit))
         {
-            Vector3 hitPoint = new Vector3(hit.point.x + hit.normal.x * 1f, hit.point.y, hit.point.z + hit.normal.z * 1f);
-            transform.position = new Vector3(hitPoint.x, transform.position.y, hitPoint.z);
+            if (hit.transform.gameObject.CompareTag("Terrain"))
+            {
+                Vector3 hitPoint = new Vector3(hit.point.x + hit.normal.x * 0.5f, hit.point.y + hit.normal.y * 0.5f,
+                    hit.point.z + hit.normal.z * 0.5f);
+                transform.position = new Vector3(hitPoint.x, hitPoint.y, hitPoint.z);
+            }
+
             //Debug.DrawLine(transform.position, hit.point, Color.green);
             //Debug.Log("hit terrain!");
         }
 
+        
+        
         
 	}
 }

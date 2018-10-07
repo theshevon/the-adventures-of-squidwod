@@ -12,6 +12,11 @@
           <e p="BossFightThirdPersonCameraController.cs" t="Include" />
           <e p="ThirdPersonCameraController.cs" t="Include" />
         </e>
+        <e p="Crab" t="Include">
+          <e p="BurrowController.cs" t="Include" />
+          <e p="CrabMovement.cs" t="Include" />
+          <e p="CrabSpawner.cs" t="Include" />
+        </e>
         <e p="DestroySystem.cs" t="Include" />
         <e p="EffectExamples" t="Include">
           <e p="Shared" t="Include">
@@ -32,6 +37,9 @@
         <e p="Egg" t="Include">
           <e p="EggSpawner.cs" t="Include" />
           <e p="spinEgg.cs" t="Include" />
+        </e>
+        <e p="Flames" t="Include">
+          <e p="flameControl.cs" t="Include" />
         </e>
         <e p="GameManager.cs" t="Include" />
         <e p="Laser" t="Include">

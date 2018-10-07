@@ -1,7 +1,7 @@
 ﻿// Code to control the Giant Seagull in the game developed by Adam Turner,
 // Amie Xie & Shevon Mendis for Project 02 of COMP30019.
 //
-// Written by Shevon Mendis, September 2018.
+// Written by Shevon Mendis & Adam Turner September 2018.
 
 using UnityEngine;
 
@@ -29,8 +29,12 @@ public class SeagullController : MonoBehaviour
     private Vector3 laserDirection;
     public float laserMoveLength = 80f;
     private float startTime;
+    private float counterTime;
 
     private LineRenderer laser;
+    public GameObject flame;
+    public GameObject Player;
+    private movement movement;
     
     //const float frequencyStepTime = 10f;
     //const float frequencyStep = 0.25f;
@@ -53,6 +57,8 @@ public class SeagullController : MonoBehaviour
         laser.material = laserMaterial;
         laser.endWidth = 0.4f;
         laser.startWidth = 0.4f;
+
+        movement = Player.GetComponent<movement>();
     }
 
     void Update()
@@ -88,7 +94,7 @@ public class SeagullController : MonoBehaviour
 
     void Level2()
     {
-        if (countdown >= 0)
+        if (countdown >= -1)
         {
             laserTarget = target.transform.position + target.transform.forward*30;
             laserTarget.y = 0;
@@ -96,12 +102,13 @@ public class SeagullController : MonoBehaviour
             laserDirection.z = laserDirection.y;
             laserDirection.y = 0;
             startTime = Time.time;
+            counterTime = Time.time;
         }
-        if ((countdown >= -2) & (countdown <= 0))
+        if ((countdown >= -3) & (countdown <= -1))
         {
             ShootLongLaser();
         }
-        if ((countdown <= -2))
+        if ((countdown <= -3))
         {
             laser.positionCount = 0;
             countdown = fireDelay;
@@ -114,7 +121,17 @@ public class SeagullController : MonoBehaviour
     {
         audioSrc.Play();
         // left eye laser
-        Vector3 direction = target.transform.position - leftEye.position;
+        //Vector3 direction = target.transform.position - leftEye.position;
+        if (movement.inputDir.magnitude > 0)
+        {
+            laserTarget = target.transform.position + target.transform.forward*40;
+        }
+        else
+        {
+            laserTarget = target.transform.position;
+        }
+        
+        Vector3 direction = laserTarget - leftEye.position;
         GameObject laser = Instantiate(laserPrefab, leftEye.position, Quaternion.LookRotation(direction));
         //laser.transform.position = leftEye.position;
         //laser.transform.LookAt(Vector3.zero);
@@ -123,7 +140,8 @@ public class SeagullController : MonoBehaviour
         //Debug.DrawLine(Vector3.zero, -direction);
     
         // right eye laser
-        direction = target.transform.position - rightEye.position;
+        //direction = target.transform.position - rightEye.position;
+        direction = laserTarget - rightEye.position;
         laser = Instantiate(laserPrefab, rightEye.position, Quaternion.LookRotation(direction));
         //laser.transform.position = rightEye.position;
         //laser.transform.LookAt(Vector3.zero);
@@ -144,5 +162,12 @@ public class SeagullController : MonoBehaviour
         laser.SetPosition(1, rightEye.position);
         laser.SetPosition(2, leftEye.position);
         laser.SetPosition(3, laserPosition);
+        float counter = Time.time - counterTime;
+        if (counter >= 0.25)
+        {
+            counterTime = Time.time;
+            GameObject fire = Instantiate(flame);
+            fire.transform.position = laserPosition;
+        }
     }
 }

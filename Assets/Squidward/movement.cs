@@ -31,6 +31,7 @@ public class movement : MonoBehaviour
 	private bool isOnSlope = false;
 	public float slopeLimit = 45;
 	public float slideFriction = 0.3f;
+	public Vector2 inputDir;
 
 	private Animator animator;
 	
@@ -48,7 +49,7 @@ public class movement : MonoBehaviour
 	void Update ()
 	{
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		Vector2 inputDir = input.normalized;
+		inputDir = input.normalized;
 
 		if (inputDir != Vector2.zero)
 		{
@@ -106,6 +107,13 @@ public class movement : MonoBehaviour
 	}
 	
 	void OnControllerColliderHit (ControllerColliderHit hit) {
-		hitNormal = hit.normal;
+		if (hit.gameObject.CompareTag("Terrain"))
+		{
+			hitNormal = hit.normal;
+		}
+		else
+		{
+			hitNormal = Vector3.zero;
+		}
 	}
 }
