@@ -89,7 +89,7 @@ ModelImporter:
     400082: SK_Seagull
     2100000: M_Seagull
     4300000: SK_Seagull
-    7400000: AllAnimations
+    7400000: Idle
     7400002: Flying
     7400004: TakeOff
     7400006: Wingflap
@@ -129,17 +129,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: AllAnimations
+      name: Idle
       takeName: Take 001
-      firstFrame: 0
-      lastFrame: 743
+      firstFrame: 10
+      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
