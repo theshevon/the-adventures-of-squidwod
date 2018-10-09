@@ -533,7 +533,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfb797b9863f46caab3d6c2a619c5c6, type: 3}
   m_Name: 
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd2cba794c33a415d9348e06e89d4792, type: 3}
   m_Name: 
@@ -1146,18 +1146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f95024577ab614f97daa92cc3e34b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eggSpawner: {fileID: 1594063652}
---- !u!114 &622643273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 622643265}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16c9789a1f7960b42ae0346986ee4f8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  eggSpawner: {fileID: 0}
 --- !u!1 &639343250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1230,7 @@ MonoBehaviour:
   Crab: {fileID: 1773048352787590, guid: 2e44f80652d07e5499cad7dd901faf6a, type: 2}
   CrabBurrow: {fileID: 1445165405186750, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}
   camera: {fileID: 282840813}
+  EggPrefab: {fileID: 1819932385686340, guid: 355fd08a8f770bb44b8e050fec0d6e55, type: 2}
   centre: {x: 0, y: 0, z: 0}
   diameter: 120
   audioSrc: {fileID: 0}
@@ -2744,49 +2734,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: ef4789a4660c14875adfdadf0794c260,
     type: 3}
   m_PrefabInternal: {fileID: 1484496200}
---- !u!1 &1594063651
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1594063653}
-  - component: {fileID: 1594063652}
-  m_Layer: 0
-  m_Name: EggSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1594063652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594063651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adbd1f8ca06ccea45ac3f7e5d2ff30ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EggPrefab: {fileID: 1819932385686340, guid: 355fd08a8f770bb44b8e050fec0d6e55, type: 2}
-  centre: {x: 0, y: 0, z: 0}
-  diameter: 120
---- !u!4 &1594063653
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594063651}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1772616710
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,48 +2959,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049490419}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2102668152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2102668154}
-  - component: {fileID: 2102668153}
-  m_Layer: 0
-  m_Name: CrabSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2102668153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2102668152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c3472ee30287e4b9fdd0b93afeeefd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Crab: {fileID: 1077985888244438, guid: a21731cd88172b543901bc6681df6e4a, type: 2}
-  CrabBurrow: {fileID: 1445165405186750, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}
-  player: {fileID: 0}
-  centre: {x: 0, y: 0, z: 0}
-  diameter: 120
---- !u!4 &2102668154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2102668152}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}

@@ -19,18 +19,38 @@ public class SeagullController : MonoBehaviour
     public AudioClip laserBeamSound;
     public AudioClip fireballSound;
 
+    Animator animator;
+
+    bool inFightMode;
+
+    // orbit related 
     const float radiusOfOrbit = 120.0f;
     const float orbitSpeed = 1.5f;
     const float soarHeight = 125.0f;
     const float ySpeed = 0.5f;
     const float maxHeightChange = 25.0f;
-    const float bankAngle = -20.0f;
+    bool inFlight;
+
+    // jump related
+    const float maxAngle = 40;
+    Vector3 lookDir;
+    bool turning;
+
+    // shooting related
+    float fireDelay = 2;
+    float countdown;
+
+    // update related
+    float totalTime;
+    float delta;
+
+    //**************************//
 
     [Range(1,5)]
     public int difficulty = 1;
     public Material laserMaterial;
-    private Vector3 laserTarget;
-    private Vector3 laserDirection;
+    Vector3 laserTarget;
+    Vector3 laserDirection;
     public float laserMoveLength = 80f;
     private float startTime;
     private float counterTime;
@@ -45,16 +65,17 @@ public class SeagullController : MonoBehaviour
     //const float frequencyStepTime = 10f;
     //const float frequencyStep = 0.25f;
 
-    float totalTime;
-    float delta;
-    float fireDelay = 2;
-    float countdown;
+    LineRenderer laser;
+    movement movement;
+ 
 
     void Start()
     {
         // set starting position & oritentation for seagull
-        this.transform.position = new Vector3(0.0f, soarHeight, radiusOfOrbit);
-        this.transform.Rotate(Vector3.up, 90, Space.Self);
+        //this.transform.position = new Vector3(0.0f, soarHeight, radiusOfOrbit);
+        //this.transform.Rotate(Vector3.up, 90, Space.Self);
+
+        animator = gameObject.GetComponentInChildren<Animator>();
 
         countdown = fireDelay;
         
@@ -67,6 +88,7 @@ public class SeagullController : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         animator.SetTrigger("fly");
+        EnableFightMode();
     }
 
     void Update()
@@ -76,17 +98,30 @@ public class SeagullController : MonoBehaviour
         totalTime += delta;
         countdown -= delta;
 
-        // make the seagull move in an orbit over the arena
-        this.transform.position = new Vector3(radiusOfOrbit * Mathf.Sin(totalTime * orbitSpeed), 
-                                              soarHeight + maxHeightChange * Mathf.Sin(totalTime * ySpeed), 
-                                              radiusOfOrbit * Mathf.Cos(totalTime * orbitSpeed));
+        if (inFlight)
+        {
+            // make the seagull move in an orbit over the arena
+            this.transform.position = new Vector3(radiusOfOrbit * Mathf.Sin(totalTime * orbitSpeed),
+                                                  soarHeight + maxHeightChange * Mathf.Sin(totalTime * ySpeed),
+                                                  radiusOfOrbit * Mathf.Cos(totalTime * orbitSpeed));
 
-        // orient the seagull to face the right direction
-        this.transform.Rotate(Vector3.up, delta / (Mathf.PI * 2) * 360 * orbitSpeed, Space.Self);
+            // orient the seagull to face the right direction
+            this.transform.Rotate(Vector3.up, delta / (Mathf.PI * 2) * 360 * orbitSpeed, Space.Self);
 
-        // fire lasers from the seagull's eyes
-        if (difficulty == 1) { Level1(); }
-        if (difficulty == 2) { Level2(); }
+            // fire lasers from the seagull's eyes
+            if (difficulty == 1) { Level1(); }
+            if (difficulty == 2) { Level2(); }
+        }
+
+        if (inFightMode){
+
+
+            if ( GetAngleBetween() > maxAngle){
+                //Debug.DrawLine(Vector3.zero, lookDir);
+                transform.Rotate(Vector3.up, GetAngleBetween(), Space.Self);
+
+            }
+        }
         
         
     }
@@ -191,8 +226,22 @@ public class SeagullController : MonoBehaviour
             audioSrc.PlayOneShot(fireballSound, 0.4f);
             yield return new WaitForSeconds(0.5f);
             Vector3 direction = laserTarget - mouth.position;
-            GameObject fire = Instantiate(fireball, mouth.position, Quaternion.LookRotation(direction));
+            GameObject fire = Instantiate(fireball, mouth.position, 
+                                          Quaternion.LookRotation(direction));
             fire.GetComponent<flameCollision>().direction = direction;
         }
+    }
+
+    public void EnableFightMode(){
+        inFightMode = true;
+    }
+
+    public void DisableFightMode(){
+        inFightMode = false;
+    }
+
+    float GetAngleBetween(){
+        lookDir = target.transform.position - transform.position;
+        return Vector3.Angle(lookDir, transform.forward);
     }
 }
