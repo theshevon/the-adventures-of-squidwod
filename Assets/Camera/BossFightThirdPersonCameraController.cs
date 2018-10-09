@@ -13,20 +13,23 @@ public class BossFightThirdPersonCameraController : MonoBehaviour {
     public float distanceFromTarget = 2;
     public float pitchMin = -40;
     public float pitchMax = 80;
-
+    public GameObject Seagull;
+    private SeagullBossController seagullController;
     float pitch;
     float yaw;
 
     public float rotationSmoothTime = .12f;
+    private Transform prevPos;
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
 
     void Start () {
-        //if (lockCursor)
-        //{
-        //    Cursor.lockState = CursorLockMode.Locked;
-        //    Cursor.visible = false;
-        //}
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        seagullController = Seagull.GetComponent<SeagullBossController>();
     }
     
     void LateUpdate () {
@@ -42,11 +45,35 @@ public class BossFightThirdPersonCameraController : MonoBehaviour {
         //currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
         //transform.eulerAngles = currentRotation;
 
-        transform.LookAt(rotationTarget.transform, Vector3.up);
-        transform.Rotate(Vector3.up * -5);
+        //transform.LookAt(rotationTarget.position, Vector3.up);
+
+        transform.rotation = Quaternion.LookRotation(rotationTarget.position - target.position);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+        transform.position = target.position - rotationTarget.position- transform.forward * distanceFromTarget;
+
+
+        
+        //transform.rotation = Quaternion.LookRotation(rotationTarget.position - target.position);
+        
+        
+        //transform.Rotate(Vector3.up * -5);
         
       
-        transform.position = target.position - rotationTarget.position- transform.forward * distanceFromTarget;
+        
+        
+        RaycastHit hit;
+        if (Physics.Linecast(target.position, transform.position, out hit))
+        {
+            if (hit.transform.gameObject.CompareTag("Terrain"))
+            {
+                Vector3 hitPoint = new Vector3(hit.point.x + hit.normal.x * 0.5f, hit.point.y + hit.normal.y * 0.5f,
+                    hit.point.z + hit.normal.z * 0.5f);
+                transform.position = new Vector3(hitPoint.x, hitPoint.y, hitPoint.z);
+            }
+
+            //Debug.DrawLine(transform.position, hit.point, Color.green);
+            //Debug.Log("hit terrain!");
+        }
 	}
     
 }

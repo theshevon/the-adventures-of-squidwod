@@ -15,10 +15,9 @@ public class SeagullController : MonoBehaviour
     public Transform rightEye;
     public Transform mouth;
     public AudioSource audioSrc;
-    public AudioClip clip;
-    public GameObject flame;
-    public GameObject fireball;
-    public GameObject Player;
+    public AudioClip laserSound;
+    public AudioClip laserBeamSound;
+    public AudioClip fireballSound;
 
     Animator animator;
 
@@ -53,8 +52,18 @@ public class SeagullController : MonoBehaviour
     Vector3 laserTarget;
     Vector3 laserDirection;
     public float laserMoveLength = 80f;
-    float startTime;
-    float counterTime;
+    private float startTime;
+    private float counterTime;
+
+    private LineRenderer laser;
+    public GameObject flame;
+    public GameObject fireball;
+    public GameObject Player;
+    private movement movement;
+
+    private Animator animator;
+    //const float frequencyStepTime = 10f;
+    //const float frequencyStep = 0.25f;
 
     LineRenderer laser;
     movement movement;
@@ -69,7 +78,6 @@ public class SeagullController : MonoBehaviour
         animator = gameObject.GetComponentInChildren<Animator>();
 
         countdown = fireDelay;
-        audioSrc.clip = clip;
         
         laser = gameObject.AddComponent<LineRenderer>();
         laser.material = laserMaterial;
@@ -77,6 +85,9 @@ public class SeagullController : MonoBehaviour
         laser.startWidth = 0.4f;
 
         movement = Player.GetComponent<movement>();
+        audioSrc = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("fly");
         EnableFightMode();
     }
 
@@ -112,7 +123,7 @@ public class SeagullController : MonoBehaviour
             }
         }
         
-
+        
     }
 
     void Level1()
@@ -142,6 +153,7 @@ public class SeagullController : MonoBehaviour
         }
         if ((countdown <= -3))
         {
+            audioSrc.Stop();
             laser.positionCount = 0;
             countdown = fireDelay;
             ShootLaser();
@@ -152,7 +164,7 @@ public class SeagullController : MonoBehaviour
 
     void ShootLaser()
     {
-        audioSrc.Play();
+        audioSrc.PlayOneShot(laserSound, 0.6f);
         // left eye laser
         //Vector3 direction = target.transform.position - leftEye.position;
         if (movement.inputDir.magnitude > 0)
@@ -185,6 +197,7 @@ public class SeagullController : MonoBehaviour
 
     void ShootLongLaser()
     {
+        if (!audioSrc.isPlaying) audioSrc.PlayOneShot(laserBeamSound, 0.8f);
         laserDirection.Normalize();
         float length = Vector3.Distance(laserTarget, laserDirection * laserMoveLength);
         float disCovered = (Time.time - startTime) * 25;
@@ -195,6 +208,7 @@ public class SeagullController : MonoBehaviour
         laser.SetPosition(1, rightEye.position);
         laser.SetPosition(2, leftEye.position);
         laser.SetPosition(3, laserPosition);
+        
         float counter = Time.time - counterTime;
         if (counter >= 0.25)
         {
@@ -206,8 +220,10 @@ public class SeagullController : MonoBehaviour
 
     IEnumerator ShootFireballs(int count)
     {
+        yield return new WaitForSeconds(0.5f);
         for (int i = 0; i<count; i++)
         {
+            audioSrc.PlayOneShot(fireballSound, 0.4f);
             yield return new WaitForSeconds(0.5f);
             Vector3 direction = laserTarget - mouth.position;
             GameObject fire = Instantiate(fireball, mouth.position, 

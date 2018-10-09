@@ -1,17 +1,31 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour {
 
 
     public GameObject player;
     public GameObject enemy;
+    public GameObject Seagull;
     public GameObject Crab;
     public GameObject CrabBurrow;
+    public Camera camera;
     public GameObject EggPrefab;
+
     public Vector3 centre;
     public int diameter;
+    public AudioSource audioSrc;
+    public TextMeshProUGUI scoreValue;
+
+    public int CurrentScore;
+    public int TotalScore;
+
+    Boolean startBattle;
 
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
@@ -25,15 +39,31 @@ public class GameManagerScript : MonoBehaviour {
         }
     }
 
-    void Update () {
-
-        countdown -= Time.deltaTime;
-        if (countdown <= 0)
-        {
-            SpawnCrab();
-            countdown = Random.Range(5, 10);
-        }
+    void Update ()
+    {
+        scoreValue.text = CurrentScore.ToString();
+        if (CurrentScore == 6) { StartBattle(); }
+//        countdown -= Time.deltaTime;
+//        if (countdown <= 0)
+//        {
+//            SpawnCrab();
+//            countdown = Random.Range(5, 10);
+//        }
     }
+
+    void StartBattle()
+    {
+        if (!startBattle)
+        {
+            Seagull.GetComponent<SeagullController>().enabled = false;
+            Seagull.GetComponent<SeagullBossController>().enabled = true;
+            camera.GetComponent<ThirdPersonCameraController>().enabled = false;
+            //camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+            //player.GetComponent<bossControls>().enabled = true;
+            player.GetComponent<movement>().enabled = false;
+            startBattle = true;
+        }
+        if (!Seagull.GetComponent<SeagullBossController>().startBattle)
 
     // spawn a crab in a random location
     public void SpawnCrab()
