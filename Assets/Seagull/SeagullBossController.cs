@@ -106,7 +106,7 @@ public class SeagullBossController : MonoBehaviour
                 transform.LookAt(target.transform);
                 transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
-                if (transform.position.y < 90 && !landAnimPlayed) { 
+                if (transform.position.y < 100 && !landAnimPlayed) { 
                     animator.SetTrigger("DiveToLand");
                     landAnimPlayed = true;
                 }

@@ -24,10 +24,10 @@ public class GameManagerScript : MonoBehaviour {
 
     public int CurrentScore;
     public int TotalScore;
-    
+
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
-    const int fightThreshold = 1;
+    const int fightThreshold = 6;
     bool inBossFight;
     float countdown = 5f;
 
@@ -44,7 +44,8 @@ public class GameManagerScript : MonoBehaviour {
         scoreValue.text = CurrentScore.ToString();
 
         // start boss battle if score threshold satisfied
-        if (CurrentScore > 0 && CurrentScore % fightThreshold == 0 && !inBossFight) {
+        // hotkey added for testing purposes
+        if (((CurrentScore > 0 && CurrentScore % fightThreshold == 0) || Input.GetKeyDown(KeyCode.B)) && !inBossFight) {
             inBossFight = true;
             StartBattle();
         }
@@ -70,10 +71,10 @@ public class GameManagerScript : MonoBehaviour {
         camera.GetComponent<ThirdPersonCameraController>().enabled = false;
         camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
 
-        player.transform.position = new Vector3(0, 2, 50);
+        player.transform.position = new Vector3(0, 2, 75);
         player.transform.LookAt(new Vector3(0, player.transform.position.y, 0));
-        //player.GetComponent<bossControls>().enabled = true;
-        //player.GetComponent<movement>().enabled = false;
+        player.GetComponent<bossControls>().enabled = true;
+        player.GetComponent<movement>().enabled = false;
     }
 
     // spawn a crab in a random location
