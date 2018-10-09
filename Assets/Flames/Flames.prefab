@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4227631538990346}
   - component: {fileID: 198840419186286314}
   - component: {fileID: 199900446639627346}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Flame02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 198287669924582988}
   - component: {fileID: 199210429606354158}
   - component: {fileID: 65126954526863676}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Flame01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 198652488547353302}
   - component: {fileID: 114394264826217140}
   - component: {fileID: 199756402345039562}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4015646242071778}
   - component: {fileID: 65490053869496774}
   - component: {fileID: 114456718974496420}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Flames
   m_TagString: Flame
   m_Icon: {fileID: 0}

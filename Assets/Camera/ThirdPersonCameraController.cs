@@ -19,11 +19,11 @@ public class ThirdPersonCameraController : MonoBehaviour {
     Vector3 currentRotation = new Vector3(25, 180, 0);
 
     void Start () {
-        //if (lockCursor)
-        //{
-        //    Cursor.lockState = CursorLockMode.Locked;
-        //    Cursor.visible = false;
-        //}
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         transform.position = target.position - transform.forward * distanceFromTarget;
     }
     
@@ -54,9 +54,5 @@ public class ThirdPersonCameraController : MonoBehaviour {
             //Debug.DrawLine(transform.position, hit.point, Color.green);
             //Debug.Log("hit terrain!");
         }
-
-        
-        
-        
-	}
+    }
 }

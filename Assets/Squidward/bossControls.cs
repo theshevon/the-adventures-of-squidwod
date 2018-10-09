@@ -25,6 +25,7 @@ public class bossControls : MonoBehaviour
 	private Vector3 aimTarget;
 	public float aimTime;
 	private Boolean countUp = true;
+	private Vector3 aimDirection;
 	public float smooth;
 	
 	public float panSteps = 10f; // 10 frames?
@@ -45,6 +46,9 @@ public class bossControls : MonoBehaviour
 		lineRenderer.startWidth = 0.3f;
 		lineRenderer.endWidth = 0.3f;
 		lineRenderer.endColor = Color.cyan;
+		
+		GetComponent<movement>().enabled = true;
+		cam.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -89,6 +93,7 @@ public class bossControls : MonoBehaviour
 				lineRenderer.positionCount = 2;
 				lineRenderer.SetPosition(0, startPoint.position + (4 * cam.transform.forward));
 				lineRenderer.SetPosition(1, hit.point);
+				aimDirection = (hit.point - (startPoint.position + 4 * cam.transform.forward)).normalized;
 				// Do something with the object that was hit by the raycast.
 			}
 			
@@ -111,7 +116,7 @@ public class bossControls : MonoBehaviour
 			//egg.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 2000));
 			Rigidbody rb = egg.GetComponent<Rigidbody>();
 			//rb.transform.LookAt(position);
-			rb.velocity = ray.direction * throwSpeed;
+			rb.velocity = aimDirection * throwSpeed;
 		}
 
 		if (!Input.GetMouseButton(0))

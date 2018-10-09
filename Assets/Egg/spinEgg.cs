@@ -15,5 +15,6 @@ public class spinEgg : MonoBehaviour {
 	private void Update()
 	{
 		transform.localRotation *= Quaternion.AngleAxis(Time.deltaTime * spinSpeed, new Vector3(0.0f, 1.0f, 0.0f));
+		transform.position = new Vector3(transform.position.x, 7 + 1*Mathf.Sin(Time.time * 1.5f), transform.position.z);
 	}
 }
