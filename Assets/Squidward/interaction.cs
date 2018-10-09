@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class interaction : MonoBehaviour {
 
-	public EggSpawner eggSpawner;
+	public GameManagerScript gameManager;
 	private GameObject GameManagerObject;
 	private GameManagerScript GameManager;
 
@@ -18,7 +18,7 @@ public class interaction : MonoBehaviour {
 	{
 		if (col.gameObject.CompareTag("Egg"))
 		{
-			eggSpawner.SpawnEgg();
+			gameManager.SpawnEgg();
 			GameManager.CurrentScore += 1;
 			Destroy(col.gameObject);
 		}

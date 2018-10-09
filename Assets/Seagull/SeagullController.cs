@@ -61,19 +61,16 @@ public class SeagullController : MonoBehaviour
     public GameObject Player;
     private movement movement;
 
-    private Animator animator;
     //const float frequencyStepTime = 10f;
     //const float frequencyStep = 0.25f;
 
-    LineRenderer laser;
-    movement movement;
  
 
     void Start()
     {
         // set starting position & oritentation for seagull
-        //this.transform.position = new Vector3(0.0f, soarHeight, radiusOfOrbit);
-        //this.transform.Rotate(Vector3.up, 90, Space.Self);
+        this.transform.position = new Vector3(0.0f, soarHeight, radiusOfOrbit);
+        this.transform.Rotate(Vector3.up, 90, Space.Self);
 
         animator = gameObject.GetComponentInChildren<Animator>();
 
@@ -88,7 +85,7 @@ public class SeagullController : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         animator.SetTrigger("fly");
-        EnableFightMode();
+        inFlight = true;
     }
 
     void Update()
@@ -113,15 +110,13 @@ public class SeagullController : MonoBehaviour
             if (difficulty == 2) { Level2(); }
         }
 
-        if (inFightMode){
-
-
+        /*if (inFightMode){
             if ( GetAngleBetween() > maxAngle){
                 //Debug.DrawLine(Vector3.zero, lookDir);
                 transform.Rotate(Vector3.up, GetAngleBetween(), Space.Self);
 
             }
-        }
+        }*/
         
         
     }

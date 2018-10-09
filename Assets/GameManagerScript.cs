@@ -43,12 +43,12 @@ public class GameManagerScript : MonoBehaviour {
     {
         scoreValue.text = CurrentScore.ToString();
         if (CurrentScore == 6) { StartBattle(); }
-//        countdown -= Time.deltaTime;
-//        if (countdown <= 0)
-//        {
-//            SpawnCrab();
-//            countdown = Random.Range(5, 10);
-//        }
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
+        {
+            SpawnCrab();
+            countdown = Random.Range(5, 10);
+        }
     }
 
     void StartBattle()
@@ -62,22 +62,28 @@ public class GameManagerScript : MonoBehaviour {
             //player.GetComponent<bossControls>().enabled = true;
             player.GetComponent<movement>().enabled = false;
             startBattle = true;
+
+            if (!Seagull.GetComponent<SeagullBossController>().startBattle)
+            {
+                player.GetComponent<bossControls>().enabled = true;
+                player.GetComponent<movement>().enabled = true;
+            }
         }
-        if (!Seagull.GetComponent<SeagullBossController>().startBattle)
+    }
 
     // spawn a crab in a random location
     public void SpawnCrab()
     {
         Vector3 pos = centre + new Vector3(Random.Range(-diameter / 2, diameter / 2), crabHeight, Random.Range(-diameter / 2, diameter / 2));
-
-        Instantiate(CrabBurrow, pos + new Vector3(0,crabHeight,0), transform.rotation);
+        Quaternion rotation = Quaternion.identity;
+        rotation.eulerAngles = new Vector3(-90, 0, 0);
+        Instantiate(CrabBurrow, pos + new Vector3(0,crabHeight,0), rotation);
         StartCoroutine(WaitToSpawn(pos));
-
     }
     // spawn a crab in a specific location
     public void SpawnCrab(Vector3 pos)
     {
-        Instantiate(CrabBurrow, pos + new Vector3(0, crabHeight, 0), transform.rotation);
+        Instantiate(CrabBurrow, pos + new Vector3(0, crabHeight, 0), Quaternion.LookRotation(transform.position, Vector3.up));
         StartCoroutine(WaitToSpawn(pos));
     }
 
