@@ -235,12 +235,12 @@ MonoBehaviour:
   laserSound: {fileID: 8300000, guid: 92a729be6584f894da4fd9ed9e52a81e, type: 3}
   laserBeamSound: {fileID: 8300000, guid: b5503f97602386c4d834f4c08822148f, type: 3}
   fireballSound: {fileID: 8300000, guid: 7da7f552260c9804cb4319e242f53afb, type: 3}
-  difficulty: 1
-  laserMaterial: {fileID: 0}
-  laserMoveLength: 80
   flame: {fileID: 1764675830350840, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
   fireball: {fileID: 1764675830350840, guid: eb67a113f454c6746a2ca96b8cbe176e, type: 2}
   Player: {fileID: 622643265}
+  laserMaterial: {fileID: 0}
+  difficulty: 1
+  totalTime: 0
 --- !u!114 &7945195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,9 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797476f63aa43a646a337718a92dee43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBattle: 0
-  Player: {fileID: 270537851}
-  cam: {fileID: 282840813}
+  target: {fileID: 270537851}
+  totalTime: 0
 --- !u!1 &140203135 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100064, guid: ef4789a4660c14875adfdadf0794c260,

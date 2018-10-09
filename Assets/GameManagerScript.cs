@@ -24,11 +24,10 @@ public class GameManagerScript : MonoBehaviour {
 
     public int CurrentScore;
     public int TotalScore;
-
-    Boolean startBattle;
-
+    
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
+    const int fightThreshold = 1;
     bool inBossFight;
     float countdown = 5f;
 
@@ -41,8 +40,16 @@ public class GameManagerScript : MonoBehaviour {
 
     void Update ()
     {
+
         scoreValue.text = CurrentScore.ToString();
-        if (CurrentScore == 6) { StartBattle(); }
+
+        // start boss battle if score threshold satisfied
+        if (CurrentScore > 0 && CurrentScore % fightThreshold == 0 && !inBossFight) {
+            inBossFight = true;
+            StartBattle();
+        }
+
+        // randomly spawn crabs
         countdown -= Time.deltaTime;
         if (countdown <= 0)
         {
@@ -53,22 +60,20 @@ public class GameManagerScript : MonoBehaviour {
 
     void StartBattle()
     {
-        if (!startBattle)
-        {
-            Seagull.GetComponent<SeagullController>().enabled = false;
-            Seagull.GetComponent<SeagullBossController>().enabled = true;
-            camera.GetComponent<ThirdPersonCameraController>().enabled = false;
-            //camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
-            //player.GetComponent<bossControls>().enabled = true;
-            player.GetComponent<movement>().enabled = false;
-            startBattle = true;
 
-            if (!Seagull.GetComponent<SeagullBossController>().startBattle)
-            {
-                player.GetComponent<bossControls>().enabled = true;
-                player.GetComponent<movement>().enabled = true;
-            }
-        }
+        SeagullFlightController seagullFlight = Seagull.GetComponent<SeagullFlightController>();
+        seagullFlight.enabled = false;
+        SeagullBossController seagullBoss = Seagull.GetComponent<SeagullBossController>();
+        seagullBoss.enabled = true;
+        seagullBoss.totalTime = seagullFlight.totalTime;
+
+        camera.GetComponent<ThirdPersonCameraController>().enabled = false;
+        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+
+        player.transform.position = new Vector3(0, 2, 50);
+        player.transform.LookAt(new Vector3(0, player.transform.position.y, 0));
+        //player.GetComponent<bossControls>().enabled = true;
+        //player.GetComponent<movement>().enabled = false;
     }
 
     // spawn a crab in a random location
@@ -80,6 +85,7 @@ public class GameManagerScript : MonoBehaviour {
         Instantiate(CrabBurrow, pos + new Vector3(0,crabHeight,0), rotation);
         StartCoroutine(WaitToSpawn(pos));
     }
+
     // spawn a crab in a specific location
     public void SpawnCrab(Vector3 pos)
     {
@@ -99,26 +105,10 @@ public class GameManagerScript : MonoBehaviour {
         Vector3 pos = centre + new Vector3(Random.Range(-diameter / 2, diameter / 2), eggHeight, Random.Range(-diameter / 2, diameter / 2));
         Instantiate(EggPrefab, pos, Quaternion.identity);
     }
+
     // spawn an egg in a specific location
     public void SpawnEgg(Vector3 pos)
     {
         Instantiate(EggPrefab, pos, Quaternion.identity);
     }
-
-    /*public void CollectEgg()
-    {
-        spinSpeed = Mathf.Pow(spinSpeed, 2.0f);
-        this.transform.position += transform.up * Time.deltaTime;
-    }*/
-    /*
-    private void OnCollisionEnter(Collision col)
-    {
-        Debug.Log("Egg has collided!");
-        if (col.gameObject.tag == "Player")
-        {
-            SpawnEgg();
-            Destroy(gameObject);
-
-        }
-    }*/
 }
