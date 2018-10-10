@@ -6,8 +6,11 @@ using UnityEngine;
 public class SeagullBossController : MonoBehaviour
 {
 	public GameObject target;
+    public GameObject fireSource;
     public GameObject grenadePrefab;
     public GameObject grenadePouch;
+    public GameObject flameThrowerPrefab;
+
     SeagullHealthManager healthManager;
     LineRenderer laser;
     AudioSource audioSrc;
@@ -31,7 +34,6 @@ public class SeagullBossController : MonoBehaviour
     float attackCountDown;
 
     Animator animator;
-    Vector3 entryPoint;
     Vector3 moveDirection;
     Vector3 centrePos;
 
@@ -108,7 +110,14 @@ public class SeagullBossController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F)){
                 animator.SetTrigger("IdleToThrow");
                 animator.SetTrigger("ThrowToIdle");
-                StartCoroutine(ExecuteAfterTime(0.5f));
+                StartCoroutine(ExecuteAfterTime(0.5f, ThrowGrenade));
+            }
+
+            // represents bird using flamethrower
+            if (Input.GetKeyDown(KeyCode.D)){
+                animator.SetTrigger("IdleToFire");
+                StartCoroutine(ExecuteAfterTime(0.3f, ReleaseHell));
+                StartCoroutine(ExecuteAfterTime(5.3f, CalmDown));
             }
         }
         else
@@ -157,10 +166,24 @@ public class SeagullBossController : MonoBehaviour
         return isOnGround;
     }
 
-    IEnumerator ExecuteAfterTime(float time)
+    IEnumerator ExecuteAfterTime(float time, Action action)
     {
         yield return new WaitForSeconds(time);
+        action();
+    }
+
+    void ThrowGrenade(){
         GameObject grenade = Instantiate(grenadePrefab, grenadePouch.transform.position, grenadePrefab.transform.rotation);
         grenade.GetComponent<GrenadeScript>().target = target;
     }
+
+    void ReleaseHell(){
+        GameObject ft = Instantiate(flameThrowerPrefab, fireSource.transform.position, transform.rotation);
+        Destroy(ft, 5);
+    }
+
+    void CalmDown(){
+        animator.SetTrigger("FireToIdle");
+    }
+   
 }

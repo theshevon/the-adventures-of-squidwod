@@ -28,7 +28,7 @@ public class LaserController : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
 
-        if ((col.gameObject.tag == "Terrain" || col.gameObject.tag == "Player") && !exploded)
+        if ((col.gameObject.tag == "Terrain" || col.gameObject.tag == "Player" || col.gameObject.tag == "ArenaWall") && !exploded)
         {
             exploded = true;
 
