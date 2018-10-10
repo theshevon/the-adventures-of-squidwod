@@ -19,6 +19,7 @@ public class interaction : MonoBehaviour {
 		if (col.gameObject.CompareTag("Egg"))
 		{
 			gameManager.SpawnEgg();
+			GameManager.TotalScore += 1;
 			GameManager.CurrentScore += 1;
 			Destroy(col.gameObject);
 		}

@@ -50,7 +50,7 @@
         <e p="MainMenuScript.cs" t="Include" />
         <e p="Seagull" t="Include">
           <e p="SeagullBossController.cs" t="Include" />
-          <e p="SeagullController.cs" t="Include" />
+          <e p="SeagullFlightController.cs" t="Include" />
         </e>
         <e p="skyboxController.cs" t="Include" />
         <e p="Squidward" t="Include">

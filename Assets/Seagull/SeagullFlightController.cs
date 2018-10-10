@@ -40,7 +40,13 @@ public class SeagullFlightController : MonoBehaviour
     // update related
     public float totalTime;
     float delta;
-
+    
+    // transition related
+    Animator animator;
+    public bool isFlying = true;
+    private Vector3 flyPosition = new Vector3(0, 150, 120);
+    readonly Vector3 battlePosition = new Vector3(0,2,0);
+    
     // miscellaneous
     Vector3 laserTarget;
     Vector3 laserDirection;
@@ -52,6 +58,7 @@ public class SeagullFlightController : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         // set starting position & oritentation for seagull
         transform.position = new Vector3(0.0f, soarHeight, radiusOfOrbit);
         transform.Rotate(Vector3.up, 90, Space.Self);
@@ -67,25 +74,45 @@ public class SeagullFlightController : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
     }
 
+    void OnDisable()
+    {
+        isFlying = false;
+    }
+
     void Update()
     {
-
         delta = Time.deltaTime;
         totalTime += delta;
         fireCountDown -= delta;
 
-        // make the seagull move in an orbit over the arena
-        transform.position = new Vector3(radiusOfOrbit * Mathf.Sin(totalTime * orbitSpeed),
-                                         soarHeight + maxHeightChange * Mathf.Sin(totalTime * ySpeed),
-                                         radiusOfOrbit * Mathf.Cos(totalTime * orbitSpeed));
+        if (isFlying)
+        {
+            // make the seagull move in an orbit over the arena
+            transform.position = new Vector3(radiusOfOrbit * Mathf.Sin(totalTime * orbitSpeed),
+                soarHeight + maxHeightChange * Mathf.Sin(totalTime * ySpeed),
+                radiusOfOrbit * Mathf.Cos(totalTime * orbitSpeed));
 
-        // orient the seagull to face the right direction
-        transform.Rotate(Vector3.up, delta / (Mathf.PI * 2) * 360 * orbitSpeed, Space.Self);
-
-        // fire lasers from the seagull's eyes
-        if (difficulty == 1) {Level1();}
-        if (difficulty == 2) {Level2();}
-
+            // orient the seagull to face the right direction
+            transform.Rotate(Vector3.up, delta / (Mathf.PI * 2) * 360 * orbitSpeed, Space.Self);
+            
+            // fire lasers from the seagull's eyes
+            if (difficulty == 1) {Level1();}
+            if (difficulty == 2) {Level2();}
+            
+        } else
+        {
+            if (transform.position == battlePosition)
+            {
+                //animator.SetTrigger("IdleToFly");
+            }
+            
+            transform.position = Vector3.MoveTowards(transform.position, flyPosition, 50 * Time.deltaTime);
+            
+            if (transform.position == flyPosition)
+            {
+                isFlying = true;
+            }
+        }     
     }
 
     void Level1()
@@ -192,5 +219,13 @@ public class SeagullFlightController : MonoBehaviour
                                           Quaternion.LookRotation(direction));
             fire.GetComponent<flameCollision>().direction = direction;
         }
+    }
+
+    IEnumerator IdleToSky()
+    {
+        Debug.Log("test");
+        animator.SetTrigger("IdleToTakeOff");
+        yield return new WaitForSeconds(0.5f);
+        animator.SetTrigger("TakeOffToFly");
     }
 }

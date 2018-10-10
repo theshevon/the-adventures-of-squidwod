@@ -32,6 +32,7 @@ public class GameManagerScript : MonoBehaviour {
     const int fightThreshold = 6;
     bool inBossFight;
     bool battleStarted;
+    private bool inCutscene;
     float countdown = 5f;
 
     void Start()
@@ -44,28 +45,14 @@ public class GameManagerScript : MonoBehaviour {
     void Update ()
     {
 
-        scoreValue.text = CurrentScore.ToString();
-
-        // start boss battle if score threshold satisfied
-        // hotkey added for testing purposes
-        if (((CurrentScore > 0 && CurrentScore % fightThreshold == 0) || Input.GetKeyDown(KeyCode.B)) && !inBossFight) {
-            inBossFight = true;
-            StartBattle();
-        }
-
-        // run battle start initiation method when Seagull reaches the ground
-        if (Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted)
+        scoreValue.text = TotalScore.ToString();
+        
+        // if both the camera scripts are disabled, look at the seagull (if both are disabled we are in a transition)
+        if (inCutscene)
         {
-            battleStarted = true;
-            OnBattleStart();
-        }
-
-        // set the camera rotation while the seagull is transitioning from air to ground
-        if (!Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted && inBossFight)
-        {
-            camera.transform.position = battleCameraPosition;
             camera.transform.LookAt(Seagull.transform);
         }
+        
 
         // randomly spawn crabs
         countdown -= Time.deltaTime;
@@ -74,10 +61,52 @@ public class GameManagerScript : MonoBehaviour {
             SpawnCrab();
             countdown = Random.Range(5, 10);
         }
+
+        /* ============================================ SEAGULL CONTROL ============================================ */
+        
+        // start boss battle if score threshold satisfied
+        // hotkey added for testing purposes
+        if (((CurrentScore > 0 && CurrentScore % fightThreshold == 0) || Input.GetKeyDown(KeyCode.B)) && !inBossFight)
+        {
+            CurrentScore = 0;
+            inBossFight = true;
+            StartBattle();
+        }
+        
+        // run battle start initiation method when Seagull reaches the ground
+        if (Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted)
+        {
+            battleStarted = true;
+            OnBattleStart();
+        }
+
+        // set the camera position while the seagull is transitioning from air to ground
+        if (!Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted && inBossFight)
+        {
+            camera.transform.position = battleCameraPosition;
+        }
+        
+        // trigger the end battle sequence
+        // need to change the conditions
+        if (Input.GetKeyDown(KeyCode.N) && inBossFight)
+        {
+            inBossFight = false;
+            EndBattle();
+        }
+
+        // once the seagull has returned to the sky, call OnBattleEnd to reenable movement and camera
+        if (Seagull.GetComponent<SeagullFlightController>().isFlying && battleStarted)
+        {
+            battleStarted = false;
+            OnBattleEnd();
+        }
+        
+        /* ========================================================================================================= */
     }
 
     void StartBattle()
     {
+        inCutscene = true;
         SeagullFlightController seagullFlight = Seagull.GetComponent<SeagullFlightController>();
         seagullFlight.enabled = false;
         SeagullBossController seagullBoss = Seagull.GetComponent<SeagullBossController>();
@@ -95,9 +124,32 @@ public class GameManagerScript : MonoBehaviour {
 
     public void OnBattleStart()
     {
+        inCutscene = false;
         player.GetComponent<bossControls>().enabled = true;
         player.GetComponent<movement>().enabled = true;
         camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+    }
+    
+    void EndBattle()
+    {
+        inCutscene = true;
+        SeagullFlightController seagullFlight = Seagull.GetComponent<SeagullFlightController>();
+        seagullFlight.enabled = true;
+        SeagullBossController seagullBoss = Seagull.GetComponent<SeagullBossController>();
+        seagullBoss.enabled = false;
+        
+        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+        
+        player.GetComponent<bossControls>().enabled = false;
+        player.GetComponent<movement>().enabled = false;
+    }
+
+    void OnBattleEnd()
+    {
+        inCutscene = false;
+        Debug.Log("battle ended!");
+        player.GetComponent<movement>().enabled = true;
+        camera.GetComponent<ThirdPersonCameraController>().enabled = true;
     }
 
     // spawn a crab in a random location
