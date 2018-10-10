@@ -292,6 +292,9 @@ MonoBehaviour:
   target: {fileID: 270537851}
   onGround: 0
   totalTime: 0
+  grenadePrefab: {fileID: 100010, guid: e889f3b0fa9bf2e4b87b0bd49cd501f8, type: 2}
+  totalTime: 0
+  rotationSpeed: 1.5
 --- !u!1 &64753781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400032, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 53.202015
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 400032, guid: 6438dc5a1ce16ac4f85ae67c1d9d866b, type: 3}
       propertyPath: m_LocalRotation.x

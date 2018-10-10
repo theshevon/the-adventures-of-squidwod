@@ -6,12 +6,15 @@ using UnityEngine;
 public class SeagullBossController : MonoBehaviour
 {
 	public GameObject target;
+    public GameObject grenadePrefab;
 
-	bool movingDown;
+    SeagullHealthManager healthManager;
+    LineRenderer laser;
+    AudioSource audioSrc;
+
+    bool movingDown;
     bool movingToCentre;
-    public bool onGround;
-	LineRenderer laser;
-	AudioSource audioSrc;
+    bool isOnGround;
 	float currentStep;
     public float totalTime;
     float delta;
@@ -26,16 +29,6 @@ public class SeagullBossController : MonoBehaviour
     // boss fight animation params 
     const float attackDelay = 2;
     const int NUM_OF_ATTACKS = 2;
-    const int FLYING_TO_DIVE = 1;
-    const int DIVE_TO_LAND = 2;
-    const int LAND_TO_IDLE = 3;
-    const int IDLE_TO_FLAP = 4;
-    const int FLAP_TO_IDLE = 5;
-    const int IDLE_TO_THROW = 6;
-    const int THROW_TO_IDLE = 7;
-    const int IDLE_TO_TAKEOFF = 8;
-    const int TAKEOFF_TO_FLYING = 9;
-    const int IDLE_TO_DIE = 10;
     float attackCountDown;
 
     Animator animator;
@@ -43,16 +36,21 @@ public class SeagullBossController : MonoBehaviour
     Vector3 moveDirection;
     Vector3 centrePos;
     bool landAnimPlayed;
-    float speed = 0.01f;
 
     // jump related
-    Vector3 lookDir;
-    const float maxAngle = 40;
+    public float rotationSpeed = 1.5f;
+    Vector3 relativePosition;
+    Quaternion targetRotation;
+    float jumpHeightInc = 5;
+    bool rotating;
+    float rotationTime;
+    const float maxAngle = 45;
 
     readonly Vector3 battlePosition = new Vector3(0,2,0);
 
 	void Start ()
 	{
+        healthManager = GetComponent<SeagullHealthManager>();
 		laser = GetComponent<LineRenderer>();
 		audioSrc = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
@@ -65,29 +63,46 @@ public class SeagullBossController : MonoBehaviour
 	{
         movingDown = false;
         movingToCentre = false;
-        onGround = false;
-	}
-
-    void OnDisable()
-    {
-        onGround = false;
+        isOnGround = false;
+        landAnimPlayed = false;
     }
 
-
-	// Update is called once per frame
-	void Update () {
+    void Update () {
 
         delta = Time.deltaTime;
         //attackCountDown -= Time.deltaTime;
 
-
-        if (onGround)
+        if (isOnGround)
         {
+            Debug.Log(transform.position.x);
             // turn to face player
             if (GetAngleBetween() > maxAngle)
             {
-                int i = (target.transform.position - transform.position).x > 0 ? 1 : -1;
-                transform.Rotate(Vector3.up, GetAngleBetween() * i, Space.Self);
+                relativePosition = target.transform.position - transform.position;
+                targetRotation = Quaternion.LookRotation(relativePosition);
+                rotating = true;
+                animator.SetTrigger("IdleToWingflap");
+            }
+
+            if (rotating){
+                rotationTime += delta * rotationSpeed;
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime);
+                if (rotationTime < 0.5){
+                    transform.position += new Vector3(0, jumpHeightInc, 0);
+                }else if (rotationTime < 1){
+                    transform.position -= new Vector3(0, jumpHeightInc, 0);
+                }else{
+                    rotationTime = 0;
+                    rotating = false;
+                    transform.position = battlePosition;
+                    animator.SetTrigger("WingflapToIdle");
+                }
+            }
+
+            // represents bird being hit by eggs for testing
+            if (Input.GetKeyDown(KeyCode.F)){
+                animator.SetTrigger("IdleToWingflap");
+                animator.SetTrigger("WingflapToIdle");
             }
         }
         else
@@ -96,7 +111,7 @@ public class SeagullBossController : MonoBehaviour
             {
                 movingToCentre = true;
                 centrePos = Vector3.zero;
-                centrePos.y = 250;
+                centrePos.y = 220;
                 transform.position = Vector3.MoveTowards(transform.position, centrePos, 50 * Time.deltaTime);
                 transform.LookAt(centrePos);
                 if (transform.position == centrePos)
@@ -118,21 +133,21 @@ public class SeagullBossController : MonoBehaviour
 
                 if (transform.position == battlePosition)
                 {
-                    onGround = true;
+                    isOnGround = true;
                     animator.SetTrigger("LandToIdle");
-                    
-                    //transform.LookAt(target.transform);
-                    //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
                 }
 
             }
         }
-
     }
 
     float GetAngleBetween()
     {
-        lookDir = target.transform.position - transform.position;
-        return Vector3.Angle(lookDir, transform.forward);
+        relativePosition = target.transform.position - transform.position;
+        return Vector3.Angle(relativePosition, transform.forward);
+    }
+
+    public bool IsOnGround(){
+        return isOnGround;
     }
 }

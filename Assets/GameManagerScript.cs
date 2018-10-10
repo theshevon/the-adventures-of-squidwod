@@ -54,6 +54,11 @@ public class GameManagerScript : MonoBehaviour {
         }
         
 
+        if (inBossFight && enemy.GetComponent<SeagullBossController>().IsOnGround() && !camera.GetComponent<BossFightThirdPersonCameraController>().enabled)
+        {
+            camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+        }
+
         // randomly spawn crabs
         countdown -= Time.deltaTime;
         if (countdown <= 0)
@@ -74,14 +79,14 @@ public class GameManagerScript : MonoBehaviour {
         }
         
         // run battle start initiation method when Seagull reaches the ground
-        if (Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted)
+        if (Seagull.GetComponent<SeagullBossController>().IsOnGround() && !battleStarted)
         {
             battleStarted = true;
             OnBattleStart();
         }
 
         // set the camera position while the seagull is transitioning from air to ground
-        if (!Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted && inBossFight)
+        if (!Seagull.GetComponent<SeagullBossController>().IsOnGround() && !battleStarted && inBossFight)
         {
             camera.transform.position = battleCameraPosition;
         }
@@ -115,6 +120,7 @@ public class GameManagerScript : MonoBehaviour {
 
         camera.GetComponent<ThirdPersonCameraController>().enabled = false;
         camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+        camera.GetComponent<Transform>().LookAt(transform);
 
         player.transform.position = new Vector3(0, 2, 75);
         player.transform.LookAt(new Vector3(0, player.transform.position.y, 0));
