@@ -10,6 +10,7 @@ TagManager:
   - Flame
   - Crab
   - Fireball
+  - ArenaWall
   layers:
   - Default
   - TransparentFX

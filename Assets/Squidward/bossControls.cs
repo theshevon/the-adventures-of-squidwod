@@ -111,12 +111,12 @@ public class bossControls : MonoBehaviour
 			currentStep = 0;
 			lineRenderer.positionCount = 0;
 			GetComponent<movement>().enabled = true;
-			
-			egg = Instantiate(egg, startPoint.position + (4 * cam.transform.forward), Quaternion.identity);
-			//egg.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 2000));
-			Rigidbody rb = egg.GetComponent<Rigidbody>();
-			//rb.transform.LookAt(position);
-			rb.velocity = aimDirection * throwSpeed;
+
+            GameObject throwableEgg = Instantiate(egg, startPoint.position + (4 * cam.transform.forward), Quaternion.identity);
+            //egg.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 2000));
+            Rigidbody rb = throwableEgg.GetComponent<Rigidbody>();
+            //rb.transform.LookAt(position);
+            rb.velocity = aimDirection * throwSpeed;
 		}
 
 		if (!Input.GetMouseButton(0))

@@ -25,6 +25,8 @@ public class GameManagerScript : MonoBehaviour {
     public int CurrentScore;
     public int TotalScore;
 
+    Vector3 battleCameraPosition = new Vector3(0.04f, 24.2f, 96);
+
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
     const int fightThreshold = 6;
@@ -61,6 +63,7 @@ public class GameManagerScript : MonoBehaviour {
         // set the camera rotation while the seagull is transitioning from air to ground
         if (!Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted && inBossFight)
         {
+            camera.transform.position = battleCameraPosition;
             camera.transform.LookAt(Seagull.transform);
         }
 

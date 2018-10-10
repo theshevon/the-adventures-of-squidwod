@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23703869276365372}
   - component: {fileID: 135918462091153412}
   - component: {fileID: 54955862500658272}
+  - component: {fileID: 114652490230785040}
   m_Layer: 0
   m_Name: throwableEgg
   m_TagString: Untagged
@@ -100,6 +101,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114652490230785040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819932385686340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77638cc2789a8fb489d92a887734bcfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 2}
 --- !u!135 &135918462091153412
 SphereCollider:
   m_ObjectHideFlags: 1
