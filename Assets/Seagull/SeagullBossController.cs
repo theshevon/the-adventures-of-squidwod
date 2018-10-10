@@ -9,7 +9,7 @@ public class SeagullBossController : MonoBehaviour
 
 	bool movingDown;
     bool movingToCentre;
-    bool onGround;
+    public bool onGround;
 	LineRenderer laser;
 	AudioSource audioSrc;
 	float currentStep;
@@ -115,6 +115,7 @@ public class SeagullBossController : MonoBehaviour
                 {
                     onGround = true;
                     animator.SetTrigger("LandToIdle");
+                    
                     //transform.LookAt(target.transform);
                     //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
                 }

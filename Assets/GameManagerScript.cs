@@ -29,6 +29,7 @@ public class GameManagerScript : MonoBehaviour {
     const float crabHeight = 2;
     const int fightThreshold = 6;
     bool inBossFight;
+    bool battleStarted;
     float countdown = 5f;
 
     void Start()
@@ -50,6 +51,19 @@ public class GameManagerScript : MonoBehaviour {
             StartBattle();
         }
 
+        // run battle start initiation method when Seagull reaches the ground
+        if (Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted)
+        {
+            battleStarted = true;
+            OnBattleStart();
+        }
+
+        // set the camera rotation while the seagull is transitioning from air to ground
+        if (!Seagull.GetComponent<SeagullBossController>().onGround && !battleStarted && inBossFight)
+        {
+            camera.transform.LookAt(Seagull.transform);
+        }
+
         // randomly spawn crabs
         countdown -= Time.deltaTime;
         if (countdown <= 0)
@@ -61,7 +75,6 @@ public class GameManagerScript : MonoBehaviour {
 
     void StartBattle()
     {
-
         SeagullFlightController seagullFlight = Seagull.GetComponent<SeagullFlightController>();
         seagullFlight.enabled = false;
         SeagullBossController seagullBoss = Seagull.GetComponent<SeagullBossController>();
@@ -69,12 +82,19 @@ public class GameManagerScript : MonoBehaviour {
         seagullBoss.totalTime = seagullFlight.totalTime;
 
         camera.GetComponent<ThirdPersonCameraController>().enabled = false;
-        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
 
         player.transform.position = new Vector3(0, 2, 75);
         player.transform.LookAt(new Vector3(0, player.transform.position.y, 0));
-        player.GetComponent<bossControls>().enabled = true;
+        player.GetComponent<bossControls>().enabled = false;
         player.GetComponent<movement>().enabled = false;
+    }
+
+    public void OnBattleStart()
+    {
+        player.GetComponent<bossControls>().enabled = true;
+        player.GetComponent<movement>().enabled = true;
+        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
     }
 
     // spawn a crab in a random location
