@@ -7,7 +7,7 @@ public class SeagullBossController : MonoBehaviour
 {
 	public GameObject target;
     public GameObject grenadePrefab;
-
+    public GameObject grenadePouch;
     SeagullHealthManager healthManager;
     LineRenderer laser;
     AudioSource audioSrc;
@@ -16,7 +16,6 @@ public class SeagullBossController : MonoBehaviour
     bool movingToCentre;
     bool isOnGround;
 	float currentStep;
-    public float totalTime;
     float delta;
 
     // orbit related 
@@ -35,6 +34,7 @@ public class SeagullBossController : MonoBehaviour
     Vector3 entryPoint;
     Vector3 moveDirection;
     Vector3 centrePos;
+
     bool landAnimPlayed;
 
     // jump related
@@ -74,7 +74,6 @@ public class SeagullBossController : MonoBehaviour
 
         if (isOnGround)
         {
-            Debug.Log(transform.position.x);
             // turn to face player
             if (GetAngleBetween() > maxAngle)
             {
@@ -100,9 +99,16 @@ public class SeagullBossController : MonoBehaviour
             }
 
             // represents bird being hit by eggs for testing
-            if (Input.GetKeyDown(KeyCode.F)){
+            if (Input.GetKeyDown(KeyCode.G)){
                 animator.SetTrigger("IdleToWingflap");
                 animator.SetTrigger("WingflapToIdle");
+            }
+
+            // represents bird throwing grenade for testing
+            if (Input.GetKeyDown(KeyCode.F)){
+                animator.SetTrigger("IdleToThrow");
+                animator.SetTrigger("ThrowToIdle");
+                StartCoroutine(ExecuteAfterTime(0.5f));
             }
         }
         else
@@ -149,5 +155,12 @@ public class SeagullBossController : MonoBehaviour
 
     public bool IsOnGround(){
         return isOnGround;
+    }
+
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject grenade = Instantiate(grenadePrefab, grenadePouch.transform.position, grenadePrefab.transform.rotation);
+        grenade.GetComponent<GrenadeScript>().target = target;
     }
 }

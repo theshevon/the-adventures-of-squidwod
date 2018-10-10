@@ -116,7 +116,7 @@ public class GameManagerScript : MonoBehaviour {
         seagullFlight.enabled = false;
         SeagullBossController seagullBoss = Seagull.GetComponent<SeagullBossController>();
         seagullBoss.enabled = true;
-        seagullBoss.totalTime = seagullFlight.totalTime;
+        //seagullBoss.totalTime = seagullFlight.totalTime;
 
         camera.GetComponent<ThirdPersonCameraController>().enabled = false;
         camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
