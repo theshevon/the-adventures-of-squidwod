@@ -13,7 +13,7 @@ public class GrenadeScript : MonoBehaviour {
 
     void Start()
     {
-        StartCoroutine(ExecuteAfterTime(1f));
+        StartCoroutine(ExecuteAfterTime(0.5f));
     }
     // Update is called once per frame
     void Update () {

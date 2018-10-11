@@ -19,7 +19,7 @@
           <e p="CrabSpawner.cs" t="Include" />
         </e>
         <e p="DestroySystem.cs" t="Include" />
-        <e p="EffectExamples" t="Include">
+        <e p="Effects" t="Include">
           <e p="Shared" t="Include">
             <e p="Scripts" t="Include">
               <e p="DecalDestroyer.cs" t="Include" />
@@ -44,6 +44,7 @@
           <e p="flameControl.cs" t="Include" />
         </e>
         <e p="GameManagerScript.cs" t="Include" />
+        <e p="GrenadeScript.cs" t="Include" />
         <e p="Laser" t="Include">
           <e p="LaserController.cs" t="Include" />
         </e>
@@ -51,6 +52,7 @@
         <e p="Seagull" t="Include">
           <e p="SeagullBossController.cs" t="Include" />
           <e p="SeagullFlightController.cs" t="Include" />
+          <e p="SeagullHealthManager.cs" t="Include" />
         </e>
         <e p="skyboxController.cs" t="Include" />
         <e p="Squidward" t="Include">
@@ -88,6 +90,7 @@
         <e p="throwableEgg" t="Include">
           <e p="eggController.cs" t="Include" />
         </e>
+        <e p="WingflapBehaviour.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />

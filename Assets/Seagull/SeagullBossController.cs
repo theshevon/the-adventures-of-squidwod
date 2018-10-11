@@ -43,10 +43,13 @@ public class SeagullBossController : MonoBehaviour
     public float rotationSpeed = 1.5f;
     Vector3 relativePosition;
     Quaternion targetRotation;
-    float jumpHeightInc = 5;
+    float jumpHeightInc = 20;
     bool rotating;
     float rotationTime;
     const float maxAngle = 45;
+    
+    // attack related
+    bool isAttacking;
 
     readonly Vector3 battlePosition = new Vector3(0,2,0);
 
@@ -73,11 +76,11 @@ public class SeagullBossController : MonoBehaviour
 
         delta = Time.deltaTime;
         //attackCountDown -= Time.deltaTime;
-
+        
         if (isOnGround)
         {
             // turn to face player
-            if (GetAngleBetween() > maxAngle)
+            if (GetAngleBetween() > maxAngle && !isAttacking)
             {
                 relativePosition = target.transform.position - transform.position;
                 targetRotation = Quaternion.LookRotation(relativePosition);
@@ -89,36 +92,42 @@ public class SeagullBossController : MonoBehaviour
                 rotationTime += delta * rotationSpeed;
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime);
                 if (rotationTime < 0.5){
-                    transform.position += new Vector3(0, jumpHeightInc, 0);
-                }else if (rotationTime < 1){
-                    transform.position -= new Vector3(0, jumpHeightInc, 0);
+                    //transform.position += new Vector3(0, jumpHeightInc, 0);
+                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, jumpHeightInc, 0), rotationTime*2);
+                }
+                else if (rotationTime < 1){
+                    //transform.position -= new Vector3(0, jumpHeightInc, 0);
+                    transform.position = Vector3.MoveTowards(transform.position, battlePosition, rotationTime*2);
                 }else{
                     rotationTime = 0;
                     rotating = false;
                     transform.position = battlePosition;
-                    animator.SetTrigger("WingflapToIdle");
+                    //animator.SetTrigger("WingflapToIdle");
                 }
             }
 
             // represents bird being hit by eggs for testing
-            if (Input.GetKeyDown(KeyCode.G)){
+            if (Input.GetKeyDown(KeyCode.G) && !isAttacking && !rotating){
                 animator.SetTrigger("IdleToWingflap");
-                animator.SetTrigger("WingflapToIdle");
             }
 
             // represents bird throwing grenade for testing
-            if (Input.GetKeyDown(KeyCode.F)){
+            if (Input.GetKeyDown(KeyCode.F) && !isAttacking && !rotating){
                 animator.SetTrigger("IdleToThrow");
-                animator.SetTrigger("ThrowToIdle");
-                StartCoroutine(ExecuteAfterTime(0.5f, ThrowGrenade));
+                isAttacking = true;
+                StartCoroutine(ExecuteAfterTime(0.5f, ThrowToIdle));
+                StartCoroutine(ExecuteAfterTime(0.3f, ThrowGrenade));
             }
 
             // represents bird using flamethrower
-            if (Input.GetKeyDown(KeyCode.D)){
+            if (Input.GetKeyDown(KeyCode.H) && !isAttacking && !rotating){
                 animator.SetTrigger("IdleToFire");
                 StartCoroutine(ExecuteAfterTime(0.3f, ReleaseHell));
                 StartCoroutine(ExecuteAfterTime(5.3f, CalmDown));
             }
+            
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            
         }
         else
         {
@@ -180,10 +189,23 @@ public class SeagullBossController : MonoBehaviour
     void ReleaseHell(){
         GameObject ft = Instantiate(flameThrowerPrefab, fireSource.transform.position, transform.rotation);
         Destroy(ft, 5);
+        isAttacking = true;
     }
 
     void CalmDown(){
         animator.SetTrigger("FireToIdle");
+        isAttacking = false;
+    }
+
+    void WingFlapToIdle()
+    {
+        animator.SetTrigger("WingflapToIdle");
+    }
+    
+    void ThrowToIdle()
+    {
+        animator.SetTrigger("ThrowToIdle");
+        isAttacking = false;
     }
    
 }

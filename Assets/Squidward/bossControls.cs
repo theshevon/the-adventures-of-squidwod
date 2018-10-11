@@ -130,6 +130,7 @@ public class bossControls : MonoBehaviour
 			}
 			else
 			{
+				cam.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
 				currentStep += Time.deltaTime;
 				//cam.transform.position = Vector3.MoveTowards(cam.transform.position, 
 				//	aimCam.transform.position,  Time.deltaTime * smooth);
