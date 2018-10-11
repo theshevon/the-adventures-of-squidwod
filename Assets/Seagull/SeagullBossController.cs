@@ -37,7 +37,7 @@ public class SeagullBossController : MonoBehaviour
     const int NUM_OF_ATTACKS = 2;
     int nextAttack;
     float nextAttackDelay;
-    readonly int[] attackDelays = { 7, 8 }; // index 1 is time to wait after first attack starts
+    readonly float[] attackDelays = { 5.0f, 6.0f }; // index 1 is time to wait after first attack starts
                                             // index 2 is time to wait after second attack starts
     float attackCountdown;
 
@@ -51,7 +51,6 @@ public class SeagullBossController : MonoBehaviour
     public float rotationSpeed = 1.5f;
     Vector3 relativePosition;
     Quaternion targetRotation;
-    const float jumpHeight = 20;
     bool rotating;
     float rotationTime;
     const float maxAngle = 45;
@@ -77,7 +76,7 @@ public class SeagullBossController : MonoBehaviour
         movingToCentre = false;
         isOnGround = false;
         landAnimPlayed = false;
-        nextAttackDelay = 2;
+        nextAttackDelay = 4;
     }
 
     void Update () {
@@ -94,30 +93,24 @@ public class SeagullBossController : MonoBehaviour
                 relativePosition = target.transform.position - transform.position;
                 targetRotation = Quaternion.LookRotation(relativePosition);
                 rotating = true;
-                animator.SetTrigger("IdleToWingflap");
+                animator.SetTrigger("IdleToWalk");
             }
 
             if (rotating)
             {
                 rotationTime += delta * rotationSpeed;
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime);
-                if (rotationTime < 0.5){
-                    //transform.position += new Vector3(0, jumpHeightInc, 0);
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, jumpHeight, 0), rotationTime*2);
-                }
-                else if (rotationTime < 1){
-                    //transform.position -= new Vector3(0, jumpHeightInc, 0);
-                    transform.position = Vector3.MoveTowards(transform.position, battlePosition, rotationTime*2);
-                }else{
-                    rotationTime = 0;
+                if (rotationTime >= 1){
                     rotating = false;
-                    transform.position = battlePosition;
-                    //animator.SetTrigger("WingflapToIdle");
+                    animator.SetTrigger("WalkToIdle");
                 }
             }
 
-            if (attackCountdown <= nextAttackDelay && !rotating){
+            if (attackCountdown <= 0 && !rotating && !isAttacking){
+
+                isAttacking = true;
                 nextAttackDelay = attackDelays[nextAttack];
+                attackCountdown = nextAttackDelay;
 
                 switch (nextAttack){
                     case 0:
@@ -209,10 +202,22 @@ public class SeagullBossController : MonoBehaviour
         StartCoroutine(ExecuteAfterTime(5.3f, CalmDown));
     }
 
+    void ReleaseHell()
+    {
+        GameObject ft = Instantiate(flameThrowerPrefab, fireSource.transform.position, transform.rotation);
+        Destroy(ft, 5);
+        isAttacking = true;
+    }
+
+    void CalmDown()
+    {
+        animator.SetTrigger("FireToIdle");
+        isAttacking = false;
+    }
+
     void UseGrenade()
     {
         animator.SetTrigger("IdleToThrow");
-        isAttacking = true;
         StartCoroutine(ExecuteAfterTime(0.5f, ThrowToIdle));
         StartCoroutine(ExecuteAfterTime(0.3f, ThrowGrenade));
     }
@@ -222,27 +227,20 @@ public class SeagullBossController : MonoBehaviour
         grenade.GetComponent<GrenadeScript>().target = target;
     }
 
-    void ReleaseHell(){
-        GameObject ft = Instantiate(flameThrowerPrefab, fireSource.transform.position, transform.rotation);
-        Destroy(ft, 5);
-        isAttacking = true;
-    }
-
-    void CalmDown(){
-        animator.SetTrigger("FireToIdle");
+    void ThrowToIdle()
+    {
+        animator.SetTrigger("ThrowToIdle");
         isAttacking = false;
     }
+
+   
 
     void WingFlapToIdle()
     {
         animator.SetTrigger("WingflapToIdle");
     }
     
-    void ThrowToIdle()
-    {
-        animator.SetTrigger("ThrowToIdle");
-        isAttacking = false;
-    }
+   
 
    
 
