@@ -128,22 +128,32 @@ public class SeagullFlightController : MonoBehaviour
     {
         if (fireCountDown >= -1)
         {
+            // pick the initial start point of the laser
+            // slightly in front of the players forward direction
             laserTarget = target.transform.position + target.transform.forward*30;
             laserTarget.y = 0;
+            // pick a random direction
             laserDirection = Random.insideUnitCircle;
+            // this value is in 2d, need to swap y and z
             laserDirection.z = laserDirection.y;
             laserDirection.y = 0;
+            // set the start and counter to the current time
             startTime = Time.time;
             counterTime = Time.time;
         }
         if ((fireCountDown >= -3) & (fireCountDown <= -1))
         {
+            // during the specified countdown during the laser should fire, call the method
             ShootLongLaser();
         }
         if (fireCountDown <= -3)
         {
+            // at the end of the duration
+            // stop the sound effect
             audioSrc.Stop();
+            // set the number of line positions to 0, removing the line
             laser.positionCount = 0;
+            // reset the countdown
             fireCountDown = fireDelay;
             ShootLaser();
             StartCoroutine(ShootFireballs(3));
@@ -186,18 +196,26 @@ public class SeagullFlightController : MonoBehaviour
 
     void ShootLongLaser()
     {
+        // play sound effect
         if (!audioSrc.isPlaying) audioSrc.PlayOneShot(laserBeamSound, 0.8f);
+        // normalise the direction vector
         laserDirection.Normalize();
+        // get the length between the starting point, and end point of the laser
         float length = Vector3.Distance(laserTarget, laserDirection * laserMoveLength);
+        // get the total distance covered, this is the speed effectively
         float disCovered = (Time.time - startTime) * 25;
+        // lerp between the two values, dividing the covered distance by the total distance to lerp over a percentage
+        // from 0 to 1
         Vector3 laserPosition = Vector3.Lerp(laserTarget, laserDirection * laserMoveLength, disCovered / length);
+        // set number of line vertices
         laser.positionCount = 4;
-        //laser.SetPosition(0, laserPos + (laserDirection * Time.deltaTime * 10));
+        // draw a line between these points
         laser.SetPosition(0, laserPosition);
         laser.SetPosition(1, rightEye.position);
         laser.SetPosition(2, leftEye.position);
         laser.SetPosition(3, laserPosition);
         
+        // create a flame trail behind the laser every quarter second so there aren't too many particles
         float counter = Time.time - counterTime;
         if (counter >= 0.25)
         {
