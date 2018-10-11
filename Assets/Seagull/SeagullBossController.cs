@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SeagullBossController : MonoBehaviour
 {
-	public GameObject target;
+    public GameObject target;
     public GameObject fireSource;
     public GameObject grenadePrefab;
     public GameObject grenadePouch;
     public GameObject flameThrowerPrefab;
+    public AudioClip laserSound;
+    public AudioClip laserBeamSound;
+    public AudioClip fireballSound;
+    public GameObject flame;
+    public GameObject fireball;
+    public GameObject Player;
+    public Material laserMaterial;
 
     SeagullHealthManager healthManager;
     LineRenderer laser;
@@ -18,7 +24,6 @@ public class SeagullBossController : MonoBehaviour
     bool movingDown;
     bool movingToCentre;
     bool isOnGround;
-	float currentStep;
     float delta;
 
     // orbit related 
@@ -29,9 +34,12 @@ public class SeagullBossController : MonoBehaviour
     const float maxHeightChange = 25.0f;
 
     // boss fight animation params 
-    const float attackDelay = 2;
     const int NUM_OF_ATTACKS = 2;
-    float attackCountDown;
+    int nextAttack;
+    float nextAttackDelay;
+    readonly int[] attackDelays = { 7, 8 }; // index 1 is time to wait after first attack starts
+                                            // index 2 is time to wait after second attack starts
+    float attackCountdown;
 
     Animator animator;
     Vector3 moveDirection;
@@ -43,7 +51,7 @@ public class SeagullBossController : MonoBehaviour
     public float rotationSpeed = 1.5f;
     Vector3 relativePosition;
     Quaternion targetRotation;
-    float jumpHeightInc = 20;
+    const float jumpHeight = 20;
     bool rotating;
     float rotationTime;
     const float maxAngle = 45;
@@ -60,7 +68,6 @@ public class SeagullBossController : MonoBehaviour
 		audioSrc = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
 		laser.positionCount = 0;
-        attackCountDown = attackDelay;
         audioSrc.Stop();
 	}
 
@@ -70,15 +77,17 @@ public class SeagullBossController : MonoBehaviour
         movingToCentre = false;
         isOnGround = false;
         landAnimPlayed = false;
+        nextAttackDelay = 2;
     }
 
     void Update () {
 
         delta = Time.deltaTime;
-        //attackCountDown -= Time.deltaTime;
-        
+
         if (isOnGround)
         {
+            attackCountdown -= delta;
+
             // turn to face player
             if (GetAngleBetween() > maxAngle && !isAttacking)
             {
@@ -88,12 +97,13 @@ public class SeagullBossController : MonoBehaviour
                 animator.SetTrigger("IdleToWingflap");
             }
 
-            if (rotating){
+            if (rotating)
+            {
                 rotationTime += delta * rotationSpeed;
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime);
                 if (rotationTime < 0.5){
                     //transform.position += new Vector3(0, jumpHeightInc, 0);
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, jumpHeightInc, 0), rotationTime*2);
+                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, jumpHeight, 0), rotationTime*2);
                 }
                 else if (rotationTime < 1){
                     //transform.position -= new Vector3(0, jumpHeightInc, 0);
@@ -106,6 +116,21 @@ public class SeagullBossController : MonoBehaviour
                 }
             }
 
+            if (attackCountdown <= nextAttackDelay && !rotating){
+                nextAttackDelay = attackDelays[nextAttack];
+
+                switch (nextAttack){
+                    case 0:
+                        UseGrenade();
+                        break;
+                    case 1:
+                        UseFlameThrower();
+                        break;
+                }
+
+                nextAttack = UnityEngine.Random.Range(0, NUM_OF_ATTACKS);
+            }
+
             // represents bird being hit by eggs for testing
             if (Input.GetKeyDown(KeyCode.G) && !isAttacking && !rotating){
                 animator.SetTrigger("IdleToWingflap");
@@ -113,21 +138,15 @@ public class SeagullBossController : MonoBehaviour
 
             // represents bird throwing grenade for testing
             if (Input.GetKeyDown(KeyCode.F) && !isAttacking && !rotating){
-                animator.SetTrigger("IdleToThrow");
-                isAttacking = true;
-                StartCoroutine(ExecuteAfterTime(0.5f, ThrowToIdle));
-                StartCoroutine(ExecuteAfterTime(0.3f, ThrowGrenade));
+                UseGrenade();
             }
 
             // represents bird using flamethrower
             if (Input.GetKeyDown(KeyCode.H) && !isAttacking && !rotating){
-                animator.SetTrigger("IdleToFire");
-                StartCoroutine(ExecuteAfterTime(0.3f, ReleaseHell));
-                StartCoroutine(ExecuteAfterTime(5.3f, CalmDown));
+                UseFlameThrower();
             }
-            
+
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-            
         }
         else
         {
@@ -158,6 +177,8 @@ public class SeagullBossController : MonoBehaviour
                 if (transform.position == battlePosition)
                 {
                     isOnGround = true;
+                    attackCountdown = nextAttackDelay;
+                    nextAttack = UnityEngine.Random.Range(0, NUM_OF_ATTACKS);
                     animator.SetTrigger("LandToIdle");
                 }
 
@@ -179,6 +200,21 @@ public class SeagullBossController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         action();
+    }
+
+    void UseFlameThrower()
+    {
+        animator.SetTrigger("IdleToFire");
+        StartCoroutine(ExecuteAfterTime(0.3f, ReleaseHell));
+        StartCoroutine(ExecuteAfterTime(5.3f, CalmDown));
+    }
+
+    void UseGrenade()
+    {
+        animator.SetTrigger("IdleToThrow");
+        isAttacking = true;
+        StartCoroutine(ExecuteAfterTime(0.5f, ThrowToIdle));
+        StartCoroutine(ExecuteAfterTime(0.3f, ThrowGrenade));
     }
 
     void ThrowGrenade(){
@@ -207,5 +243,42 @@ public class SeagullBossController : MonoBehaviour
         animator.SetTrigger("ThrowToIdle");
         isAttacking = false;
     }
+
    
+
+    //void ShootLongLaser()
+    //{
+    //    laserDirection.Normalize();
+    //    float length = Vector3.Distance(laserTarget, laserDirection * laserMoveLength);
+    //    float disCovered = (Time.time - startTime) * 25;
+    //    Vector3 laserPosition = Vector3.Lerp(laserTarget, laserDirection * laserMoveLength, disCovered / length);
+    //    laser.positionCount = 4;
+    //    //laser.SetPosition(0, laserPos + (laserDirection * Time.deltaTime * 10));
+    //    laser.SetPosition(0, laserPosition);
+    //    laser.SetPosition(1, rightEye.position);
+    //    laser.SetPosition(2, leftEye.position);
+    //    laser.SetPosition(3, laserPosition);
+
+    //    float counter = Time.time - counterTime;
+    //    if (counter >= 0.25)
+    //    {
+    //        counterTime = Time.time;
+    //        GameObject fire = Instantiate(flame);
+    //        fire.transform.position = laserPosition;
+    //    }
+    //}
+
+    //IEnumerator ShootFireballs(int count)
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    for (int i = 0; i < count; i++)
+    //    {
+    //        audioSrc.PlayOneShot(fireballSound, 0.4f);
+    //        yield return new WaitForSeconds(0.5f);
+    //        Vector3 direction = laserTarget - mouth.position;
+    //        GameObject fire = Instantiate(fireball, mouth.position,
+    //                                      Quaternion.LookRotation(direction));
+    //        fire.GetComponent<flameCollision>().direction = direction;
+    //    }
+    //}
 }
