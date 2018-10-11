@@ -14,7 +14,6 @@ public class BossFightThirdPersonCameraController : MonoBehaviour {
     public float pitchMin = -40;
     public float pitchMax = 80;
     public GameObject Seagull;
-    private SeagullBossController seagullController;
     float pitch;
     float yaw;
 
@@ -29,7 +28,6 @@ public class BossFightThirdPersonCameraController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        seagullController = Seagull.GetComponent<SeagullBossController>();
     }
     
     void LateUpdate () {

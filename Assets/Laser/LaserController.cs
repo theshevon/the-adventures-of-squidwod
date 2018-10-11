@@ -8,7 +8,7 @@ using UnityEngine;
 public class LaserController : MonoBehaviour
 {
 
-    public GameObject explosionEffect;
+    public GameObject explosionPrefab;
     public Vector3 direction;
 
     const float velocity = 2.0f;
@@ -32,7 +32,7 @@ public class LaserController : MonoBehaviour
         {
             exploded = true;
 
-            GameObject explosion = Instantiate(explosionEffect);
+            GameObject explosion = Instantiate(explosionPrefab);
             explosion.transform.position = transform.position;
 
             Destroy(gameObject);

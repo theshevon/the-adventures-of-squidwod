@@ -5,7 +5,7 @@ using UnityEngine;
 public class GrenadeScript : MonoBehaviour {
 
     public GameObject explosionEffect;
-    public GameObject target;
+    public Transform target;
     public Vector3 targetDirection;
     readonly float throwForce = 2f;
     float countdown = 2f;
@@ -29,7 +29,7 @@ public class GrenadeScript : MonoBehaviour {
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-        targetDirection = target.transform.position - transform.position;
+        targetDirection = target.position - transform.position;
         gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * throwForce, ForceMode.Impulse);
     }
 }

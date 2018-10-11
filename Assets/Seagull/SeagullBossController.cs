@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class SeagullBossController : MonoBehaviour
 {
-    public GameObject target;
-    public GameObject fireSource;
     public GameObject grenadePrefab;
-    public GameObject grenadePouch;
     public GameObject flameThrowerPrefab;
-    public AudioClip laserSound;
-    public AudioClip laserBeamSound;
-    public AudioClip fireballSound;
-    public GameObject flame;
-    public GameObject fireball;
-    public GameObject Player;
-    public Material laserMaterial;
+    public GameObject fireballPrefab;
+    public GameObject explosionPrefab;
 
-    SeagullHealthManager healthManager;
+    public Transform target;
+    public Transform fireSource;
+    public Transform grenadePouch;
+    public Transform leftEye;
+    public Transform rightEye;
+    public Transform leftLaserStart;
+    public Transform rightLaserStart;
+    public Transform leftLaserEnd;
+    public Transform rightLaserEnd;
+
     LineRenderer laser;
     AudioSource audioSrc;
 
@@ -33,11 +34,11 @@ public class SeagullBossController : MonoBehaviour
     const float maxHeightChange = 25.0f;
 
     // boss fight animation params 
-    const int NUM_OF_ATTACKS = 2;
+    const int NUM_OF_ATTACKS = 3;
     int nextAttack;
     float nextAttackDelay;
-    readonly float[] attackDelays = { 5.0f, 6.0f }; // index 1 is time to wait after first attack starts
-                                                    // index 2 is time to wait after second attack starts
+    readonly float[] attackDelays = { 5.0f, 6.0f, 4.0f }; // index 1 is time to wait after first attack starts,
+                                                          // index 2 is time to wait after second attack starts and so on
     float attackCountdown;
 
     Animator animator;
@@ -57,35 +58,71 @@ public class SeagullBossController : MonoBehaviour
     // attack related
     bool isAttacking;
     bool rotationLocked;
-    bool rotatingWhileAttacking;
 
-    readonly Vector3 battlePosition = new Vector3(0,2,0);
+    // laser related
+    Vector3 leftEnd;
+    Vector3 rightEnd;
+    Vector3 explosionPos1;
+    Vector3 explosionPos2;
+    float stepper = 0.1f;
+    const float laserDuration = 2.0f;
+    bool laserInUse;
+    float laserUseTime;
 
-	void Start ()
-	{
-        healthManager = GetComponent<SeagullHealthManager>();
-		laser = GetComponent<LineRenderer>();
-		audioSrc = GetComponent<AudioSource>();
-		animator = GetComponent<Animator>();
-		laser.positionCount = 0;
+    readonly Vector3 battlePosition = new Vector3(0, 2, 0);
+
+    void Start()
+    {
+        laser = GetComponent<LineRenderer>();
+        audioSrc = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        laser.positionCount = 0;
         audioSrc.Stop();
-	}
+    }
 
-	void OnEnable()
-	{
+    void OnEnable()
+    {
         movingDown = false;
         isOnGround = false;
         landAnimPlayed = false;
         nextAttackDelay = 4;
+        leftEnd = leftLaserStart.position;
+        rightEnd = rightLaserStart.position;
     }
 
-    void Update () {
+    void Update()
+    {
 
         delta = Time.deltaTime;
 
         if (isOnGround)
         {
             attackCountdown -= delta;
+
+            if (laserInUse)
+            {
+                laserUseTime += delta;
+
+                if (laserUseTime >= laserDuration)
+                {
+                    rotationLocked = false;
+                    laserInUse = false;
+                    isAttacking = false;
+
+                    laserUseTime = 0;
+                    laser.positionCount = 0;
+                    stepper = 0.1f;
+
+                    leftEnd = leftLaserStart.position;
+                    rightEnd = rightLaserStart.position;
+
+                    animator.SetTrigger("LeanToIdle");
+                }
+                else
+                {
+                    UpdateLaserPositions();
+                }
+            }
 
             // rotate seagull to face player while not attacking
             if (GetAngleBetween() >= maxAngle && !isAttacking)
@@ -108,32 +145,36 @@ public class SeagullBossController : MonoBehaviour
             }
 
             // follow player around while spewing flamethrower
-            if (isAttacking && !rotationLocked && !rotating){
+            if (isAttacking && !rotationLocked && !rotating)
+            {
                 relativePosition = target.transform.position - transform.position;
                 targetRotation = Quaternion.LookRotation(relativePosition);
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, delta * rotationSpeed * 5);
                 //animator.SetTrigger("ThrowTurnForward");
             }
 
-            if (attackCountdown <= 0 && !rotating && !isAttacking){
+            if (attackCountdown <= 0 && !rotating && !isAttacking)
+            {
 
                 isAttacking = true;
                 nextAttackDelay = attackDelays[nextAttack];
                 attackCountdown = nextAttackDelay;
 
-                switch (nextAttack){
+                switch (nextAttack)
+                {
                     case 0:
                         UseGrenade();
                         break;
                     case 1:
                         UseFlameThrower();
                         break;
+                    case 2:
+                        UseLaserBeam();
+                        break;
                 }
 
                 nextAttack = UnityEngine.Random.Range(0, NUM_OF_ATTACKS);
             }
-
-            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
         else
         {
@@ -155,7 +196,8 @@ public class SeagullBossController : MonoBehaviour
                 transform.LookAt(target.transform);
                 transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
-                if (transform.position.y < 100 && !landAnimPlayed) { 
+                if (transform.position.y < 100 && !landAnimPlayed)
+                {
                     animator.SetTrigger("DiveToLand");
                     landAnimPlayed = true;
                 }
@@ -178,7 +220,8 @@ public class SeagullBossController : MonoBehaviour
         return Vector3.Angle(relativePosition, transform.forward);
     }
 
-    public bool IsOnGround(){
+    public bool IsOnGround()
+    {
         return isOnGround;
     }
 
@@ -200,7 +243,7 @@ public class SeagullBossController : MonoBehaviour
         GameObject ft = Instantiate(flameThrowerPrefab, fireSource.transform.position, transform.rotation);
         FlameThrowerController ftScript = ft.GetComponent<FlameThrowerController>();
         ftScript.source = fireSource;
-        ftScript.sourceBody = gameObject;
+        ftScript.sourceBody = gameObject.transform;
         Destroy(ft, 5);
         isAttacking = true;
     }
@@ -219,7 +262,8 @@ public class SeagullBossController : MonoBehaviour
         StartCoroutine(ExecuteAfterTime(0.5f, ThrowToIdle));
     }
 
-    void ThrowGrenade(){
+    void ThrowGrenade()
+    {
         GameObject grenade = Instantiate(grenadePrefab, grenadePouch.transform.position, grenadePrefab.transform.rotation);
         grenade.GetComponent<GrenadeScript>().target = target;
     }
@@ -231,49 +275,46 @@ public class SeagullBossController : MonoBehaviour
         rotationLocked = false;
     }
 
-
     void WingFlapToIdle()
     {
         animator.SetTrigger("WingflapToIdle");
     }
-    
-   
 
-   
+    void UseLaserBeam()
+    {
+        animator.SetTrigger("IdleToLean");
+        laserInUse = true;
+        rotationLocked = true;
+        laser.positionCount = 4;
+        laser.SetPosition(0, leftEye.position);
+        laser.SetPosition(3, rightEye.position);
+        UpdateLaserPositions();
+    }
 
-    //void ShootLongLaser()
-    //{
-    //    laserDirection.Normalize();
-    //    float length = Vector3.Distance(laserTarget, laserDirection * laserMoveLength);
-    //    float disCovered = (Time.time - startTime) * 25;
-    //    Vector3 laserPosition = Vector3.Lerp(laserTarget, laserDirection * laserMoveLength, disCovered / length);
-    //    laser.positionCount = 4;
-    //    //laser.SetPosition(0, laserPos + (laserDirection * Time.deltaTime * 10));
-    //    laser.SetPosition(0, laserPosition);
-    //    laser.SetPosition(1, rightEye.position);
-    //    laser.SetPosition(2, leftEye.position);
-    //    laser.SetPosition(3, laserPosition);
+    void UpdateLaserPositions()
+    {
+        float fraction = laserUseTime / laserDuration;
+        leftEnd = Vector3.Lerp(leftLaserStart.position, leftLaserEnd.position, fraction);
+        rightEnd = Vector3.Lerp(rightLaserStart.position, rightLaserEnd.position, fraction);
+        laser.SetPosition(1, leftEnd);
+        laser.SetPosition(2, rightEnd);
+        if (fraction >= stepper){
+            explosionPos1 = leftEnd;
+            explosionPos2 = rightEnd;
+            stepper += 0.1f;
+            CreateExplosion();
+        }
+    }
 
-    //    float counter = Time.time - counterTime;
-    //    if (counter >= 0.25)
-    //    {
-    //        counterTime = Time.time;
-    //        GameObject fire = Instantiate(flame);
-    //        fire.transform.position = laserPosition;
-    //    }
-    //}
+    void CreateExplosion(){
+        GameObject e1 = Instantiate(explosionPrefab, explosionPos1, transform.rotation);
+        GameObject e2 = Instantiate(explosionPrefab, explosionPos2, transform.rotation);
+        GameObject f1 = Instantiate(fireballPrefab, explosionPos1, transform.rotation);
+        GameObject f2 = Instantiate(fireballPrefab, explosionPos2, transform.rotation);
+        Destroy(e1, 2);
+        Destroy(e2, 2);
+        Destroy(f1, 5);
+        Destroy(f2, 5);
+    }
 
-    //IEnumerator ShootFireballs(int count)
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    for (int i = 0; i < count; i++)
-    //    {
-    //        audioSrc.PlayOneShot(fireballSound, 0.4f);
-    //        yield return new WaitForSeconds(0.5f);
-    //        Vector3 direction = laserTarget - mouth.position;
-    //        GameObject fire = Instantiate(fireball, mouth.position,
-    //                                      Quaternion.LookRotation(direction));
-    //        fire.GetComponent<flameCollision>().direction = direction;
-    //    }
-    //}
 }

@@ -21,9 +21,6 @@ GameObject:
   - component: {fileID: 4384659241163096}
   - component: {fileID: 33637201004142186}
   - component: {fileID: 23863918786357450}
-  - component: {fileID: 136074775590861010}
-  - component: {fileID: 114874701245389396}
-  - component: {fileID: 54628142385826578}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -39,7 +36,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4734715318001220}
-  - component: {fileID: 114093609642783034}
+  - component: {fileID: 114724768635322938}
+  - component: {fileID: 54517858619634494}
+  - component: {fileID: 136495333954435018}
   m_Layer: 0
   m_Name: Laser
   m_TagString: LoseLife
@@ -67,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1628044091310222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.62, y: 5.3, z: 51.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4384659241163096}
@@ -116,12 +115,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524311224204020}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54628142385826578
+--- !u!54 &54517858619634494
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524311224204020}
+  m_GameObject: {fileID: 1628044091310222}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -130,8 +129,8 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &114093609642783034
+  m_CollisionDetection: 0
+--- !u!114 &114724768635322938
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,33 +141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0fef6c99bd94fa5a1282cce63f4a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffect: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
+  explosionPrefab: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
     type: 2}
   direction: {x: 0, y: 0, z: 0}
---- !u!114 &114874701245389396
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524311224204020}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0fef6c99bd94fa5a1282cce63f4a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
-    type: 2}
-  direction: {x: 0, y: 0, z: 0}
---- !u!136 &136074775590861010
+--- !u!136 &136495333954435018
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524311224204020}
+  m_GameObject: {fileID: 1628044091310222}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.05
-  m_Direction: 1
-  m_Center: {x: -0.006942749, y: -0.02038304, z: 0.000002682209}
+  m_Radius: 0.51535416
+  m_Height: 12.095627
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.015777588}
