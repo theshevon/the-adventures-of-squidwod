@@ -22,7 +22,6 @@ public class SeagullBossController : MonoBehaviour
     AudioSource audioSrc;
 
     bool movingDown;
-    bool movingToCentre;
     bool isOnGround;
     float delta;
 
@@ -38,7 +37,7 @@ public class SeagullBossController : MonoBehaviour
     int nextAttack;
     float nextAttackDelay;
     readonly float[] attackDelays = { 5.0f, 6.0f }; // index 1 is time to wait after first attack starts
-                                            // index 2 is time to wait after second attack starts
+                                                    // index 2 is time to wait after second attack starts
     float attackCountdown;
 
     Animator animator;
@@ -54,9 +53,11 @@ public class SeagullBossController : MonoBehaviour
     bool rotating;
     float rotationTime;
     const float maxAngle = 45;
-    
+
     // attack related
     bool isAttacking;
+    bool rotationLocked;
+    bool rotatingWhileAttacking;
 
     readonly Vector3 battlePosition = new Vector3(0,2,0);
 
@@ -73,7 +74,6 @@ public class SeagullBossController : MonoBehaviour
 	void OnEnable()
 	{
         movingDown = false;
-        movingToCentre = false;
         isOnGround = false;
         landAnimPlayed = false;
         nextAttackDelay = 4;
@@ -87,23 +87,32 @@ public class SeagullBossController : MonoBehaviour
         {
             attackCountdown -= delta;
 
-            // turn to face player
-            if (GetAngleBetween() > maxAngle && !isAttacking)
+            // rotate seagull to face player while not attacking
+            if (GetAngleBetween() >= maxAngle && !isAttacking)
             {
+                animator.SetTrigger("IdleToWalk");
                 relativePosition = target.transform.position - transform.position;
                 targetRotation = Quaternion.LookRotation(relativePosition);
                 rotating = true;
-                animator.SetTrigger("IdleToWalk");
             }
 
             if (rotating)
             {
                 rotationTime += delta * rotationSpeed;
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime);
-                if (rotationTime >= 1){
+                if (rotationTime >= 1)
+                {
                     rotating = false;
                     animator.SetTrigger("WalkToIdle");
                 }
+            }
+
+            // follow player around while spewing flamethrower
+            if (isAttacking && !rotationLocked && !rotating){
+                relativePosition = target.transform.position - transform.position;
+                targetRotation = Quaternion.LookRotation(relativePosition);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, delta * rotationSpeed * 5);
+                //animator.SetTrigger("ThrowTurnForward");
             }
 
             if (attackCountdown <= 0 && !rotating && !isAttacking){
@@ -124,28 +133,12 @@ public class SeagullBossController : MonoBehaviour
                 nextAttack = UnityEngine.Random.Range(0, NUM_OF_ATTACKS);
             }
 
-            // represents bird being hit by eggs for testing
-            if (Input.GetKeyDown(KeyCode.G) && !isAttacking && !rotating){
-                animator.SetTrigger("IdleToWingflap");
-            }
-
-            // represents bird throwing grenade for testing
-            if (Input.GetKeyDown(KeyCode.F) && !isAttacking && !rotating){
-                UseGrenade();
-            }
-
-            // represents bird using flamethrower
-            if (Input.GetKeyDown(KeyCode.H) && !isAttacking && !rotating){
-                UseFlameThrower();
-            }
-
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
         else
         {
             if (!movingDown)
             {
-                movingToCentre = true;
                 centrePos = Vector3.zero;
                 centrePos.y = 220;
                 transform.position = Vector3.MoveTowards(transform.position, centrePos, 50 * Time.deltaTime);
@@ -205,6 +198,9 @@ public class SeagullBossController : MonoBehaviour
     void ReleaseHell()
     {
         GameObject ft = Instantiate(flameThrowerPrefab, fireSource.transform.position, transform.rotation);
+        FlameThrowerController ftScript = ft.GetComponent<FlameThrowerController>();
+        ftScript.source = fireSource;
+        ftScript.sourceBody = gameObject;
         Destroy(ft, 5);
         isAttacking = true;
     }
@@ -217,9 +213,10 @@ public class SeagullBossController : MonoBehaviour
 
     void UseGrenade()
     {
+        rotationLocked = true;
         animator.SetTrigger("IdleToThrow");
-        StartCoroutine(ExecuteAfterTime(0.5f, ThrowToIdle));
         StartCoroutine(ExecuteAfterTime(0.3f, ThrowGrenade));
+        StartCoroutine(ExecuteAfterTime(0.5f, ThrowToIdle));
     }
 
     void ThrowGrenade(){
@@ -231,9 +228,9 @@ public class SeagullBossController : MonoBehaviour
     {
         animator.SetTrigger("ThrowToIdle");
         isAttacking = false;
+        rotationLocked = false;
     }
 
-   
 
     void WingFlapToIdle()
     {

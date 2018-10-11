@@ -274,7 +274,7 @@ MonoBehaviour:
   flame: {fileID: 1764675830350840, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
   fireball: {fileID: 1764675830350840, guid: eb67a113f454c6746a2ca96b8cbe176e, type: 2}
   Player: {fileID: 622643265}
-  laserMaterial: {fileID: 0}
+  laserMaterial: {fileID: 2100000, guid: 974b33ccbd786464a825203eb88b8dab, type: 2}
   difficulty: 1
   totalTime: 0
   isFlying: 1
@@ -296,6 +296,13 @@ MonoBehaviour:
   grenadePouch: {fileID: 1756215199}
   flameThrowerPrefab: {fileID: 1000012118400646, guid: 3123da49cb81147489b444f2749aba47,
     type: 2}
+  laserSound: {fileID: 0}
+  laserBeamSound: {fileID: 0}
+  fireballSound: {fileID: 0}
+  flame: {fileID: 0}
+  fireball: {fileID: 0}
+  Player: {fileID: 0}
+  laserMaterial: {fileID: 0}
   rotationSpeed: 1.5
 --- !u!1 &64753781
 GameObject:

@@ -70,6 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013285487154}
+  - component: {fileID: 114463736704671270}
   m_Layer: 0
   m_Name: FlameThrowerEffect
   m_TagString: Untagged
@@ -163,6 +164,19 @@ Transform:
   m_Father: {fileID: 4000013285487154}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114463736704671270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012118400646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d890d71ce23640b8b167acc352538cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  sourceBody: {fileID: 0}
 --- !u!198 &198000010778961324
 ParticleSystem:
   m_ObjectHideFlags: 1
