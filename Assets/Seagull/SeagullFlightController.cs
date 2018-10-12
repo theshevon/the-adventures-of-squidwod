@@ -84,7 +84,7 @@ public class SeagullFlightController : MonoBehaviour
         delta = Time.deltaTime;
         totalTime += delta;
         fireCountDown -= delta;
-
+        
         if (isFlying)
         {
             // make the seagull move in an orbit over the arena
@@ -101,16 +101,16 @@ public class SeagullFlightController : MonoBehaviour
             
         } else
         {
-            if (transform.position == battlePosition)
-            {
-                //animator.SetTrigger("IdleToFly");
-            }
-            
+            if (transform.position == battlePosition) animator.SetTrigger("IdleToFly");
             transform.position = Vector3.MoveTowards(transform.position, flyPosition, 50 * Time.deltaTime);
+
+            Debug.Log("test");
             
             if (transform.position == flyPosition)
             {
                 isFlying = true;
+                totalTime = 0;
+                transform.Rotate(Vector3.up, 90, Space.Self);
             }
         }     
     }

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManagerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Seagull/AnimatorControllers/SeagullController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/AnimatorControllers/SeagullController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,10 +18,10 @@
     <session id="-1046372865">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
-          <entry key="project.open.time.24" value="4" />
+          <entry key="project.open.time.24" value="5" />
           <entry key="project.open.time.25" value="2" />
           <entry key="project.open.time.26" value="3" />
           <entry key="project.open.time.27" value="1" />
@@ -27,18 +29,18 @@
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="21064" />
+          <entry key="cs" value="21351" />
           <entry key="shader" value="1049" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="21064" />
+          <entry key="C#" value="21351" />
           <entry key="ShaderLab" value="1049" />
         </counts>
       </usages-collector>
@@ -58,61 +60,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="136" column="36" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
-              <folding>
-                <marker date="1539260382095" expanded="true" signature="0:192" ph="/* Code to control the Giant Seagull in the game developed by Adam Turner, ... */" />
-                <marker date="1539260382095" expanded="false" signature="200:238" ph="..." />
-                <marker date="1539260382095" expanded="true" signature="292:8312" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="1540:2093" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="2115:2153" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="2172:3362" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="2293:2946" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="2951:3351" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="3015:3095" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="3280:3341" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="3381:3510" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="3419:3504" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="3529:4815" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="3568:4191" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="3591:3701" ph="/* pick the initial start point of the laser ... */" />
-                <marker date="1539260382095" expanded="true" signature="4250:4392" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="4425:4809" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="4448:4514" ph="/* at the end of the duration ... */" />
-                <marker date="1539260382095" expanded="true" signature="4843:6125" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="4906:4999" ph="/* left eye laser ... */" />
-                <marker date="1539260382095" expanded="true" signature="5044:5147" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="5160:5233" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="5418:5512" ph="/* laser.transform.position = leftEye.position; ... */" />
-                <marker date="1539260382095" expanded="true" signature="5595:5739" ph="/* Debug.DrawLine(Vector3.zero, -direction); ... */" />
-                <marker date="1539260382095" expanded="true" signature="5898:5993" ph="/* laser.transform.position = rightEye.position; ... */" />
-                <marker date="1539260382095" expanded="true" signature="6152:7557" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="6650:6782" ph="/* lerp between the two values, dividing the covered distance by the total distance to lerp over a percentage ... */" />
-                <marker date="1539260382095" expanded="true" signature="7391:7551" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="7600:8104" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="7691:8098" ph="{...}" />
-                <marker date="1539260382095" expanded="true" signature="8133:8310" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2520">
-              <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-              <folding>
-                <marker date="1539259185443" expanded="false" signature="6:46" ph="..." />
-                <marker date="1539259185443" expanded="true" signature="8738:8740" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Crab/CrabMovement.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -128,36 +75,124 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+              <folding>
+                <marker date="1539301743421" expanded="true" signature="0:192" ph="/* Code to control the Giant Seagull in the game developed by Adam Turner, ... */" />
+                <marker date="1539301743421" expanded="false" signature="200:238" ph="..." />
+                <marker date="1539301743421" expanded="true" signature="292:8386" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="1540:2093" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="2115:2153" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="2172:3436" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="2301:2954" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="2959:3425" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="3261:3415" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="3455:3584" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="3493:3578" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="3603:4889" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="3642:4265" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="3665:3775" ph="/* pick the initial start point of the laser ... */" />
+                <marker date="1539301743421" expanded="true" signature="4324:4466" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="4499:4883" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="4522:4588" ph="/* at the end of the duration ... */" />
+                <marker date="1539301743421" expanded="true" signature="4917:6199" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="4980:5073" ph="/* left eye laser ... */" />
+                <marker date="1539301743421" expanded="true" signature="5118:5221" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="5234:5307" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="5492:5586" ph="/* laser.transform.position = leftEye.position; ... */" />
+                <marker date="1539301743421" expanded="true" signature="5669:5813" ph="/* Debug.DrawLine(Vector3.zero, -direction); ... */" />
+                <marker date="1539301743421" expanded="true" signature="5972:6067" ph="/* laser.transform.position = rightEye.position; ... */" />
+                <marker date="1539301743421" expanded="true" signature="6226:7631" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="6724:6856" ph="/* lerp between the two values, dividing the covered distance by the total distance to lerp over a percentage ... */" />
+                <marker date="1539301743421" expanded="true" signature="7465:7625" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="7674:8178" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="7765:8172" ph="{...}" />
+                <marker date="1539301743421" expanded="true" signature="8207:8384" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+              <folding>
+                <marker date="1539300280746" expanded="false" signature="6:58" ph="..." />
+                <marker date="1539300280746" expanded="true" signature="110:9673" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="1942:2151" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="2172:2389" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="2411:2451" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="2469:6592" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="2533:5250" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="2610:3280" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="2715:3165" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="3186:3266" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="3409:3680" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="3707:4062" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="3919:4048" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="4187:4550" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="4618:5240" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="4817:5151" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="5263:6586" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="5302:5744" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="5601:5730" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="5761:6576" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="6105:6239" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="6298:6561" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="6621:6775" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="6805:6844" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="6905:6982" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="7010:7184" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="7208:7555" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="7576:7660" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="7683:7893" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="7918:8117" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="8141:8258" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="8285:8344" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="8369:8644" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="8677:9185" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="9033:9179" ph="{...}" />
+                <marker date="1539300280746" expanded="true" signature="9213:9670" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3120">
-              <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+            <state relative-caret-position="2833">
+              <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
               <folding>
-                <marker date="1539219708716" expanded="false" signature="6:158" ph="..." />
-                <marker date="1539219708716" expanded="true" signature="207:6614" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="891:992" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="923:986" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="1012:3391" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="1219:1295" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="1462:1570" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="1668:1758" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="1897:1991" ph="/* start boss battle if score threshold satisfied ... */" />
-                <marker date="1539219708716" expanded="true" signature="2110:2219" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="2396:2479" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="2675:2757" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="2775:2850" ph="/* trigger the end battle sequence ... */" />
-                <marker date="1539219708716" expanded="true" signature="2906:2984" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="3174:3256" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="3415:4257" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="4290:4530" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="4556:5079" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="5103:5310" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="5380:5760" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="5843:6024" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="6066:6180" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="6249:6460" ph="{...}" />
-                <marker date="1539219708716" expanded="true" signature="6542:6612" ph="{...}" />
+                <marker date="1539300150590" expanded="false" signature="6:158" ph="..." />
+                <marker date="1539300150590" expanded="true" signature="207:6956" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="891:992" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="923:986" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="1012:3554" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="1219:1295" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="1462:1570" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="1668:1758" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="1897:1991" ph="/* start boss battle if score threshold satisfied ... */" />
+                <marker date="1539300150590" expanded="true" signature="2110:2261" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="2438:2562" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="2758:2840" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="2858:2933" ph="/* trigger the end battle sequence ... */" />
+                <marker date="1539300150590" expanded="true" signature="2989:3107" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="3297:3419" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="3578:4420" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="4453:4693" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="4719:5242" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="5266:5652" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="5722:6102" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="6185:6366" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="6408:6522" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="6591:6802" ph="{...}" />
+                <marker date="1539300150590" expanded="true" signature="6884:6954" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -235,6 +270,7 @@
       <find>attackde</find>
       <find>attackcount</find>
       <find>battlestarted</find>
+      <find>settrigger</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -290,8 +326,8 @@
         <option value="$PROJECT_DIR$/Assets/GrenadeScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" />
         <option value="$PROJECT_DIR$/Assets/WingflapBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" />
         <option value="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" />
       </list>
     </option>
@@ -331,10 +367,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
       <pane id="UnityExplorer">
         <subPane>
           <expand>
@@ -428,11 +464,12 @@
       <workItem from="1539159453535" duration="7148000" />
       <workItem from="1539216183333" duration="4075000" />
       <workItem from="1539259872395" duration="1168000" />
+      <workItem from="1539299853003" duration="2647000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120297000" />
+    <option name="totallyTimeSpent" value="122944000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -446,7 +483,7 @@
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16577825" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -610,30 +647,6 @@
         <state relative-caret-position="-215" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-          <folding>
-            <marker date="1539259185443" expanded="false" signature="6:46" ph="..." />
-            <marker date="1539259185443" expanded="true" signature="8738:8740" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Crab/CrabMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="23" column="86" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="86" />
-          <folding>
-            <marker date="1539062108971" expanded="false" signature="6:78" ph="..." />
-            <marker date="1539062108971" expanded="true" signature="121:760" ph="{...}" />
-            <marker date="1539062108971" expanded="true" signature="225:276" ph="{...}" />
-            <marker date="1539062108971" expanded="true" signature="330:758" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -691,75 +704,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Crab/CrabMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="23" column="86" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="86" />
+          <folding>
+            <marker date="1539062108971" expanded="false" signature="6:78" ph="..." />
+            <marker date="1539062108971" expanded="true" signature="121:760" ph="{...}" />
+            <marker date="1539062108971" expanded="true" signature="225:276" ph="{...}" />
+            <marker date="1539062108971" expanded="true" signature="330:758" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3120">
-          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+        <state relative-caret-position="2833">
+          <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
           <folding>
-            <marker date="1539219708716" expanded="false" signature="6:158" ph="..." />
-            <marker date="1539219708716" expanded="true" signature="207:6614" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="891:992" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="923:986" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="1012:3391" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="1219:1295" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="1462:1570" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="1668:1758" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="1897:1991" ph="/* start boss battle if score threshold satisfied ... */" />
-            <marker date="1539219708716" expanded="true" signature="2110:2219" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="2396:2479" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="2675:2757" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="2775:2850" ph="/* trigger the end battle sequence ... */" />
-            <marker date="1539219708716" expanded="true" signature="2906:2984" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="3174:3256" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="3415:4257" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="4290:4530" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="4556:5079" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="5103:5310" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="5380:5760" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="5843:6024" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="6066:6180" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="6249:6460" ph="{...}" />
-            <marker date="1539219708716" expanded="true" signature="6542:6612" ph="{...}" />
+            <marker date="1539300150590" expanded="false" signature="6:158" ph="..." />
+            <marker date="1539300150590" expanded="true" signature="207:6956" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="891:992" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="923:986" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1012:3554" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1219:1295" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1462:1570" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1668:1758" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1897:1991" ph="/* start boss battle if score threshold satisfied ... */" />
+            <marker date="1539300150590" expanded="true" signature="2110:2261" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="2438:2562" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="2758:2840" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="2858:2933" ph="/* trigger the end battle sequence ... */" />
+            <marker date="1539300150590" expanded="true" signature="2989:3107" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="3297:3419" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="3578:4420" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="4453:4693" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="4719:5242" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="5266:5652" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="5722:6102" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6185:6366" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6408:6522" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6591:6802" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6884:6954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+          <folding>
+            <marker date="1539300280746" expanded="false" signature="6:58" ph="..." />
+            <marker date="1539300280746" expanded="true" signature="110:9673" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="1942:2151" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="2172:2389" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="2411:2451" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="2469:6592" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="2533:5250" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="2610:3280" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="2715:3165" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="3186:3266" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="3409:3680" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="3707:4062" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="3919:4048" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="4187:4550" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="4618:5240" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="4817:5151" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="5263:6586" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="5302:5744" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="5601:5730" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="5761:6576" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="6105:6239" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="6298:6561" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="6621:6775" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="6805:6844" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="6905:6982" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="7010:7184" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="7208:7555" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="7576:7660" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="7683:7893" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="7918:8117" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="8141:8258" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="8285:8344" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="8369:8644" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="8677:9185" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="9033:9179" ph="{...}" />
+            <marker date="1539300280746" expanded="true" signature="9213:9670" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="136" column="36" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
+        <state relative-caret-position="48">
+          <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
           <folding>
-            <marker date="1539260382095" expanded="true" signature="0:192" ph="/* Code to control the Giant Seagull in the game developed by Adam Turner, ... */" />
-            <marker date="1539260382095" expanded="false" signature="200:238" ph="..." />
-            <marker date="1539260382095" expanded="true" signature="292:8312" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="1540:2093" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="2115:2153" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="2172:3362" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="2293:2946" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="2951:3351" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="3015:3095" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="3280:3341" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="3381:3510" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="3419:3504" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="3529:4815" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="3568:4191" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="3591:3701" ph="/* pick the initial start point of the laser ... */" />
-            <marker date="1539260382095" expanded="true" signature="4250:4392" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="4425:4809" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="4448:4514" ph="/* at the end of the duration ... */" />
-            <marker date="1539260382095" expanded="true" signature="4843:6125" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="4906:4999" ph="/* left eye laser ... */" />
-            <marker date="1539260382095" expanded="true" signature="5044:5147" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="5160:5233" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="5418:5512" ph="/* laser.transform.position = leftEye.position; ... */" />
-            <marker date="1539260382095" expanded="true" signature="5595:5739" ph="/* Debug.DrawLine(Vector3.zero, -direction); ... */" />
-            <marker date="1539260382095" expanded="true" signature="5898:5993" ph="/* laser.transform.position = rightEye.position; ... */" />
-            <marker date="1539260382095" expanded="true" signature="6152:7557" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="6650:6782" ph="/* lerp between the two values, dividing the covered distance by the total distance to lerp over a percentage ... */" />
-            <marker date="1539260382095" expanded="true" signature="7391:7551" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="7600:8104" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="7691:8098" ph="{...}" />
-            <marker date="1539260382095" expanded="true" signature="8133:8310" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="0:192" ph="/* Code to control the Giant Seagull in the game developed by Adam Turner, ... */" />
+            <marker date="1539301743421" expanded="false" signature="200:238" ph="..." />
+            <marker date="1539301743421" expanded="true" signature="292:8386" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="1540:2093" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="2115:2153" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="2172:3436" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="2301:2954" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="2959:3425" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="3261:3415" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="3455:3584" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="3493:3578" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="3603:4889" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="3642:4265" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="3665:3775" ph="/* pick the initial start point of the laser ... */" />
+            <marker date="1539301743421" expanded="true" signature="4324:4466" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="4499:4883" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="4522:4588" ph="/* at the end of the duration ... */" />
+            <marker date="1539301743421" expanded="true" signature="4917:6199" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="4980:5073" ph="/* left eye laser ... */" />
+            <marker date="1539301743421" expanded="true" signature="5118:5221" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="5234:5307" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="5492:5586" ph="/* laser.transform.position = leftEye.position; ... */" />
+            <marker date="1539301743421" expanded="true" signature="5669:5813" ph="/* Debug.DrawLine(Vector3.zero, -direction); ... */" />
+            <marker date="1539301743421" expanded="true" signature="5972:6067" ph="/* laser.transform.position = rightEye.position; ... */" />
+            <marker date="1539301743421" expanded="true" signature="6226:7631" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="6724:6856" ph="/* lerp between the two values, dividing the covered distance by the total distance to lerp over a percentage ... */" />
+            <marker date="1539301743421" expanded="true" signature="7465:7625" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="7674:8178" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="7765:8172" ph="{...}" />
+            <marker date="1539301743421" expanded="true" signature="8207:8384" ph="{...}" />
           </folding>
         </state>
       </provider>

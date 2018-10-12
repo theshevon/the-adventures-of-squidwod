@@ -73,6 +73,7 @@ public class GameManagerScript : MonoBehaviour {
         // hotkey added for testing purposes
         if (((CurrentScore > 0 && CurrentScore % fightThreshold == 0) || Input.GetKeyDown(KeyCode.B)) && !inBossFight)
         {
+            Debug.Log("starting battle");
             CurrentScore = 0;
             inBossFight = true;
             StartBattle();
@@ -81,6 +82,7 @@ public class GameManagerScript : MonoBehaviour {
         // run battle start initiation method when Seagull reaches the ground
         if (Seagull.GetComponent<SeagullBossController>().IsOnGround() && !battleStarted)
         {
+            Debug.Log("battle started");
             battleStarted = true;
             OnBattleStart();
         }
@@ -95,6 +97,7 @@ public class GameManagerScript : MonoBehaviour {
         // need to change the conditions
         if (Input.GetKeyDown(KeyCode.N) && inBossFight)
         {
+            Debug.Log("ending battle");
             inBossFight = false;
             EndBattle();
         }
@@ -102,6 +105,7 @@ public class GameManagerScript : MonoBehaviour {
         // once the seagull has returned to the sky, call OnBattleEnd to reenable movement and camera
         if (Seagull.GetComponent<SeagullFlightController>().isFlying && battleStarted)
         {
+            Debug.Log("battle ended!");
             battleStarted = false;
             OnBattleEnd();
         }
@@ -152,10 +156,14 @@ public class GameManagerScript : MonoBehaviour {
 
     void OnBattleEnd()
     {
+        inBossFight = false;
+        battleStarted = false;
         inCutscene = false;
-        Debug.Log("battle ended!");
+        
         player.GetComponent<movement>().enabled = true;
         camera.GetComponent<ThirdPersonCameraController>().enabled = true;
+        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+        player.GetComponent<bossControls>().enabled = false;
     }
 
     // spawn a crab in a random location

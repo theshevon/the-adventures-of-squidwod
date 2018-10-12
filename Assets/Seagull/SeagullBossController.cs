@@ -90,6 +90,10 @@ public class SeagullBossController : MonoBehaviour
         rightEnd = rightLaserStart.position;
     }
 
+    void OnDisable()
+    {
+        isOnGround = false;
+    }
     void Update()
     {
 
