@@ -275,7 +275,7 @@ MonoBehaviour:
   fireball: {fileID: 1764675830350840, guid: eb67a113f454c6746a2ca96b8cbe176e, type: 2}
   Player: {fileID: 622643265}
   laserMaterial: {fileID: 2100000, guid: 974b33ccbd786464a825203eb88b8dab, type: 2}
-  difficulty: 1
+  difficulty: 2
   totalTime: 0
   isFlying: 1
 --- !u!114 &7945195
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2cba794c33a415d9348e06e89d4792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCursor: 0
+  lockCursor: 1
   target: {fileID: 270537852}
   mouseSensitivity: 5
   distanceFromTarget: 30

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/GameManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManagerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/AnimatorControllers/SeagullController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/AnimatorControllers/SeagullController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Squidward/movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/movement.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,35 +23,35 @@
           <entry key="project.open.time.24" value="5" />
           <entry key="project.open.time.25" value="2" />
           <entry key="project.open.time.26" value="3" />
-          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.27" value="2" />
           <entry key="project.open.time.28" value="2" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="21351" />
+          <entry key="cs" value="21789" />
           <entry key="shader" value="1049" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="21351" />
+          <entry key="C#" value="21789" />
           <entry key="ShaderLab" value="1049" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="60" />
+          <entry key="cs" value="62" />
           <entry key="shader" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="60" />
+          <entry key="C#" value="62" />
           <entry key="ShaderLab" value="16" />
         </counts>
       </usages-collector>
@@ -75,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+            <state relative-caret-position="2064">
+              <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
               <folding>
                 <marker date="1539301743421" expanded="true" signature="0:192" ph="/* Code to control the Giant Seagull in the game developed by Adam Turner, ... */" />
                 <marker date="1539301743421" expanded="false" signature="200:238" ph="..." />
@@ -117,9 +116,73 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+              <folding>
+                <marker date="1539425941342" expanded="false" signature="6:108" ph="..." />
+                <marker date="1539425941342" expanded="true" signature="147:3260" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="852:1021" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="1073:3070" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="1239:1522" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="1684:1900" ph="/* Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below ... */" />
+                <marker date="1539425941342" expanded="true" signature="1903:2199" ph="/* transform.position = new Vector3(transform.position.x, transform.position.y - gravity * Time.deltaTime, ... */" />
+                <marker date="1539425941342" expanded="true" signature="2319:2447" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="2400:2443" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="2454:2512" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="2576:2742" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="3131:3258" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="3176:3211" ph="{...}" />
+                <marker date="1539425941342" expanded="true" signature="3218:3255" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-216">
+              <folding>
+                <marker date="1539049562159" expanded="false" signature="6:78" ph="..." />
+                <marker date="1539049562159" expanded="true" signature="137:2007" ph="{...}" />
+                <marker date="1539049562159" expanded="true" signature="542:770" ph="{...}" />
+                <marker date="1539049562159" expanded="true" signature="567:677" ph="{...}" />
+                <marker date="1539049562159" expanded="true" signature="799:2005" ph="{...}" />
+                <marker date="1539049562159" expanded="true" signature="985:1073" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+                <marker date="1539049562159" expanded="true" signature="1512:1999" ph="{...}" />
+                <marker date="1539049562159" expanded="true" signature="1586:1873" ph="{...}" />
+                <marker date="1539049562159" expanded="true" signature="1887:1989" ph="/* Debug.DrawLine(transform.position, hit.point, Color.green); ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding>
+                <marker date="1539426110866" expanded="false" signature="6:78" ph="..." />
+                <marker date="1539426110866" expanded="true" signature="206:2509" ph="{...}" />
+                <marker date="1539426110866" expanded="true" signature="675:761" ph="{...}" />
+                <marker date="1539426110866" expanded="true" signature="790:2502" ph="{...}" />
+                <marker date="1539426110866" expanded="true" signature="977:1065" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+                <marker date="1539426110866" expanded="true" signature="1131:1377" ph="/* currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rot ... */" />
+                <marker date="1539426110866" expanded="true" signature="2012:2499" ph="{...}" />
+                <marker date="1539426110866" expanded="true" signature="2086:2373" ph="{...}" />
+                <marker date="1539426110866" expanded="true" signature="2387:2489" ph="/* Debug.DrawLine(transform.position, hit.point, Color.green); ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
+            <state relative-caret-position="2520">
               <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
               <folding>
                 <marker date="1539300280746" expanded="false" signature="6:58" ph="..." />
@@ -166,7 +229,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2833">
+            <state relative-caret-position="3408">
               <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
               <folding>
                 <marker date="1539300150590" expanded="false" signature="6:158" ph="..." />
@@ -217,29 +280,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3144">
-              <caret line="134" column="77" selection-start-line="134" selection-start-column="77" selection-end-line="134" selection-end-column="77" />
+            <state relative-caret-position="241">
+              <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
               <folding>
-                <marker date="1539218494977" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
-                <marker date="1539218494977" expanded="false" signature="183:269" ph="..." />
-                <marker date="1539218494977" expanded="true" signature="312:4555" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="929:1340" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="1395:4553" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="1431:1463" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="1494:3009" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="1577:1592" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="1600:2165" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="1769:1901" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
-                <marker date="1539218494977" expanded="true" signature="2458:2788" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="2796:2997" ph="/* aimTarget = new Vector3(target.transform.position.x, -4 + count*50, ... */" />
-                <marker date="1539218494977" expanded="true" signature="3042:3645" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="3050:3161" ph="/* GetComponent&lt;movement&gt;().enabled = true; ... */" />
-                <marker date="1539218494977" expanded="true" signature="3678:4550" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="3707:3890" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="3717:3885" ph="/* cam.GetComponent&lt;ThirdPersonCameraController&gt;().enabled = true; ... */" />
-                <marker date="1539218494977" expanded="true" signature="3898:4404" ph="{...}" />
-                <marker date="1539218494977" expanded="true" signature="4021:4153" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
-                <marker date="1539218494977" expanded="true" signature="4459:4546" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
+                <marker date="1539425985584" expanded="false" signature="183:269" ph="..." />
+                <marker date="1539425985584" expanded="true" signature="312:5263" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="1086:1497" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="1552:5261" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="1670:1865" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="1906:2101" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="2139:2171" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="2202:3717" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="2285:2300" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="2308:2873" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="2477:2609" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
+                <marker date="1539425985584" expanded="true" signature="3166:3496" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="3504:3705" ph="/* aimTarget = new Vector3(target.transform.position.x, -4 + count*50, ... */" />
+                <marker date="1539425985584" expanded="true" signature="3750:4353" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="3758:3869" ph="/* GetComponent&lt;movement&gt;().enabled = true; ... */" />
+                <marker date="1539425985584" expanded="true" signature="4386:5258" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="4415:4598" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="4425:4593" ph="/* cam.GetComponent&lt;ThirdPersonCameraController&gt;().enabled = true; ... */" />
+                <marker date="1539425985584" expanded="true" signature="4606:5112" ph="{...}" />
+                <marker date="1539425985584" expanded="true" signature="4729:4861" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
+                <marker date="1539425985584" expanded="true" signature="5167:5254" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -313,22 +378,22 @@
         <option value="$PROJECT_DIR$/Assets/Squidward/asd.shader" />
         <option value="$PROJECT_DIR$/Assets/Squidward/CelShader.shader" />
         <option value="$PROJECT_DIR$/Assets/Flames/flameControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Squidward/movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Crab/CrabSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Flames/flameCollision.cs" />
         <option value="$PROJECT_DIR$/Assets/basicMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Egg/spinEgg.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Seagull/SeagullController.cs" />
         <option value="$PROJECT_DIR$/Assets/Crab/CrabMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Squidward/interaction.cs" />
         <option value="$PROJECT_DIR$/Assets/GrenadeScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" />
         <option value="$PROJECT_DIR$/Assets/WingflapBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManagerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" />
         <option value="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Squidward/movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" />
       </list>
     </option>
   </component>
@@ -367,7 +432,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
@@ -398,6 +462,7 @@
         </subPane>
         <option name="show-hidden-items" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -465,11 +530,12 @@
       <workItem from="1539216183333" duration="4075000" />
       <workItem from="1539259872395" duration="1168000" />
       <workItem from="1539299853003" duration="2647000" />
+      <workItem from="1539424695449" duration="1411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122944000" />
+    <option name="totallyTimeSpent" value="124355000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,8 +548,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -585,13 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Flames/flameControl.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -621,20 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/GrenadeScript.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -645,63 +691,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Squidward/cameraControl.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-215" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding>
-            <marker date="1539168484649" expanded="false" signature="6:78" ph="..." />
-            <marker date="1539168484649" expanded="true" signature="256:395" ph="{...}" />
-            <marker date="1539168484649" expanded="true" signature="435:706" ph="{...}" />
-            <marker date="1539168484649" expanded="true" signature="478:607" ph="{...}" />
-            <marker date="1539168484649" expanded="true" signature="658:703" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3144">
-          <caret line="134" column="77" selection-start-line="134" selection-start-column="77" selection-end-line="134" selection-end-column="77" />
-          <folding>
-            <marker date="1539218494977" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
-            <marker date="1539218494977" expanded="false" signature="183:269" ph="..." />
-            <marker date="1539218494977" expanded="true" signature="312:4555" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="929:1340" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="1395:4553" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="1431:1463" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="1494:3009" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="1577:1592" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="1600:2165" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="1769:1901" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
-            <marker date="1539218494977" expanded="true" signature="2458:2788" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="2796:2997" ph="/* aimTarget = new Vector3(target.transform.position.x, -4 + count*50, ... */" />
-            <marker date="1539218494977" expanded="true" signature="3042:3645" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="3050:3161" ph="/* GetComponent&lt;movement&gt;().enabled = true; ... */" />
-            <marker date="1539218494977" expanded="true" signature="3678:4550" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="3707:3890" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="3717:3885" ph="/* cam.GetComponent&lt;ThirdPersonCameraController&gt;().enabled = true; ... */" />
-            <marker date="1539218494977" expanded="true" signature="3898:4404" ph="{...}" />
-            <marker date="1539218494977" expanded="true" signature="4021:4153" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
-            <marker date="1539218494977" expanded="true" signature="4459:4546" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/WingflapBehaviour.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <marker date="1539218669157" expanded="false" signature="6:78" ph="..." />
-            <marker date="1539218669157" expanded="true" signature="135:1313" ph="{...}" />
-            <marker date="1539218669157" expanded="true" signature="140:667" ph="/* OnStateEnter is called when a transition starts and the state machine starts to evaluate this state ... */" />
-            <marker date="1539218669157" expanded="true" signature="765:812" ph="{...}" />
-            <marker date="1539218669157" expanded="true" signature="815:1311" ph="/* OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion shoul ... */" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Crab/CrabMovement.cs">
@@ -717,42 +706,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2833">
-          <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
-          <folding>
-            <marker date="1539300150590" expanded="false" signature="6:158" ph="..." />
-            <marker date="1539300150590" expanded="true" signature="207:6956" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="891:992" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="923:986" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="1012:3554" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="1219:1295" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="1462:1570" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="1668:1758" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="1897:1991" ph="/* start boss battle if score threshold satisfied ... */" />
-            <marker date="1539300150590" expanded="true" signature="2110:2261" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="2438:2562" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="2758:2840" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="2858:2933" ph="/* trigger the end battle sequence ... */" />
-            <marker date="1539300150590" expanded="true" signature="2989:3107" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="3297:3419" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="3578:4420" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="4453:4693" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="4719:5242" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="5266:5652" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="5722:6102" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="6185:6366" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="6408:6522" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="6591:6802" ph="{...}" />
-            <marker date="1539300150590" expanded="true" signature="6884:6954" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
+        <state relative-caret-position="2520">
           <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
           <folding>
             <marker date="1539300280746" expanded="false" signature="6:58" ph="..." />
@@ -795,10 +751,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3408">
+          <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
+          <folding>
+            <marker date="1539300150590" expanded="false" signature="6:158" ph="..." />
+            <marker date="1539300150590" expanded="true" signature="207:6956" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="891:992" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="923:986" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1012:3554" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1219:1295" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1462:1570" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1668:1758" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="1897:1991" ph="/* start boss battle if score threshold satisfied ... */" />
+            <marker date="1539300150590" expanded="true" signature="2110:2261" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="2438:2562" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="2758:2840" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="2858:2933" ph="/* trigger the end battle sequence ... */" />
+            <marker date="1539300150590" expanded="true" signature="2989:3107" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="3297:3419" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="3578:4420" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="4453:4693" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="4719:5242" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="5266:5652" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="5722:6102" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6185:6366" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6408:6522" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6591:6802" ph="{...}" />
+            <marker date="1539300150590" expanded="true" signature="6884:6954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding>
+            <marker date="1539168484649" expanded="false" signature="6:78" ph="..." />
+            <marker date="1539168484649" expanded="true" signature="256:395" ph="{...}" />
+            <marker date="1539168484649" expanded="true" signature="435:706" ph="{...}" />
+            <marker date="1539168484649" expanded="true" signature="478:607" ph="{...}" />
+            <marker date="1539168484649" expanded="true" signature="658:703" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/WingflapBehaviour.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+          <folding>
+            <marker date="1539218669157" expanded="false" signature="6:78" ph="..." />
+            <marker date="1539218669157" expanded="true" signature="135:1313" ph="{...}" />
+            <marker date="1539218669157" expanded="true" signature="140:667" ph="/* OnStateEnter is called when a transition starts and the state machine starts to evaluate this state ... */" />
+            <marker date="1539218669157" expanded="true" signature="765:812" ph="{...}" />
+            <marker date="1539218669157" expanded="true" signature="815:1311" ph="/* OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion shoul ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+        <state relative-caret-position="2064">
+          <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
           <folding>
             <marker date="1539301743421" expanded="true" signature="0:192" ph="/* Code to control the Giant Seagull in the game developed by Adam Turner, ... */" />
             <marker date="1539301743421" expanded="false" signature="200:238" ph="..." />
@@ -830,6 +847,95 @@
             <marker date="1539301743421" expanded="true" signature="7674:8178" ph="{...}" />
             <marker date="1539301743421" expanded="true" signature="7765:8172" ph="{...}" />
             <marker date="1539301743421" expanded="true" signature="8207:8384" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding>
+            <marker date="1539425985584" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
+            <marker date="1539425985584" expanded="false" signature="183:269" ph="..." />
+            <marker date="1539425985584" expanded="true" signature="312:5263" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="1086:1497" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="1552:5261" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="1670:1865" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="1906:2101" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="2139:2171" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="2202:3717" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="2285:2300" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="2308:2873" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="2477:2609" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
+            <marker date="1539425985584" expanded="true" signature="3166:3496" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="3504:3705" ph="/* aimTarget = new Vector3(target.transform.position.x, -4 + count*50, ... */" />
+            <marker date="1539425985584" expanded="true" signature="3750:4353" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="3758:3869" ph="/* GetComponent&lt;movement&gt;().enabled = true; ... */" />
+            <marker date="1539425985584" expanded="true" signature="4386:5258" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="4415:4598" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="4425:4593" ph="/* cam.GetComponent&lt;ThirdPersonCameraController&gt;().enabled = true; ... */" />
+            <marker date="1539425985584" expanded="true" signature="4606:5112" ph="{...}" />
+            <marker date="1539425985584" expanded="true" signature="4729:4861" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
+            <marker date="1539425985584" expanded="true" signature="5167:5254" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding>
+            <marker date="1539425941342" expanded="false" signature="6:108" ph="..." />
+            <marker date="1539425941342" expanded="true" signature="147:3260" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="852:1021" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="1073:3070" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="1239:1522" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="1684:1900" ph="/* Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below ... */" />
+            <marker date="1539425941342" expanded="true" signature="1903:2199" ph="/* transform.position = new Vector3(transform.position.x, transform.position.y - gravity * Time.deltaTime, ... */" />
+            <marker date="1539425941342" expanded="true" signature="2319:2447" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="2400:2443" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="2454:2512" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="2576:2742" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="3131:3258" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="3176:3211" ph="{...}" />
+            <marker date="1539425941342" expanded="true" signature="3218:3255" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <folding>
+            <marker date="1539049562159" expanded="false" signature="6:78" ph="..." />
+            <marker date="1539049562159" expanded="true" signature="137:2007" ph="{...}" />
+            <marker date="1539049562159" expanded="true" signature="542:770" ph="{...}" />
+            <marker date="1539049562159" expanded="true" signature="567:677" ph="{...}" />
+            <marker date="1539049562159" expanded="true" signature="799:2005" ph="{...}" />
+            <marker date="1539049562159" expanded="true" signature="985:1073" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+            <marker date="1539049562159" expanded="true" signature="1512:1999" ph="{...}" />
+            <marker date="1539049562159" expanded="true" signature="1586:1873" ph="{...}" />
+            <marker date="1539049562159" expanded="true" signature="1887:1989" ph="/* Debug.DrawLine(transform.position, hit.point, Color.green); ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <marker date="1539426110866" expanded="false" signature="6:78" ph="..." />
+            <marker date="1539426110866" expanded="true" signature="206:2509" ph="{...}" />
+            <marker date="1539426110866" expanded="true" signature="675:761" ph="{...}" />
+            <marker date="1539426110866" expanded="true" signature="790:2502" ph="{...}" />
+            <marker date="1539426110866" expanded="true" signature="977:1065" ph="/* ensure that the camera doesn't tumble over the player ... */" />
+            <marker date="1539426110866" expanded="true" signature="1131:1377" ph="/* currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rot ... */" />
+            <marker date="1539426110866" expanded="true" signature="2012:2499" ph="{...}" />
+            <marker date="1539426110866" expanded="true" signature="2086:2373" ph="{...}" />
+            <marker date="1539426110866" expanded="true" signature="2387:2489" ph="/* Debug.DrawLine(transform.position, hit.point, Color.green); ... */" />
           </folding>
         </state>
       </provider>

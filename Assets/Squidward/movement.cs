@@ -31,6 +31,7 @@ public class movement : MonoBehaviour
 	public float slopeLimit = 45;
 	public float slideFriction = 0.3f;
 	public Vector2 inputDir;
+	
 
 	private Animator animator;
 	
@@ -47,6 +48,8 @@ public class movement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		
+		
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		inputDir = input.normalized;
 

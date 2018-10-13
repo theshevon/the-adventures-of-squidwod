@@ -22,12 +22,9 @@ public class BossFightThirdPersonCameraController : MonoBehaviour {
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
 
-    void Start () {
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+    void OnEnable () {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     
     void LateUpdate () {

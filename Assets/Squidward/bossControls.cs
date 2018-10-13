@@ -32,6 +32,11 @@ public class bossControls : MonoBehaviour
 	private float currentStep;
 	private RaycastHit hit;
 	private Ray ray;
+	
+	private float outerRadius = 75;
+	private float innerRadius = 25;
+	private Vector3 centerPosition = new Vector3(0, 2, 0);
+	private float distanceToCenter;
 
 	public float throwSpeed;
 	
@@ -53,6 +58,21 @@ public class bossControls : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+		
+		distanceToCenter = Vector3.Distance(transform.position, centerPosition);
+
+		if (distanceToCenter > outerRadius)
+		{
+			Vector3 fromCenterToPlayer = transform.position - centerPosition;
+			fromCenterToPlayer *= outerRadius / distanceToCenter;
+			transform.position = centerPosition + fromCenterToPlayer;
+		} else if (distanceToCenter < innerRadius)
+		{
+			Vector3 fromCenterToPlayer = transform.position - centerPosition;
+			fromCenterToPlayer *= innerRadius / distanceToCenter;
+			transform.position = centerPosition + fromCenterToPlayer;
+		}
+		
 		if (Input.GetMouseButtonDown(0))
 		{
 			currentStep = 0;
