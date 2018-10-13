@@ -24,6 +24,7 @@ public class GameManagerScript : MonoBehaviour {
 
     public int CurrentScore;
     public int TotalScore;
+    public bool FirstEggCollected;
 
     Vector3 battleCameraPosition = new Vector3(0.04f, 24.2f, 96);
 
@@ -34,12 +35,12 @@ public class GameManagerScript : MonoBehaviour {
     bool battleStarted;
     private bool inCutscene;
     float countdown = 5f;
+    
 
     void Start()
     {
-        if (!inBossFight){
-            SpawnEgg(new Vector3(0, eggHeight, 0));
-        }
+        FirstEggCollected = false;
+        SpawnEgg(new Vector3(0, eggHeight, 0));
     }
 
     void Update ()
@@ -113,6 +114,12 @@ public class GameManagerScript : MonoBehaviour {
         /* ========================================================================================================= */
     }
 
+    public void OnFirstEggCollect()
+    {
+        FirstEggCollected = true;
+        Seagull.gameObject.SetActive(true);
+    }
+    
     void StartBattle()
     {
         inCutscene = true;

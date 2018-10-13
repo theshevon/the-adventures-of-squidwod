@@ -37,37 +37,22 @@ public class BossFightThirdPersonCameraController : MonoBehaviour {
         // or goes below ground
         pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
 
-        //currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
-        //transform.eulerAngles = currentRotation;
-
-        //transform.LookAt(rotationTarget.position, Vector3.up);
-
         transform.rotation = Quaternion.LookRotation(rotationTarget.position - target.position);
+        // lock the cameras z axis to 0
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-        transform.position = target.position - rotationTarget.position- transform.forward * distanceFromTarget;
-
-
+        transform.position = target.position - rotationTarget.position - transform.forward * distanceFromTarget;
         
-        //transform.rotation = Quaternion.LookRotation(rotationTarget.position - target.position);
-        
-        
-        //transform.Rotate(Vector3.up * -5);
-        
-      
-        
-        
+        // cast line from seagull position to the camera and check for collisons
         RaycastHit hit;
         if (Physics.Linecast(target.position, transform.position, out hit))
         {
+            // if line hits the terrain, need to move the camera so it doesn't clip through
             if (hit.transform.gameObject.CompareTag("Terrain"))
             {
                 Vector3 hitPoint = new Vector3(hit.point.x + hit.normal.x * 0.5f, hit.point.y + hit.normal.y * 0.5f,
                     hit.point.z + hit.normal.z * 0.5f);
                 transform.position = new Vector3(hitPoint.x, hitPoint.y, hitPoint.z);
             }
-
-            //Debug.DrawLine(transform.position, hit.point, Color.green);
-            //Debug.Log("hit terrain!");
         }
 	}
     
