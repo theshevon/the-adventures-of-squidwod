@@ -43,7 +43,7 @@ public class SeagullBossController : MonoBehaviour
     const int NUM_OF_ATTACKS = 4;
     int nextAttack;
     float nextAttackDelay;
-    readonly float[] attackDelays = { 5.0f, 6.0f, 4.0f, 4.0f }; // index 1 is time to wait after first attack starts,
+    readonly float[] attackDelays = { 5.0f, 6.0f, 4.0f, 8.0f }; // index 1 is time to wait after first attack starts,
                                                                 // index 2 is time to wait after second attack starts and so on...
     float attackCountdown;
 
@@ -79,13 +79,15 @@ public class SeagullBossController : MonoBehaviour
 
     // gust related
     const float jumpHeightInc = 0.5f;
-    //const float gustAngleInc = 2;
-    const float maxGustDuration = 2;
+    const float startingRadius = 25;
+    const float maxGustDuration = 4;
+    const float initNVertices = 36;
     float gustDuration;
     bool usingGust;
 
     // ring of fire
     const float ringRadius = 25;
+    const float maxRingIncrease = 60;
     const int angleStep = 10;
     GameObject[] ringFireballs;
 
@@ -108,7 +110,6 @@ public class SeagullBossController : MonoBehaviour
         nextAttackDelay = 4;
         leftEnd = leftLaserStart.position;
         rightEnd = rightLaserStart.position;
-        lineRenderer.material = laserMaterial;
     }
 
     void OnDisable()
@@ -124,6 +125,12 @@ public class SeagullBossController : MonoBehaviour
     {
 
         delta = Time.deltaTime;
+
+
+        // gust hotkey for testing
+        if (Input.GetKeyDown(KeyCode.G)){
+            UseGust();
+        }
 
         if (isOnGround)
         {
@@ -160,12 +167,12 @@ public class SeagullBossController : MonoBehaviour
             if (usingGust)
             {
                 gustDuration += delta;
-                if (gustDuration < maxGustDuration / 2)
+                if (gustDuration < maxGustDuration / 4)
                 {
                     transform.position += new Vector3(0, jumpHeightInc, 0);
                     //transform.Rotate(Vector3.right, -gustAngleInc, Space.Self);
                 }
-                else if (gustDuration < maxGustDuration)
+                else if (gustDuration < maxGustDuration / 2)
                 {
                     transform.position -= new Vector3(0, jumpHeightInc, 0);
                     if (transform.position.y < battlePosition.y)
@@ -174,14 +181,18 @@ public class SeagullBossController : MonoBehaviour
                     }
                     //transform.Rotate(Vector3.right, gustAngleInc, Space.Self);
                 }
-                else
-                {
+                else if (gustDuration < maxGustDuration){
+                    float factor = (gustDuration - maxGustDuration / 2) / (maxGustDuration / 2);
+                    MakeLaserRing(startingRadius + maxRingIncrease * factor, 100);
+                }
+                else {
                     //transform.SetPositionAndRotation(battlePosition, Quaternion.LookRotation(Vector3.forward));
                     gustDuration = 0;
                     usingGust = false;
                     rotationLocked = false;
                     isAttacking = false;
                     animator.SetTrigger("WingflapToIdle");
+                    lineRenderer.positionCount = 0;
                 }
             }
 
@@ -442,11 +453,11 @@ public class SeagullBossController : MonoBehaviour
 
     void MakeLaserRing(float radius, int nVetices)
     {
-
+        lineRenderer.positionCount = nVetices;
         Vector3[] vertices = new Vector3[nVetices];
         for (int angle = 0, i = 0; angle < 360; angle += angleStep, i++)
         {
-            vertices[i] = new Vector3(Mathf.Sin(angle), 0.3f, Mathf.Cos(angle)) * radius;
+            vertices[i] = new Vector3(Mathf.Sin(angle), 0.15f, Mathf.Cos(angle)) * radius;
         }
 
         lineRenderer.SetPositions(vertices);
