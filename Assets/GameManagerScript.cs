@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour {
@@ -36,6 +37,9 @@ public class GameManagerScript : MonoBehaviour {
     private bool inCutscene;
     float countdown = 5f;
     
+    private int health;
+    public Material playerMaterial;
+    
 
     void Start()
     {
@@ -45,6 +49,10 @@ public class GameManagerScript : MonoBehaviour {
 
     void Update ()
     {
+        if (player.GetComponent<interaction>().health <= 0)
+        {
+            PlayerDeath();
+        }
 
         scoreValue.text = TotalScore.ToString();
         
@@ -207,5 +215,13 @@ public class GameManagerScript : MonoBehaviour {
     public void SpawnEgg(Vector3 pos)
     {
         Instantiate(EggPrefab, pos, Quaternion.identity);
+    }
+
+    private void PlayerDeath()
+    {
+        playerMaterial.SetColor("_Color", Color.white);
+        player.gameObject.SetActive(false);
+        MainCamera.GetComponent<ThirdPersonCameraController>().enabled = false;
+        MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
     }
 }

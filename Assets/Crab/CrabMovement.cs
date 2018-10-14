@@ -11,6 +11,10 @@ public class CrabMovement : MonoBehaviour
 	void Start ()
 	{
 		player = GameObject.FindWithTag("Player");
+		if (player == null)
+		{
+			Destroy(gameObject);
+		}
 	}
 	
 	// Update is called once per frame
