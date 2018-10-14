@@ -11,7 +11,9 @@
         <e p="basicMovement.cs" t="Include" />
         <e p="Camera" t="Include">
           <e p="BossFightThirdPersonCameraController.cs" t="Include" />
+          <e p="cameraTintShader.shader" t="Include" />
           <e p="ThirdPersonCameraController.cs" t="Include" />
+          <e p="tintImageEffectScript.cs" t="Include" />
         </e>
         <e p="Crab" t="Include">
           <e p="BurrowController.cs" t="Include" />

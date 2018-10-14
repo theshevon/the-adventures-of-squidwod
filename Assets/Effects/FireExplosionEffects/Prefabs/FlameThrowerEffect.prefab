@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114172834708049266}
   m_Layer: 0
   m_Name: FlameThrowerEffect
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

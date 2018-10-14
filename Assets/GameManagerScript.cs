@@ -5,6 +5,7 @@ using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
+using UnityEngine.SocialPlatforms;
 using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour {
@@ -26,6 +27,8 @@ public class GameManagerScript : MonoBehaviour {
     public int CurrentScore;
     public int TotalScore;
     public bool FirstEggCollected;
+    
+    public AudioClip battleAudio;
 
     Vector3 battleCameraPosition = new Vector3(0.04f, 24.2f, 96);
 
@@ -37,21 +40,38 @@ public class GameManagerScript : MonoBehaviour {
     private bool inCutscene;
     float countdown = 5f;
     
+    // player health
     private int health;
     public Material playerMaterial;
+    
+    // death screen
+    public Material cameraTintMaterial;
+    private bool gameEnded = false;
+    public Color cameraDeathColour;
+    [Range(0,1)] public float deathSaturationValue;
+    public GameObject deathText;
+    public GameObject scoreText;
+    public GameObject healthText;
+    public GameObject explosion;
+    private AudioSource seagullAudio;
+    public AudioClip deathAudio;
     
 
     void Start()
     {
         FirstEggCollected = false;
         SpawnEgg(new Vector3(0, eggHeight, 0));
+        cameraTintMaterial.SetColor("_Color", Color.white);
+        cameraTintMaterial.SetFloat("_DesaturationValue", 0);
+        seagullAudio = Seagull.GetComponent<AudioSource>();
     }
 
     void Update ()
     {
-        if (player.GetComponent<interaction>().health <= 0)
+        if (player.GetComponent<interaction>().health <= 0 && !gameEnded)
         {
             PlayerDeath();
+            gameEnded = true;
         }
 
         scoreValue.text = TotalScore.ToString();
@@ -126,6 +146,8 @@ public class GameManagerScript : MonoBehaviour {
     {
         FirstEggCollected = true;
         Seagull.gameObject.SetActive(true);
+        audioSrc.clip = battleAudio;
+        audioSrc.Play();
     }
     
     void StartBattle()
@@ -219,7 +241,16 @@ public class GameManagerScript : MonoBehaviour {
 
     private void PlayerDeath()
     {
+        seagullAudio.mute = true;
+        audioSrc.clip = deathAudio;
+        audioSrc.Play();
+        Instantiate(explosion, player.transform);
         playerMaterial.SetColor("_Color", Color.white);
+        cameraTintMaterial.SetColor("_Color", cameraDeathColour);
+        cameraTintMaterial.SetFloat("_DesaturationValue", deathSaturationValue);
+        healthText.SetActive(false);
+        scoreText.SetActive(false);
+        deathText.SetActive(true);
         player.gameObject.SetActive(false);
         MainCamera.GetComponent<ThirdPersonCameraController>().enabled = false;
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
