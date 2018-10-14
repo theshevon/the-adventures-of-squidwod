@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// NOTE: SQUIDWARDS CONTROLLER MUST TURN ALONG WITH CAMERA
-
 public class BossFightThirdPersonCameraController : MonoBehaviour {
 
     public bool lockCursor;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SeagullBossController : MonoBehaviour
 {
+    public GameObject laserPrefab;
+    public GameObject flamePrefab;
     public GameObject grenadePrefab;
     public GameObject flameThrowerPrefab;
     public GameObject fireballPrefab;
@@ -19,7 +21,11 @@ public class SeagullBossController : MonoBehaviour
     public Transform leftLaserEnd;
     public Transform rightLaserEnd;
 
-    LineRenderer laser;
+    public Material gustMaterial;
+    Material laserMaterial;
+    public bool lockAttacks;
+
+    LineRenderer lineRenderer;
     AudioSource audioSrc;
 
     bool movingDown;
@@ -34,11 +40,11 @@ public class SeagullBossController : MonoBehaviour
     const float maxHeightChange = 25.0f;
 
     // boss fight animation params 
-    const int NUM_OF_ATTACKS = 3;
+    const int NUM_OF_ATTACKS = 4;
     int nextAttack;
     float nextAttackDelay;
-    readonly float[] attackDelays = { 5.0f, 6.0f, 4.0f }; // index 1 is time to wait after first attack starts,
-                                                          // index 2 is time to wait after second attack starts and so on
+    readonly float[] attackDelays = { 5.0f, 6.0f, 4.0f, 4.0f }; // index 1 is time to wait after first attack starts,
+                                                                // index 2 is time to wait after second attack starts and so on...
     float attackCountdown;
 
     Animator animator;
@@ -47,8 +53,8 @@ public class SeagullBossController : MonoBehaviour
 
     bool landAnimPlayed;
 
-    // jump related
-    public float rotationSpeed = 1.5f;
+    // turn related
+    float rotationSpeed = 1.5f;
     Vector3 relativePosition;
     Quaternion targetRotation;
     bool rotating;
@@ -71,13 +77,27 @@ public class SeagullBossController : MonoBehaviour
 
     readonly Vector3 battlePosition = new Vector3(0, 2, 0);
 
+    // gust related
+    const float jumpHeightInc = 0.5f;
+    //const float gustAngleInc = 2;
+    const float maxGustDuration = 2;
+    float gustDuration;
+    bool usingGust;
+
+    // ring of fire
+    const float ringRadius = 25;
+    const int angleStep = 10;
+    GameObject[] ringFireballs;
+
     void Start()
     {
-        laser = GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
+        laserMaterial = lineRenderer.material;
         audioSrc = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        laser.positionCount = 0;
+        lineRenderer.positionCount = 0;
         audioSrc.Stop();
+        ringFireballs = new GameObject[360 / angleStep];
     }
 
     void OnEnable()
@@ -88,12 +108,18 @@ public class SeagullBossController : MonoBehaviour
         nextAttackDelay = 4;
         leftEnd = leftLaserStart.position;
         rightEnd = rightLaserStart.position;
+        lineRenderer.material = laserMaterial;
     }
 
     void OnDisable()
     {
         isOnGround = false;
+        for (int i = 0; i < ringFireballs.Length; i++)
+        {
+            Destroy(ringFireballs[i]);
+        }
     }
+
     void Update()
     {
 
@@ -101,8 +127,10 @@ public class SeagullBossController : MonoBehaviour
 
         if (isOnGround)
         {
+
             attackCountdown -= delta;
 
+            // laser updates
             if (laserInUse)
             {
                 laserUseTime += delta;
@@ -114,7 +142,7 @@ public class SeagullBossController : MonoBehaviour
                     isAttacking = false;
 
                     laserUseTime = 0;
-                    laser.positionCount = 0;
+                    lineRenderer.positionCount = 0;
                     stepper = 0.1f;
 
                     leftEnd = leftLaserStart.position;
@@ -125,6 +153,35 @@ public class SeagullBossController : MonoBehaviour
                 else
                 {
                     UpdateLaserPositions();
+                }
+            }
+
+            // gust updates
+            if (usingGust)
+            {
+                gustDuration += delta;
+                if (gustDuration < maxGustDuration / 2)
+                {
+                    transform.position += new Vector3(0, jumpHeightInc, 0);
+                    //transform.Rotate(Vector3.right, -gustAngleInc, Space.Self);
+                }
+                else if (gustDuration < maxGustDuration)
+                {
+                    transform.position -= new Vector3(0, jumpHeightInc, 0);
+                    if (transform.position.y < battlePosition.y)
+                    {
+                        transform.position = battlePosition;
+                    }
+                    //transform.Rotate(Vector3.right, gustAngleInc, Space.Self);
+                }
+                else
+                {
+                    //transform.SetPositionAndRotation(battlePosition, Quaternion.LookRotation(Vector3.forward));
+                    gustDuration = 0;
+                    usingGust = false;
+                    rotationLocked = false;
+                    isAttacking = false;
+                    animator.SetTrigger("WingflapToIdle");
                 }
             }
 
@@ -157,7 +214,7 @@ public class SeagullBossController : MonoBehaviour
                 //animator.SetTrigger("ThrowTurnForward");
             }
 
-            if (attackCountdown <= 0 && !rotating && !isAttacking)
+            if (attackCountdown <= 0 && !rotating && !isAttacking && !lockAttacks)
             {
 
                 isAttacking = true;
@@ -175,6 +232,9 @@ public class SeagullBossController : MonoBehaviour
                     case 2:
                         UseLaserBeam();
                         break;
+                    case 3:
+                        UseGust();
+                        break;
                 }
 
                 nextAttack = UnityEngine.Random.Range(0, NUM_OF_ATTACKS);
@@ -191,7 +251,17 @@ public class SeagullBossController : MonoBehaviour
                 if (transform.position == centrePos)
                 {
                     movingDown = true;
+
+                    // fire laser shot at centre
+                    for (int i = 0; i < 3; i++)
+                    {
+                        ShootLaserAtCentre();
+                    }
+                    ExecuteAfterTime(0.01f, ShootLaserAtCentre);
+
+                    // animate
                     animator.SetTrigger("FlyToDive");
+
                 }
             }
             else
@@ -206,9 +276,11 @@ public class SeagullBossController : MonoBehaviour
                     landAnimPlayed = true;
                 }
 
-                if (transform.position == battlePosition)
+                if (transform.position.y <= battlePosition.y)
                 {
+                    transform.position = battlePosition;
                     isOnGround = true;
+                    MakeRingOfFire();
                     attackCountdown = nextAttackDelay;
                     nextAttack = UnityEngine.Random.Range(0, NUM_OF_ATTACKS);
                     animator.SetTrigger("LandToIdle");
@@ -287,11 +359,12 @@ public class SeagullBossController : MonoBehaviour
     void UseLaserBeam()
     {
         animator.SetTrigger("IdleToLean");
+        lineRenderer.material = laserMaterial;
         laserInUse = true;
         rotationLocked = true;
-        laser.positionCount = 4;
-        laser.SetPosition(0, leftEye.position);
-        laser.SetPosition(3, rightEye.position);
+        lineRenderer.positionCount = 4;
+        lineRenderer.SetPosition(0, leftEye.position);
+        lineRenderer.SetPosition(3, rightEye.position);
         UpdateLaserPositions();
     }
 
@@ -300,9 +373,10 @@ public class SeagullBossController : MonoBehaviour
         float fraction = laserUseTime / laserDuration;
         leftEnd = Vector3.Lerp(leftLaserStart.position, leftLaserEnd.position, fraction);
         rightEnd = Vector3.Lerp(rightLaserStart.position, rightLaserEnd.position, fraction);
-        laser.SetPosition(1, leftEnd);
-        laser.SetPosition(2, rightEnd);
-        if (fraction >= stepper){
+        lineRenderer.SetPosition(1, leftEnd);
+        lineRenderer.SetPosition(2, rightEnd);
+        if (fraction >= stepper)
+        {
             explosionPos1 = leftEnd;
             explosionPos2 = rightEnd;
             stepper += 0.1f;
@@ -310,7 +384,8 @@ public class SeagullBossController : MonoBehaviour
         }
     }
 
-    void CreateExplosion(){
+    void CreateExplosion()
+    {
         GameObject e1 = Instantiate(explosionPrefab, explosionPos1, transform.rotation);
         GameObject e2 = Instantiate(explosionPrefab, explosionPos2, transform.rotation);
         GameObject f1 = Instantiate(fireballPrefab, explosionPos1, transform.rotation);
@@ -321,4 +396,59 @@ public class SeagullBossController : MonoBehaviour
         Destroy(f2, 5);
     }
 
+    void UseGust()
+    {
+        usingGust = true;
+        rotationLocked = true;
+        animator.SetTrigger("IdleToWingflap");
+        lineRenderer.material = gustMaterial;
+    }
+
+    public void Die()
+    {
+        animator.SetTrigger("IdleToDie");
+    }
+
+    void ShootLaserAtCentre()
+    {
+        Debug.Log("Shooting");
+        Vector3 direction = Vector3.zero - leftEye.position;
+        GameObject laserShot = Instantiate(laserPrefab, leftEye.position, Quaternion.LookRotation(direction));
+        laserShot.GetComponent<LaserController>().direction = direction;
+        laserShot.GetComponent<LaserController>().explosionType = 1;
+        direction = Vector3.zero - rightEye.position;
+        laserShot = Instantiate(laserPrefab, rightEye.position, Quaternion.LookRotation(direction));
+        laserShot.GetComponent<LaserController>().direction = direction;
+        laserShot.GetComponent<LaserController>().explosionType = 1;
+    }
+
+    void MakeRingOfFire()
+    {
+        Debug.Log("Making ring of fire");
+        for (int angle = 0, i = 0; angle < 360; angle += angleStep, i++)
+        {
+            Vector3 position = new Vector3(Mathf.Sin(angle), 0.1f, Mathf.Cos(angle)) * ringRadius;
+            ringFireballs[i] = Instantiate(flamePrefab, position, transform.rotation);
+            if (i % 2 == 0)
+            {
+                ringFireballs[i].transform.localScale = new Vector3(2, 2, 2);
+            }
+            else
+            {
+                ringFireballs[i].transform.localScale = new Vector3(3, 3, 3);
+            }
+        }
+    }
+
+    void MakeLaserRing(float radius, int nVetices)
+    {
+
+        Vector3[] vertices = new Vector3[nVetices];
+        for (int angle = 0, i = 0; angle < 360; angle += angleStep, i++)
+        {
+            vertices[i] = new Vector3(Mathf.Sin(angle), 0.3f, Mathf.Cos(angle)) * radius;
+        }
+
+        lineRenderer.SetPositions(vertices);
+    }
 }

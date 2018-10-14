@@ -8,8 +8,11 @@ using UnityEngine;
 public class LaserController : MonoBehaviour
 {
 
-    public GameObject explosionPrefab;
+    public GameObject smallExplosionPrefab;
+    public GameObject largeExplosionPrefab;
     public Vector3 direction;
+    public int explosionType; // 0 for small explosion (default)
+                              // 1 for large explosion
 
     const float velocity = 2.0f;
     bool exploded;
@@ -32,7 +35,8 @@ public class LaserController : MonoBehaviour
         {
             exploded = true;
 
-            GameObject explosion = Instantiate(explosionPrefab);
+            GameObject explosion;
+            explosion = explosionType == 0 ? Instantiate(smallExplosionPrefab) : Instantiate(largeExplosionPrefab);
             explosion.transform.position = transform.position;
 
             Destroy(gameObject);

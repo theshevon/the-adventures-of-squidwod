@@ -32,7 +32,7 @@ public class interaction : MonoBehaviour {
 		if (col.gameObject.CompareTag("Egg"))
 		{
 			if (!GameManager.FirstEggCollected) gameManager.OnFirstEggCollect();
-			gameManager.SpawnEgg();
+            if (!GameManager.inBossFight) gameManager.SpawnEgg();
 			GameManager.TotalScore += 1;
 			GameManager.CurrentScore += 1;
 			Destroy(col.gameObject);

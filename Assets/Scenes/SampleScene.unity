@@ -168,6 +168,15 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 2017516278}
+    - target: {fileID: 1741567503634430, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114348733858654932, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: difficulty
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
   m_IsPrefabParent: 0
@@ -383,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2cba794c33a415d9348e06e89d4792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCursor: 1
+  lockCursor: 0
   target: {fileID: 2017516278}
   mouseSensitivity: 5
   distanceFromTarget: 30

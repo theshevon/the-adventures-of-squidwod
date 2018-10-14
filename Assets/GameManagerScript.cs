@@ -35,7 +35,7 @@ public class GameManagerScript : MonoBehaviour {
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
     const int fightThreshold = 6;
-    bool inBossFight;
+    public bool inBossFight;
     bool battleStarted;
     private bool inCutscene;
     float countdown = 5f;
