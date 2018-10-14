@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/FireExplosionEffects/Prefabs/FlameThrowerEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/FireExplosionEffects/Prefabs/FlameThrowerEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManagerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-    </list>
+    <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +12,7 @@
     <session id="-1046372865">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="5" />
@@ -112,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="149" column="24" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
+            <state relative-caret-position="210">
+              <caret line="146" column="33" lean-forward="true" selection-start-line="146" selection-start-column="33" selection-end-line="146" selection-end-column="33" />
               <folding>
                 <marker date="1539521626899" expanded="false" signature="6:236" ph="..." />
                 <marker date="1539521626899" expanded="true" signature="285:8906" ph="{...}" />
@@ -455,12 +448,12 @@
       <workItem from="1539424695449" duration="4671000" />
       <workItem from="1539481040291" duration="4467000" />
       <workItem from="1539502730008" duration="7511000" />
-      <workItem from="1539517107239" duration="4279000" />
+      <workItem from="1539517107239" duration="4472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143872000" />
+    <option name="totallyTimeSpent" value="144065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -473,7 +466,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17377399" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -864,8 +856,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="149" column="24" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
+        <state relative-caret-position="210">
+          <caret line="146" column="33" lean-forward="true" selection-start-line="146" selection-start-column="33" selection-end-line="146" selection-end-column="33" />
           <folding>
             <marker date="1539521626899" expanded="false" signature="6:236" ph="..." />
             <marker date="1539521626899" expanded="true" signature="285:8906" ph="{...}" />

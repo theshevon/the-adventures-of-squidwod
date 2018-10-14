@@ -489,48 +489,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1001 &394775949
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4162532594390380, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &425631430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +992,7 @@ MonoBehaviour:
   CurrentScore: 0
   TotalScore: 0
   FirstEggCollected: 0
+  battleAudio: {fileID: 8300000, guid: 6d6fdd612553c9847982dc49b2044566, type: 3}
   playerMaterial: {fileID: 2100000, guid: f8e76c2d404d5574cb381c562f764787, type: 2}
   cameraTintMaterial: {fileID: 2100000, guid: 56ab406774a2db045a490405d8551b60, type: 2}
   cameraDeathColour: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
@@ -1065,7 +1024,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6d6fdd612553c9847982dc49b2044566, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0295199868b4dd94e828c818b3079d14, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
