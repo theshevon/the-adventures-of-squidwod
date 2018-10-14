@@ -104,7 +104,6 @@ public class SeagullFlightController : MonoBehaviour
             if (transform.position == battlePosition) animator.SetTrigger("IdleToFly");
             transform.position = Vector3.MoveTowards(transform.position, flyPosition, 50 * Time.deltaTime);
 
-            Debug.Log("test");
             
             if (transform.position == flyPosition)
             {

@@ -8,22 +8,22 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1819932385686340}
-  m_IsPrefabAsset: 1
---- !u!1 &1819932385686340
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1673012328894780}
+  m_IsPrefabParent: 1
+--- !u!1 &1673012328894780
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
+  serializedVersion: 5
   m_Component:
-  - component: {fileID: 4616288116534712}
-  - component: {fileID: 33425003317151006}
-  - component: {fileID: 23703869276365372}
-  - component: {fileID: 135918462091153412}
-  - component: {fileID: 54955862500658272}
-  - component: {fileID: 114652490230785040}
+  - component: {fileID: 4547970088225976}
+  - component: {fileID: 33530945744902878}
+  - component: {fileID: 23972535932046378}
+  - component: {fileID: 135839962997905524}
+  - component: {fileID: 54527484579120934}
+  - component: {fileID: 114067584579389884}
   m_Layer: 0
   m_Name: throwableEgg
   m_TagString: Untagged
@@ -31,12 +31,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4616288116534712
+--- !u!4 &4547970088225976
 Transform:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819932385686340}
+  m_GameObject: {fileID: 1673012328894780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.19, y: 4.68, z: -37.35074}
   m_LocalScale: {x: 1.9, y: 2.5, z: 1.9}
@@ -44,12 +44,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23703869276365372
+--- !u!23 &23972535932046378
 MeshRenderer:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819932385686340}
+  m_GameObject: {fileID: 1673012328894780}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -79,19 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33425003317151006
+--- !u!33 &33530945744902878
 MeshFilter:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819932385686340}
+  m_GameObject: {fileID: 1673012328894780}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54955862500658272
+--- !u!54 &54527484579120934
 Rigidbody:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819932385686340}
+  m_GameObject: {fileID: 1673012328894780}
   serializedVersion: 2
   m_Mass: 5
   m_Drag: 0
@@ -101,25 +101,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114652490230785040
+--- !u!114 &114067584579389884
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819932385686340}
+  m_GameObject: {fileID: 1673012328894780}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77638cc2789a8fb489d92a887734bcfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+  explosionEffect: {fileID: 1832707365330184, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 2}
---- !u!135 &135918462091153412
+--- !u!135 &135839962997905524
 SphereCollider:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819932385686340}
+  m_GameObject: {fileID: 1673012328894780}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

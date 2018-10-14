@@ -26,7 +26,6 @@ public class flameCollision : MonoBehaviour
 
 		if (col.gameObject.CompareTag("Terrain") && gameObject.CompareTag("Fireball"))
 		{
-			Debug.Log("test");
 			Vector3 pos = transform.position;
 			pos.y = 0;
 			Instantiate(flame, pos, flame.transform.rotation);

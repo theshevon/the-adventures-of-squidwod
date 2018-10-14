@@ -8,20 +8,20 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1445165405186750}
-  m_IsPrefabAsset: 1
---- !u!1 &1445165405186750
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1420928920975584}
+  m_IsPrefabParent: 1
+--- !u!1 &1420928920975584
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
+  serializedVersion: 5
   m_Component:
-  - component: {fileID: 4656262874941182}
-  - component: {fileID: 198673931520283650}
-  - component: {fileID: 114465636628117706}
-  - component: {fileID: 199093318508420382}
+  - component: {fileID: 4208005353293224}
+  - component: {fileID: 198603510261533912}
+  - component: {fileID: 114840541205537750}
+  - component: {fileID: 199114898963631320}
   m_Layer: 0
   m_Name: CrabBurrow
   m_TagString: Untagged
@@ -29,12 +29,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4656262874941182
+--- !u!4 &4208005353293224
 Transform:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445165405186750}
+  m_GameObject: {fileID: 1420928920975584}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 9.38, y: 1.89, z: 34.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,23 +42,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &114465636628117706
+--- !u!114 &114840541205537750
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445165405186750}
+  m_GameObject: {fileID: 1420928920975584}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f112cf822e9bb4e912c535028730ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!198 &198673931520283650
+--- !u!198 &198603510261533912
 ParticleSystem:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445165405186750}
+  m_GameObject: {fileID: 1420928920975584}
   serializedVersion: 5
   lengthInSec: 5
   simulationSpeed: 1
@@ -691,8 +691,6 @@ ParticleSystem:
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_Sprite: {fileID: 0}
-    m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -4595,13 +4593,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199093318508420382
+--- !u!199 &199114898963631320
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445165405186750}
+  m_GameObject: {fileID: 1420928920975584}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4645,7 +4643,6 @@ ParticleSystemRenderer:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
-  m_ApplyActiveColorSpace: 1
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}

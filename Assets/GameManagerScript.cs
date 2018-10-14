@@ -84,8 +84,8 @@ public class GameManagerScript : MonoBehaviour {
         if (Seagull.GetComponent<SeagullBossController>().IsOnGround() && !battleStarted)
         {
             Debug.Log("battle started");
-            battleStarted = true;
             OnBattleStart();
+            battleStarted = true;            
         }
 
         // set the camera position while the seagull is transitioning from air to ground
