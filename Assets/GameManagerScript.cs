@@ -14,7 +14,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject Seagull;
     public GameObject Crab;
     public GameObject CrabBurrow;
-    public Camera camera;
+    public Camera MainCamera;
     public GameObject EggPrefab;
 
     public Vector3 centre;
@@ -51,18 +51,18 @@ public class GameManagerScript : MonoBehaviour {
         // if both the camera scripts are disabled, look at the seagull (if both are disabled we are in a transition)
         if (inCutscene)
         {
-            camera.transform.LookAt(Seagull.transform);
+            MainCamera.transform.LookAt(Seagull.transform);
         }
         
 
-        if (inBossFight && enemy.GetComponent<SeagullBossController>().IsOnGround() && !camera.GetComponent<BossFightThirdPersonCameraController>().enabled)
+        if (inBossFight && enemy.GetComponent<SeagullBossController>().IsOnGround() && !MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled)
         {
-            camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+            MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
         }
 
         // randomly spawn crabs
         countdown -= Time.deltaTime;
-        if (countdown <= 0)
+        if (countdown <= 0 && FirstEggCollected)
         {
             SpawnCrab();
             countdown = Random.Range(5, 10);
@@ -91,7 +91,7 @@ public class GameManagerScript : MonoBehaviour {
         // set the camera position while the seagull is transitioning from air to ground
         if (!Seagull.GetComponent<SeagullBossController>().IsOnGround() && !battleStarted && inBossFight)
         {
-            camera.transform.position = battleCameraPosition;
+            MainCamera.transform.position = battleCameraPosition;
         }
         
         // trigger the end battle sequence
@@ -129,9 +129,9 @@ public class GameManagerScript : MonoBehaviour {
         seagullBoss.enabled = true;
         //seagullBoss.totalTime = seagullFlight.totalTime;
 
-        camera.GetComponent<ThirdPersonCameraController>().enabled = false;
-        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
-        camera.GetComponent<Transform>().LookAt(transform);
+        MainCamera.GetComponent<ThirdPersonCameraController>().enabled = false;
+        MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+        MainCamera.GetComponent<Transform>().LookAt(transform);
 
         player.transform.position = new Vector3(0, 2, 75);
         player.transform.LookAt(new Vector3(0, player.transform.position.y, 0));
@@ -144,7 +144,7 @@ public class GameManagerScript : MonoBehaviour {
         inCutscene = false;
         player.GetComponent<bossControls>().enabled = true;
         player.GetComponent<movement>().enabled = true;
-        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+        MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
     }
     
     void EndBattle()
@@ -155,7 +155,7 @@ public class GameManagerScript : MonoBehaviour {
         SeagullBossController seagullBoss = Seagull.GetComponent<SeagullBossController>();
         seagullBoss.enabled = false;
         
-        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+        MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
         
         player.GetComponent<bossControls>().enabled = false;
         player.GetComponent<movement>().enabled = false;
@@ -168,8 +168,8 @@ public class GameManagerScript : MonoBehaviour {
         inCutscene = false;
         
         player.GetComponent<movement>().enabled = true;
-        camera.GetComponent<ThirdPersonCameraController>().enabled = true;
-        camera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+        MainCamera.GetComponent<ThirdPersonCameraController>().enabled = true;
+        MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
         player.GetComponent<bossControls>().enabled = false;
     }
 

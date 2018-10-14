@@ -39,6 +39,8 @@ public class bossControls : MonoBehaviour
 	private float distanceToCenter;
 
 	public float throwSpeed;
+
+	public Animator animator;
 	
 	
 	// Use this for initialization
@@ -76,6 +78,7 @@ public class bossControls : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 			currentStep = 0;
+			animator.SetTrigger("StartThrow");
 			
 		}
 		if (Input.GetMouseButton(0))
@@ -137,6 +140,7 @@ public class bossControls : MonoBehaviour
             Rigidbody rb = throwableEgg.GetComponent<Rigidbody>();
             //rb.transform.LookAt(position);
             rb.velocity = aimDirection * throwSpeed;
+			animator.SetTrigger("ThrowAction");
 		}
 
 		if (!Input.GetMouseButton(0))

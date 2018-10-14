@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrabMovement : MonoBehaviour
 {
-	private GameObject player;
+	public GameObject player;
 	public float crabSpeed;
 	
 	// Use this for initialization

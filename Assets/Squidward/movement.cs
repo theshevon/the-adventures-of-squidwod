@@ -85,6 +85,10 @@ public class movement : MonoBehaviour
 			if (Input.GetButtonDown("Jump"))
 			{
 				moveDirection.y = jumpSpeed;
+				if (inputDir == Vector2.zero)
+				{
+					animator.SetTrigger("ToJump");
+				}
 			}
 		}
 		else

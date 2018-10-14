@@ -672,6 +672,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114412458137541504, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677384384}
     - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
         type: 2}
       propertyPath: target
@@ -687,21 +692,6 @@ Prefab:
       propertyPath: prevCamPos
       value: 
       objectReference: {fileID: 639343252}
-    - target: {fileID: 114412458137541504, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
-        type: 2}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 677384384}
-    - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114863807927327836, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2a2cbd7cb0a95f40a015be463b0b94e, type: 2}
   m_IsPrefabParent: 0
@@ -964,7 +954,7 @@ MonoBehaviour:
   Seagull: {fileID: 605606695}
   Crab: {fileID: 1132316727484494, guid: 4919f9f4d6035bc49ae3c09f1ed047da, type: 2}
   CrabBurrow: {fileID: 1420928920975584, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}
-  camera: {fileID: 282840813}
+  MainCamera: {fileID: 282840813}
   EggPrefab: {fileID: 1709261887271770, guid: 355fd08a8f770bb44b8e050fec0d6e55, type: 2}
   centre: {x: 0, y: 0, z: 0}
   diameter: 120
