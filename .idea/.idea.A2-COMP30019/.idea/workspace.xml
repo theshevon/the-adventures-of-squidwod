@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/BossFightThirdPersonCameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Crab/CrabPrefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Crab/CrabPrefab.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Crab/crab.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Crab/crab.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Crab/crab.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Crab/crab.blend1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManagerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/Animator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/interaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/interaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/squidward.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/squidward.blend.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +12,7 @@
     <session id="-1046372865">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="5" />
@@ -66,10 +54,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Crab/CrabMovement.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="288">
+              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
               <folding>
                 <marker date="1539062108971" expanded="false" signature="6:78" ph="..." />
                 <marker date="1539062108971" expanded="true" signature="121:760" ph="{...}" />
@@ -97,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="104" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="48">
+              <caret line="113" column="60" lean-forward="true" selection-start-line="113" selection-start-column="60" selection-end-line="113" selection-end-column="60" />
               <folding>
                 <marker date="1539426892304" expanded="false" signature="6:158" ph="..." />
                 <marker date="1539426892304" expanded="true" signature="207:7121" ph="{...}" />
@@ -361,12 +350,12 @@
       <workItem from="1539216183333" duration="4075000" />
       <workItem from="1539259872395" duration="1168000" />
       <workItem from="1539299853003" duration="2647000" />
-      <workItem from="1539424695449" duration="4033000" />
+      <workItem from="1539424695449" duration="4671000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126977000" />
+    <option name="totallyTimeSpent" value="127615000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,7 +368,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -686,21 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-          <folding>
-            <marker date="1539426837186" expanded="false" signature="6:78" ph="..." />
-            <marker date="1539426837186" expanded="true" signature="121:780" ph="{...}" />
-            <marker date="1539426837186" expanded="true" signature="256:395" ph="{...}" />
-            <marker date="1539426837186" expanded="true" signature="435:778" ph="{...}" />
-            <marker date="1539426837186" expanded="true" signature="478:679" ph="{...}" />
-            <marker date="1539426837186" expanded="true" signature="730:775" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Squidward/movement.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -724,22 +697,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Crab/CrabMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1539062108971" expanded="false" signature="6:78" ph="..." />
-            <marker date="1539062108971" expanded="true" signature="121:760" ph="{...}" />
-            <marker date="1539062108971" expanded="true" signature="225:276" ph="{...}" />
-            <marker date="1539062108971" expanded="true" signature="330:758" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="48">
+          <caret line="113" column="60" lean-forward="true" selection-start-line="113" selection-start-column="60" selection-end-line="113" selection-end-column="60" />
           <folding>
             <marker date="1539426892304" expanded="false" signature="6:158" ph="..." />
             <marker date="1539426892304" expanded="true" signature="207:7121" ph="{...}" />
@@ -765,6 +726,34 @@
             <marker date="1539426892304" expanded="true" signature="6573:6687" ph="{...}" />
             <marker date="1539426892304" expanded="true" signature="6756:6967" ph="{...}" />
             <marker date="1539426892304" expanded="true" signature="7049:7119" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding>
+            <marker date="1539426837186" expanded="false" signature="6:78" ph="..." />
+            <marker date="1539426837186" expanded="true" signature="121:780" ph="{...}" />
+            <marker date="1539426837186" expanded="true" signature="256:395" ph="{...}" />
+            <marker date="1539426837186" expanded="true" signature="435:778" ph="{...}" />
+            <marker date="1539426837186" expanded="true" signature="478:679" ph="{...}" />
+            <marker date="1539426837186" expanded="true" signature="730:775" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Crab/CrabMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding>
+            <marker date="1539062108971" expanded="false" signature="6:78" ph="..." />
+            <marker date="1539062108971" expanded="true" signature="121:760" ph="{...}" />
+            <marker date="1539062108971" expanded="true" signature="225:276" ph="{...}" />
+            <marker date="1539062108971" expanded="true" signature="330:758" ph="{...}" />
           </folding>
         </state>
       </provider>
