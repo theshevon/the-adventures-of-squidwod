@@ -33,7 +33,7 @@ public class bossControls : MonoBehaviour
 	private RaycastHit hit;
 	private Ray ray;
 	
-	private float outerRadius = 75;
+	private float outerRadius = 65;
 	private float innerRadius = 25;
 	private Vector3 centerPosition = new Vector3(0, 2, 0);
 	private float distanceToCenter;
