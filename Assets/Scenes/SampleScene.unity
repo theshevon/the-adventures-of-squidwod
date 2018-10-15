@@ -127,7 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4318938270835094, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.9678421
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4318938270835094, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
       propertyPath: m_LocalPosition.z
@@ -180,7 +180,51 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 31c7bbf81e9f3e24ca64a116a4ff65ba, type: 2}
     - target: {fileID: 1741567503634430, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: laserPrefab
+      value: 
+      objectReference: {fileID: 1277456559218810, guid: 91221bee306ba45208ec3b683f20f1b9,
+        type: 2}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 1667413395714446, guid: 85a8865d1bf4a63478038fae23776de8,
+        type: 2}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: flamePrefab
+      value: 
+      objectReference: {fileID: 1251633149091250, guid: 3228a22491941734bb83ad691d17fcb9,
+        type: 2}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: gustMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 081b3cd859128409ea7eb7a45e82c118, type: 2}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: lockAttacks
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980620344473550, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207970691644640, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521536735646868, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555357082638444, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
@@ -1009,6 +1053,7 @@ MonoBehaviour:
   FirstEggCollected: 0
   battleAudio: {fileID: 8300000, guid: 6d6fdd612553c9847982dc49b2044566, type: 3}
   inBossFight: 0
+  stage: 0
   playerMaterial: {fileID: 2100000, guid: f8e76c2d404d5574cb381c562f764787, type: 2}
   cameraTintMaterial: {fileID: 2100000, guid: 56ab406774a2db045a490405d8551b60, type: 2}
   cameraDeathColour: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}

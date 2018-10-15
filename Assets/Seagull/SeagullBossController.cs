@@ -55,6 +55,7 @@ public class SeagullBossController : MonoBehaviour
 
     // turn related
     float rotationSpeed = 1.5f;
+    const float maxRotationTime = 1.0f;
     Vector3 relativePosition;
     Quaternion targetRotation;
     bool rotating;
@@ -70,6 +71,7 @@ public class SeagullBossController : MonoBehaviour
     Vector3 rightEnd;
     Vector3 explosionPos1;
     Vector3 explosionPos2;
+    readonly Vector3 offset = new Vector3(0, 15.5f, 0);
     float stepper = 0.1f;
     const float laserDuration = 2.0f;
     bool laserInUse;
@@ -78,17 +80,19 @@ public class SeagullBossController : MonoBehaviour
     readonly Vector3 battlePosition = new Vector3(0, 2, 0);
 
     // gust related
-    const float jumpHeightInc = 0.5f;
-    const float startingRadius = 25;
+    readonly Vector3 jumpPos = new Vector3(0,12,0);
     const float maxGustDuration = 4;
+    const float jumpDuration = maxGustDuration / 2;
     const float initNVertices = 36;
     float gustDuration;
     bool usingGust;
+    const int angleStepGust = 5;
+    const float laserRingHeight = 5;
 
     // ring of fire
     const float ringRadius = 25;
     const float maxRingIncrease = 60;
-    const int angleStep = 10;
+    const int angleStepFire = 10;
     GameObject[] ringFireballs;
 
     void Start()
@@ -99,7 +103,7 @@ public class SeagullBossController : MonoBehaviour
         animator = GetComponent<Animator>();
         lineRenderer.positionCount = 0;
         audioSrc.Stop();
-        ringFireballs = new GameObject[360 / angleStep];
+        ringFireballs = new GameObject[360 / angleStepFire];
     }
 
     void OnEnable()
@@ -129,7 +133,7 @@ public class SeagullBossController : MonoBehaviour
 
         // gust hotkey for testing
         if (Input.GetKeyDown(KeyCode.G)){
-            UseGust();
+            UseLaserBeam();
         }
 
         if (isOnGround)
@@ -167,26 +171,19 @@ public class SeagullBossController : MonoBehaviour
             if (usingGust)
             {
                 gustDuration += delta;
-                if (gustDuration < maxGustDuration / 4)
+                if (gustDuration < jumpDuration / 2)
                 {
-                    transform.position += new Vector3(0, jumpHeightInc, 0);
-                    //transform.Rotate(Vector3.right, -gustAngleInc, Space.Self);
+                    transform.position = Vector3.Lerp(battlePosition, jumpPos, gustDuration / (jumpDuration/2));
                 }
-                else if (gustDuration < maxGustDuration / 2)
+                else if (gustDuration < jumpDuration)
                 {
-                    transform.position -= new Vector3(0, jumpHeightInc, 0);
-                    if (transform.position.y < battlePosition.y)
-                    {
-                        transform.position = battlePosition;
-                    }
-                    //transform.Rotate(Vector3.right, gustAngleInc, Space.Self);
+                    transform.position = Vector3.Lerp(jumpPos, battlePosition, (gustDuration - jumpDuration/2) / (jumpDuration/2));
                 }
                 else if (gustDuration < maxGustDuration){
                     float factor = (gustDuration - maxGustDuration / 2) / (maxGustDuration / 2);
-                    MakeLaserRing(startingRadius + maxRingIncrease * factor, 100);
+                    MakeLaserRing(ringRadius + maxRingIncrease*factor);
                 }
                 else {
-                    //transform.SetPositionAndRotation(battlePosition, Quaternion.LookRotation(Vector3.forward));
                     gustDuration = 0;
                     usingGust = false;
                     rotationLocked = false;
@@ -207,12 +204,12 @@ public class SeagullBossController : MonoBehaviour
 
             if (rotating)
             {
-                rotationTime += delta * rotationSpeed;
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime);
-                if (rotationTime >= 1)
-                {
+                rotationTime += delta;
+                float fraction = rotationTime / maxRotationTime;
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, fraction);
+                if (fraction >= 1){
                     rotating = false;
-                    animator.SetTrigger("WalkToIdle");
+                    rotationTime = 0;
                 }
             }
 
@@ -222,7 +219,6 @@ public class SeagullBossController : MonoBehaviour
                 relativePosition = target.transform.position - transform.position;
                 targetRotation = Quaternion.LookRotation(relativePosition);
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, delta * rotationSpeed * 5);
-                //animator.SetTrigger("ThrowTurnForward");
             }
 
             if (attackCountdown <= 0 && !rotating && !isAttacking && !lockAttacks)
@@ -397,10 +393,10 @@ public class SeagullBossController : MonoBehaviour
 
     void CreateExplosion()
     {
-        GameObject e1 = Instantiate(explosionPrefab, explosionPos1, transform.rotation);
-        GameObject e2 = Instantiate(explosionPrefab, explosionPos2, transform.rotation);
-        GameObject f1 = Instantiate(fireballPrefab, explosionPos1, transform.rotation);
-        GameObject f2 = Instantiate(fireballPrefab, explosionPos2, transform.rotation);
+        GameObject e1 = Instantiate(explosionPrefab, explosionPos1 + offset, transform.rotation);
+        GameObject e2 = Instantiate(explosionPrefab, explosionPos2 + offset, transform.rotation);
+        GameObject f1 = Instantiate(fireballPrefab, explosionPos1 + offset, transform.rotation);
+        GameObject f2 = Instantiate(fireballPrefab, explosionPos2 + offset, transform.rotation);
         Destroy(e1, 2);
         Destroy(e2, 2);
         Destroy(f1, 5);
@@ -413,6 +409,7 @@ public class SeagullBossController : MonoBehaviour
         rotationLocked = true;
         animator.SetTrigger("IdleToWingflap");
         lineRenderer.material = gustMaterial;
+        lineRenderer.positionCount = 360/angleStepGust;
     }
 
     public void Die()
@@ -436,7 +433,7 @@ public class SeagullBossController : MonoBehaviour
     void MakeRingOfFire()
     {
         //Debug.Log("Making ring of fire");
-        for (int angle = 0, i = 0; angle < 360; angle += angleStep, i++)
+        for (int angle = 0, i = 0; angle < 360; angle += angleStepFire, i++)
         {
             Vector3 position = new Vector3(Mathf.Sin(angle), 0.1f, Mathf.Cos(angle)) * ringRadius;
             ringFireballs[i] = Instantiate(flamePrefab, position, transform.rotation);
@@ -451,15 +448,17 @@ public class SeagullBossController : MonoBehaviour
         }
     }
 
-    void MakeLaserRing(float radius, int nVetices)
+    void MakeLaserRing(float radius)
     {
-        lineRenderer.positionCount = nVetices;
-        Vector3[] vertices = new Vector3[nVetices];
-        for (int angle = 0, i = 0; angle < 360; angle += angleStep, i++)
-        {
-            vertices[i] = new Vector3(Mathf.Sin(angle), 0.15f, Mathf.Cos(angle)) * radius;
-        }
 
-        lineRenderer.SetPositions(vertices);
+        for (int i = 0, angle = 0; i < 360/angleStepGust; i++, angle += angleStepGust)
+        {
+            float x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
+            float z = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
+
+            lineRenderer.SetPosition(i, new Vector3(x, laserRingHeight, z));
+            //Debug.DrawLine(Vector3.zero, new Vector3(x, y, z));
+        }
     }
 }
+

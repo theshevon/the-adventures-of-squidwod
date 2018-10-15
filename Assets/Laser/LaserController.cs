@@ -15,7 +15,6 @@ public class LaserController : MonoBehaviour
                               // 1 for large explosion
 
     const float velocity = 2.0f;
-    bool exploded;
 
     void Update()
     {
@@ -31,9 +30,8 @@ public class LaserController : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
 
-        if ((col.gameObject.tag == "Terrain" || col.gameObject.tag == "Player" || col.gameObject.tag == "ArenaWall") && !exploded)
+        if ((col.gameObject.tag == "Terrain" || col.gameObject.tag == "Player" || col.gameObject.tag == "ArenaWall"))
         {
-            exploded = true;
 
             GameObject explosion;
             explosion = explosionType == 0 ? Instantiate(smallExplosionPrefab) : Instantiate(largeExplosionPrefab);
