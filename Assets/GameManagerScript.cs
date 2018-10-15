@@ -34,11 +34,17 @@ public class GameManagerScript : MonoBehaviour {
 
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
-    const int fightThreshold = 6;
+
+    // stage
+    const int fightThreshold = 10;
+    const int healthThreshold = 20;
+    SeagullHealthManager seagullHealthManager;
     public bool inBossFight;
     bool battleStarted;
     private bool inCutscene;
     float countdown = 5f;
+    bool canSpawnCrab = true;
+    public int stage;
     
     // player health
     private int health;
@@ -64,6 +70,7 @@ public class GameManagerScript : MonoBehaviour {
         cameraTintMaterial.SetColor("_Color", Color.white);
         cameraTintMaterial.SetFloat("_DesaturationValue", 0);
         seagullAudio = Seagull.GetComponent<AudioSource>();
+        seagullHealthManager = Seagull.GetComponent<SeagullHealthManager>();
     }
 
     void Update ()
@@ -90,7 +97,7 @@ public class GameManagerScript : MonoBehaviour {
 
         // randomly spawn crabs
         countdown -= Time.deltaTime;
-        if (countdown <= 0 && FirstEggCollected)
+        if (countdown <= 0 && FirstEggCollected && canSpawnCrab)
         {
             SpawnCrab();
             countdown = Random.Range(5, 10);
@@ -124,7 +131,7 @@ public class GameManagerScript : MonoBehaviour {
         
         // trigger the end battle sequence
         // need to change the conditions
-        if (Input.GetKeyDown(KeyCode.N) && inBossFight)
+        if (((seagullHealthManager.damageTaken > healthThreshold) || Input.GetKeyDown(KeyCode.N)) && inBossFight)
         {
             Debug.Log("ending battle");
             inBossFight = false;
@@ -167,6 +174,9 @@ public class GameManagerScript : MonoBehaviour {
         player.transform.LookAt(new Vector3(0, player.transform.position.y, 0));
         player.GetComponent<bossControls>().enabled = false;
         player.GetComponent<movement>().enabled = false;
+
+        canSpawnCrab = false;
+        DestroyCrabs();
     }
 
     public void OnBattleStart()
@@ -175,6 +185,8 @@ public class GameManagerScript : MonoBehaviour {
         player.GetComponent<bossControls>().enabled = true;
         player.GetComponent<movement>().enabled = true;
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+
+        canSpawnCrab = true;
     }
     
     void EndBattle()
@@ -189,6 +201,11 @@ public class GameManagerScript : MonoBehaviour {
         
         player.GetComponent<bossControls>().enabled = false;
         player.GetComponent<movement>().enabled = false;
+
+        seagullHealthManager.damageTaken = 0;
+
+        canSpawnCrab = false;
+        DestroyCrabs();
     }
 
     void OnBattleEnd()
@@ -201,6 +218,8 @@ public class GameManagerScript : MonoBehaviour {
         MainCamera.GetComponent<ThirdPersonCameraController>().enabled = true;
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
         player.GetComponent<bossControls>().enabled = false;
+
+        canSpawnCrab = true;
     }
 
     // spawn a crab in a random location
@@ -254,5 +273,14 @@ public class GameManagerScript : MonoBehaviour {
         player.gameObject.SetActive(false);
         MainCamera.GetComponent<ThirdPersonCameraController>().enabled = false;
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+    }
+
+    private void DestroyCrabs()
+    {
+        GameObject[] crabs = GameObject.FindGameObjectsWithTag("Crab");
+        for(int i=0; i < crabs.Length; i++)
+        {
+            Destroy(crabs[i]);
+        }
     }
 }

@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionEffect: {fileID: 1832707365330184, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 2}
+  Seagull: {fileID: 1741567503634430, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
 --- !u!135 &135839962997905524
 SphereCollider:
   m_ObjectHideFlags: 1

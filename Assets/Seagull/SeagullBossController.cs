@@ -422,7 +422,7 @@ public class SeagullBossController : MonoBehaviour
 
     void ShootLaserAtCentre()
     {
-        Debug.Log("Shooting");
+        //Debug.Log("Shooting");
         Vector3 direction = Vector3.zero - leftEye.position;
         GameObject laserShot = Instantiate(laserPrefab, leftEye.position, Quaternion.LookRotation(direction));
         laserShot.GetComponent<LaserController>().direction = direction;
@@ -435,7 +435,7 @@ public class SeagullBossController : MonoBehaviour
 
     void MakeRingOfFire()
     {
-        Debug.Log("Making ring of fire");
+        //Debug.Log("Making ring of fire");
         for (int angle = 0, i = 0; angle < 360; angle += angleStep, i++)
         {
             Vector3 position = new Vector3(Mathf.Sin(angle), 0.1f, Mathf.Cos(angle)) * ringRadius;

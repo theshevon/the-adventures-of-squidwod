@@ -11,6 +11,9 @@ TagManager:
   - Crab
   - Fireball
   - ArenaWall
+  - Critical
+  - Normal
+  - Seagull
   layers:
   - Default
   - TransparentFX

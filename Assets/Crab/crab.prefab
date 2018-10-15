@@ -736,8 +736,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2305109, y: 0.14183725, z: 0.2876156}
-  m_Center: {x: -0.027643794, y: 0.06287211, z: -0.0015987279}
+  m_Size: {x: 0.2305109, y: 0.104573, z: 0.2876156}
+  m_Center: {x: -0.0276438, y: 0.044240102, z: -0.001598728}
 --- !u!95 &95232368104381912
 Animator:
   serializedVersion: 3
@@ -767,6 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26c5d35d27b3734e9dfa164f2de689f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   crabSpeed: 15
 --- !u!137 &137448680941702296
 SkinnedMeshRenderer:

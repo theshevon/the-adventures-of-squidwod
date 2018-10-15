@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4936812655030176}
   m_Layer: 0
   m_Name: SEAGULL_ L HorseLink
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4204929574715336}
   m_Layer: 0
   m_Name: SEAGULL_FeatherR_B
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 136146770811062936}
   m_Layer: 0
   m_Name: SEAGULL_ Spine
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 4726884810807214}
   m_Layer: 0
   m_Name: SEAGULL_ R Thigh
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4666823109095224}
   m_Layer: 0
   m_Name: SEAGULL_ R Forearm
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4958211383259216}
   m_Layer: 0
   m_Name: SEAGULL_ Pelvis
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 4890592065248866}
   m_Layer: 0
   m_Name: SEAGULL_ L Clavicle
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4189120327198314}
   m_Layer: 0
   m_Name: SEAGULL_ L Calf
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4647926498035124}
   m_Layer: 0
   m_Name: SEAGULL_ R Clavicle
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 136083618460373132}
   m_Layer: 0
   m_Name: SEAGULL_ Tail
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 4671659859097852}
   m_Layer: 0
   m_Name: SEAGULL_ R Toe02
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 4235795356493646}
   m_Layer: 0
   m_Name: SEAGULL_ L UpperArm
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 4970858352542784}
   m_Layer: 0
   m_Name: SEAGULL_ R UpperArm
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 4401554896726402}
   m_Layer: 0
   m_Name: SEAGULL_ L Thigh
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 4613599803392618}
   m_Layer: 0
   m_Name: SEAGULL_ R Toe01
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 4240949209083600}
   m_Layer: 0
   m_Name: SEAGULL_FeatherR_A
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 4849297953394902}
   m_Layer: 0
   m_Name: SEAGULL_ L Toe0
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 4392382458248700}
   m_Layer: 0
   m_Name: SEAGULL_ Queue de cheval 1
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 136661729622095726}
   m_Layer: 0
   m_Name: SEAGULL_ Neck
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 4904779528522030}
   m_Layer: 0
   m_Name: SEAGULL_ R Calf
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 4819269112011954}
   m_Layer: 0
   m_Name: SEAGULL_ R Hand
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 65216096550494662}
   m_Layer: 0
   m_Name: SEAGULL_ TailL
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 4340675303524632}
   m_Layer: 0
   m_Name: SEAGULL_ R HorseLink
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 4458086964052646}
   m_Layer: 0
   m_Name: SEAGULL_FeatherR_D
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 65207188866823028}
   m_Layer: 0
   m_Name: SEAGULL_ TailR
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 136316231157724150}
   m_Layer: 0
   m_Name: SEAGULL_ R Foot
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 4076372508850296}
   m_Layer: 0
   m_Name: SEAGULL_ R Toe0
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 4770113857840464}
   m_Layer: 0
   m_Name: SEAGULL_FeatherR_C
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 136177059361936826}
   m_Layer: 0
   m_Name: SEAGULL_ Head
-  m_TagString: Untagged
+  m_TagString: Critical
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -630,13 +630,14 @@ GameObject:
   - component: {fileID: 82210528939057820}
   - component: {fileID: 114348733858654932}
   - component: {fileID: 114472387120605650}
+  - component: {fileID: 114663770844821976}
   m_Layer: 0
   m_Name: Seagull
-  m_TagString: Untagged
+  m_TagString: Seagull
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1849033950496440
 GameObject:
   m_ObjectHideFlags: 1
@@ -647,7 +648,7 @@ GameObject:
   - component: {fileID: 4331569831345946}
   m_Layer: 0
   m_Name: SEAGULL_
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -694,7 +695,7 @@ GameObject:
   - component: {fileID: 136939828390895918}
   m_Layer: 0
   m_Name: SEAGULL_ L Foot
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,7 +725,7 @@ GameObject:
   - component: {fileID: 4600394595901636}
   m_Layer: 0
   m_Name: SEAGULL_ L Toe02
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -754,7 +755,7 @@ GameObject:
   - component: {fileID: 4209396345301444}
   m_Layer: 0
   m_Name: SEAGULL_ L Toe01
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1637,7 +1638,7 @@ MonoBehaviour:
   fireball: {fileID: 1468243962082084, guid: eb67a113f454c6746a2ca96b8cbe176e, type: 2}
   Player: {fileID: 0}
   laserMaterial: {fileID: 2100000, guid: 974b33ccbd786464a825203eb88b8dab, type: 2}
-  difficulty: 2
+  difficulty: 1
   totalTime: 0
   isFlying: 1
 --- !u!114 &114472387120605650
@@ -1651,6 +1652,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797476f63aa43a646a337718a92dee43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 1277456559218810, guid: 91221bee306ba45208ec3b683f20f1b9,
+    type: 2}
+  flamePrefab: {fileID: 1251633149091250, guid: 3228a22491941734bb83ad691d17fcb9,
+    type: 2}
   grenadePrefab: {fileID: 1428700922476488, guid: 9128df2a6589ce343b39d6a53d9a0132,
     type: 2}
   flameThrowerPrefab: {fileID: 1419392851944400, guid: 3123da49cb81147489b444f2749aba47,
@@ -1668,7 +1673,22 @@ MonoBehaviour:
   rightLaserStart: {fileID: 4207970691644640}
   leftLaserEnd: {fileID: 4521536735646868}
   rightLaserEnd: {fileID: 4555357082638444}
-  rotationSpeed: 1.5
+  gustMaterial: {fileID: 0}
+  lockAttacks: 0
+--- !u!114 &114663770844821976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741567503634430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35d59a83231d411d940026e650b4ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seagullHealth: 100
+  egg: {fileID: 1673012328894780, guid: 942c62dfae04fc941bf13d391ad0fcfa, type: 2}
+  seagullHealthValue: {fileID: 0}
 --- !u!136 &136083618460373132
 CapsuleCollider:
   m_ObjectHideFlags: 1
