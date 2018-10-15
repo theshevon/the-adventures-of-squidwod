@@ -477,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &378273478
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1038,7 +1038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1710200681}
-  enemy: {fileID: 605606695}
   Seagull: {fileID: 605606695}
   Crab: {fileID: 1132316727484494, guid: 4919f9f4d6035bc49ae3c09f1ed047da, type: 2}
   CrabBurrow: {fileID: 1420928920975584, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}

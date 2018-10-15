@@ -12,7 +12,6 @@ public class GameManagerScript : MonoBehaviour {
 
 
     public GameObject player;
-    public GameObject enemy;
     public GameObject Seagull;
     public GameObject Crab;
     public GameObject CrabBurrow;
@@ -90,7 +89,7 @@ public class GameManagerScript : MonoBehaviour {
         }
         
 
-        if (inBossFight && enemy.GetComponent<SeagullBossController>().IsOnGround() && !MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled)
+        if (inBossFight && Seagull.GetComponent<SeagullBossController>().IsOnGround() && !MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled)
         {
             MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
         }
@@ -134,8 +133,16 @@ public class GameManagerScript : MonoBehaviour {
         if (((seagullHealthManager.damageTaken > healthThreshold) || Input.GetKeyDown(KeyCode.N)) && inBossFight)
         {
             Debug.Log("ending battle");
-            inBossFight = false;
-            EndBattle();
+            SeagullBossController SBC = Seagull.GetComponent<SeagullBossController>();
+
+            if (!SBC.attacksLocked){
+                SBC.attacksLocked = true;
+            }
+
+            if (SBC.IsIdle()){
+                SBC.TakeOff();
+                EndBattle();
+            }
         }
 
         // once the seagull has returned to the sky, call OnBattleEnd to reenable movement and camera
@@ -191,6 +198,8 @@ public class GameManagerScript : MonoBehaviour {
     
     void EndBattle()
     {
+
+        inBossFight = false;
         inCutscene = true;
         SeagullFlightController seagullFlight = Seagull.GetComponent<SeagullFlightController>();
         seagullFlight.enabled = true;

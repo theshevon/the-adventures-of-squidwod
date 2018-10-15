@@ -23,7 +23,7 @@ public class SeagullBossController : MonoBehaviour
 
     public Material gustMaterial;
     Material laserMaterial;
-    public bool lockAttacks;
+    public bool attacksLocked;
 
     LineRenderer lineRenderer;
     AudioSource audioSrc;
@@ -93,7 +93,6 @@ public class SeagullBossController : MonoBehaviour
     const float ringRadius = 25;
     const float maxRingIncrease = 60;
     const int angleStepFire = 10;
-    GameObject[] ringFireballs;
 
     void Start()
     {
@@ -103,11 +102,11 @@ public class SeagullBossController : MonoBehaviour
         animator = GetComponent<Animator>();
         lineRenderer.positionCount = 0;
         audioSrc.Stop();
-        ringFireballs = new GameObject[360 / angleStepFire];
     }
 
     void OnEnable()
     {
+        attacksLocked = false;
         movingDown = false;
         isOnGround = false;
         landAnimPlayed = false;
@@ -119,9 +118,16 @@ public class SeagullBossController : MonoBehaviour
     void OnDisable()
     {
         isOnGround = false;
+        DestroyFireballs();
+    }
+
+    void DestroyFireballs()
+    {
+
+        GameObject[] ringFireballs = GameObject.FindGameObjectsWithTag("Fireball");
         for (int i = 0; i < ringFireballs.Length; i++)
         {
-            Destroy(ringFireballs[i]);
+            Destroy(ringFireballs[i], 2);
         }
     }
 
@@ -129,12 +135,6 @@ public class SeagullBossController : MonoBehaviour
     {
 
         delta = Time.deltaTime;
-
-
-        // gust hotkey for testing
-        if (Input.GetKeyDown(KeyCode.G)){
-            UseLaserBeam();
-        }
 
         if (isOnGround)
         {
@@ -221,7 +221,7 @@ public class SeagullBossController : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, delta * rotationSpeed * 5);
             }
 
-            if (attackCountdown <= 0 && !rotating && !isAttacking && !lockAttacks)
+            if (attackCountdown <= 0 && !rotating && !isAttacking && !attacksLocked)
             {
 
                 isAttacking = true;
@@ -436,14 +436,14 @@ public class SeagullBossController : MonoBehaviour
         for (int angle = 0, i = 0; angle < 360; angle += angleStepFire, i++)
         {
             Vector3 position = new Vector3(Mathf.Sin(angle), 0.1f, Mathf.Cos(angle)) * ringRadius;
-            ringFireballs[i] = Instantiate(flamePrefab, position, transform.rotation);
+            GameObject fireball = Instantiate(flamePrefab, position, transform.rotation);
             if (i % 2 == 0)
             {
-                ringFireballs[i].transform.localScale = new Vector3(2, 2, 2);
+                fireball.transform.localScale = new Vector3(2, 2, 2);
             }
             else
             {
-                ringFireballs[i].transform.localScale = new Vector3(3, 3, 3);
+                fireball.transform.localScale = new Vector3(3, 3, 3);
             }
         }
     }
@@ -459,6 +459,14 @@ public class SeagullBossController : MonoBehaviour
             lineRenderer.SetPosition(i, new Vector3(x, laserRingHeight, z));
             //Debug.DrawLine(Vector3.zero, new Vector3(x, y, z));
         }
+    }
+
+    public void TakeOff(){
+        animator.SetTrigger("IdleToTakeoff");
+    }
+
+    public bool IsIdle(){
+        return !isAttacking && attacksLocked;
     }
 }
 
