@@ -26,6 +26,15 @@ public class ThirdPersonCameraController : MonoBehaviour {
         }
         transform.position = target.position - transform.forward * distanceFromTarget;
     }
+
+    void OnEnable()
+    {
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
     
     void LateUpdate () {
         // get yaw and pitch based on mouse movement

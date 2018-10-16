@@ -24,7 +24,7 @@ public class SeagullFlightController : MonoBehaviour
     public Material laserMaterial;
 
     [Range(1, 5)]
-    public int difficulty = 1;
+    public int currentLevel = 1;
 
     // orbit related 
     const float radiusOfOrbit = 120.0f;
@@ -75,7 +75,7 @@ public class SeagullFlightController : MonoBehaviour
         movement = Player.GetComponent<movement>();
         audioSrc = GetComponent<AudioSource>();
     }
-
+    
     void OnDisable()
     {
         isFlying = false;
@@ -98,7 +98,7 @@ public class SeagullFlightController : MonoBehaviour
             transform.Rotate(Vector3.up, delta / (Mathf.PI * 2) * 360 * orbitSpeed, Space.Self);
             
             // fire lasers from the seagull's eyes
-            switch (difficulty)
+            switch (currentLevel)
             {
                 case 1:
                     Level1();
@@ -292,11 +292,11 @@ public class SeagullFlightController : MonoBehaviour
     
         // right eye laser
         //direction = target.transform.position - rightEye.position;
-        direction = laserTarget - rightEye.position;
-        laser = Instantiate(laserPrefab, rightEye.position, Quaternion.LookRotation(direction));
-        //laser.transform.position = rightEye.position;
-        //laser.transform.LookAt(Vector3.zero);
-        laser.GetComponent<LaserController>().direction = direction;
+//        direction = laserTarget - rightEye.position;
+//        laser = Instantiate(laserPrefab, rightEye.position, Quaternion.LookRotation(direction));
+//        //laser.transform.position = rightEye.position;
+//        //laser.transform.LookAt(Vector3.zero);
+//        laser.GetComponent<LaserController>().direction = direction;
     
         //Debug.DrawLine(Vector3.zero, -direction);
     }

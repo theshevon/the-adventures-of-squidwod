@@ -37,13 +37,14 @@ public class GameManagerScript : MonoBehaviour {
     // stage
     const int fightThreshold = 10;
     const int healthThreshold = 20;
+    private const int maxLevels = 5;
     SeagullHealthManager seagullHealthManager;
     public bool inBossFight;
     bool battleStarted;
     private bool inCutscene;
     float countdown = 5f;
     bool canSpawnCrab = true;
-    public int stage;
+    public int currentLevel = 1;
     
     // player health
     private int health;
@@ -64,6 +65,7 @@ public class GameManagerScript : MonoBehaviour {
 
     void Start()
     {
+        currentLevel = 1;
         FirstEggCollected = false;
         SpawnEgg(new Vector3(0, eggHeight, 0));
         cameraTintMaterial.SetColor("_Color", Color.white);
@@ -130,11 +132,11 @@ public class GameManagerScript : MonoBehaviour {
         
         // trigger the end battle sequence
         // need to change the conditions
-        if (((seagullHealthManager.damageTaken > healthThreshold) || Input.GetKeyDown(KeyCode.N)) && inBossFight)
+        if ((seagullHealthManager.damageTaken > healthThreshold || Input.GetKeyDown(KeyCode.N)) && inBossFight && currentLevel < maxLevels)
         {
             Debug.Log("ending battle");
             SeagullBossController SBC = Seagull.GetComponent<SeagullBossController>();
-
+    
             if (!SBC.attacksLocked){
                 SBC.attacksLocked = true;
             }
@@ -193,17 +195,22 @@ public class GameManagerScript : MonoBehaviour {
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
 
         canSpawnCrab = true;
+        DestroyEgg();
     }
     
     void EndBattle()
     {
-
         inBossFight = false;
         inCutscene = true;
         SeagullFlightController seagullFlight = Seagull.GetComponent<SeagullFlightController>();
         seagullFlight.enabled = true;
         SeagullBossController seagullBoss = Seagull.GetComponent<SeagullBossController>();
         seagullBoss.enabled = false;
+        
+        // increment levels
+        Seagull.GetComponent<SeagullFlightController>().currentLevel++;
+        currentLevel++;
+        if (seagullBoss.NUM_OF_ATTACKS < 4) seagullBoss.NUM_OF_ATTACKS++;
         
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
         
@@ -228,6 +235,7 @@ public class GameManagerScript : MonoBehaviour {
         player.GetComponent<bossControls>().enabled = false;
 
         canSpawnCrab = true;
+        SpawnEgg();
     }
 
     // spawn a crab in a random location
@@ -289,6 +297,12 @@ public class GameManagerScript : MonoBehaviour {
         {
             Destroy(crabs[i]);
         }
+    }
+
+    private void DestroyEgg()
+    {
+        GameObject egg = GameObject.FindWithTag("Egg");
+        Destroy(egg);
     }
 
     IEnumerator ChangeMusic(AudioClip newMusic)

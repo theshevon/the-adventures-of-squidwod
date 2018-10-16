@@ -40,7 +40,7 @@ public class SeagullBossController : MonoBehaviour
     const float maxHeightChange = 25.0f;
 
     // boss fight animation params 
-    const int NUM_OF_ATTACKS = 4;
+    public int NUM_OF_ATTACKS =0;
     int nextAttack;
     float nextAttackDelay;
     readonly float[] attackDelays = { 5.0f, 6.0f, 4.0f, 8.0f }; // index 1 is time to wait after first attack starts,

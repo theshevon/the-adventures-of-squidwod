@@ -231,6 +231,11 @@ Prefab:
       propertyPath: difficulty
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: NUM_OF_ATTACKS
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
   m_IsPrefabParent: 0
@@ -1057,7 +1062,7 @@ MonoBehaviour:
   FirstEggCollected: 0
   battleAudio: {fileID: 8300000, guid: 6d6fdd612553c9847982dc49b2044566, type: 3}
   inBossFight: 0
-  stage: 0
+  currentLevel: 1
   playerMaterial: {fileID: 2100000, guid: f8e76c2d404d5574cb381c562f764787, type: 2}
   cameraTintMaterial: {fileID: 2100000, guid: 56ab406774a2db045a490405d8551b60, type: 2}
   cameraDeathColour: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}

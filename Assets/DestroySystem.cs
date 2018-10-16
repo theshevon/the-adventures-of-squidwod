@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class DestroySystem : MonoBehaviour
 {
-
+    private ParticleSystem ps;
     // Use this for initialization
     void Start()
     {
-        Destroy(gameObject, 4);
+        ps = GetComponent<ParticleSystem>();
+    }
+    
+    void Update () {
+        if(ps)
+        {
+            if(!ps.IsAlive())
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

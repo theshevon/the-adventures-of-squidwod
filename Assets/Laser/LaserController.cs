@@ -15,7 +15,8 @@ public class LaserController : MonoBehaviour
                               // 1 for large explosion
 
     const float velocity = 2.0f;
-
+    private bool isExploded;
+    
     void Update()
     {
         // move lasers in direction of target
@@ -29,15 +30,13 @@ public class LaserController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-
-        if ((col.gameObject.tag == "Terrain" || col.gameObject.tag == "Player" || col.gameObject.tag == "ArenaWall"))
+        if ((col.gameObject.CompareTag("Terrain") || col.gameObject.CompareTag("Player")) && isExploded)
         {
-
+            isExploded = true;
+            Destroy(gameObject);
             GameObject explosion;
             explosion = explosionType == 0 ? Instantiate(smallExplosionPrefab) : Instantiate(largeExplosionPrefab);
             explosion.transform.position = transform.position;
-
-            Destroy(gameObject);
         }
     }
 }
