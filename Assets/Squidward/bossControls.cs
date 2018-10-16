@@ -83,10 +83,10 @@ public class bossControls : MonoBehaviour
 			transform.position = centerPosition + fromCenterToPlayer;
 		}
 
-		if (GMS.TotalScore < 1)
-		{
-			canAttack = false;
-		}
+//		if (GMS.TotalScore < 1)
+//		{
+//			canAttack = false;
+//		}
 		
 		if (canAttack)
 		{
