@@ -56,6 +56,11 @@ public class interaction : MonoBehaviour {
 		}
 	}
 
+	public void OnPlayerHit()
+	{
+		if (!isDamaged) StartCoroutine(TakeDamage());
+	}
+	
 	IEnumerator TakeDamage()
 	{
 		PlayHurtSound();
@@ -70,7 +75,6 @@ public class interaction : MonoBehaviour {
 	void PlayHurtSound()
 	{
 		int index = Random.Range(0, hurt.Length);
-		Debug.Log(index);
 		audioSrc.PlayOneShot(hurt[index]);
 	}
 }

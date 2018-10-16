@@ -239,7 +239,7 @@ Prefab:
     - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
         type: 2}
       propertyPath: NUM_OF_ATTACKS
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
         type: 2}
@@ -276,6 +276,16 @@ Prefab:
       propertyPath: seagullHurt.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 5633e2d951b063549800f85c13baf7b4, type: 3}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1710200681}
+    - target: {fileID: 114348733858654932, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: currentLevel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
   m_IsPrefabParent: 0

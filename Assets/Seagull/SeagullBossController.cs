@@ -88,6 +88,7 @@ public class SeagullBossController : MonoBehaviour
     bool usingGust;
     const int angleStepGust = 5;
     const float laserRingHeight = 5;
+    public GameObject player;
 
     // ring of fire
     const float ringRadius = 25;
@@ -462,14 +463,24 @@ public class SeagullBossController : MonoBehaviour
 
     void MakeLaserRing(float radius)
     {
-
         for (int i = 0, angle = 0; i < 360/angleStepGust; i++, angle += angleStepGust)
         {
             float x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
             float z = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
-
+            
             lineRenderer.SetPosition(i, new Vector3(x, laserRingHeight, z));
             //Debug.DrawLine(Vector3.zero, new Vector3(x, y, z));
+            if (i > 1)
+            {
+                RaycastHit hit;
+                if (Physics.Linecast(lineRenderer.GetPosition(i), lineRenderer.GetPosition(i-1), out hit))
+                {
+                    if (hit.transform.gameObject.CompareTag("Player"))
+                    {
+                        player.GetComponent<interaction>().OnPlayerHit();
+                    }
+                }
+            }
         }
     }
 

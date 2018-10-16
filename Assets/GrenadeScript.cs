@@ -26,6 +26,17 @@ public class GrenadeScript : MonoBehaviour {
         }
 	}
 
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            col.gameObject.GetComponent<interaction>().OnPlayerHit();
+            GameObject explosion = Instantiate(explosionEffect);
+            explosion.transform.position = transform.position;
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);

@@ -15,6 +15,7 @@ TagManager:
   - Normal
   - Seagull
   - Burrow
+  - Grenade
   layers:
   - Default
   - TransparentFX

@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 136133543755510242}
   m_Layer: 0
   m_Name: DM51A1
-  m_TagString: Untagged
+  m_TagString: Grenade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
