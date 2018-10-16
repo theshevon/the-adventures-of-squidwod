@@ -18,6 +18,7 @@ public class interaction : MonoBehaviour {
 
 	private AudioSource audioSrc;
 	public AudioClip[] hurt;
+	public AudioClip pickup;
 
 	void Start()
 	{
@@ -39,6 +40,7 @@ public class interaction : MonoBehaviour {
             if (!GameManager.inBossFight) gameManager.SpawnEgg();
 			GameManager.TotalScore += 1;
 			GameManager.CurrentScore += 1;
+			audioSrc.PlayOneShot(pickup, 0.7f);
 			Destroy(col.gameObject);
 		}
 		else if (col.gameObject.CompareTag("Crab") && !isDamaged)
