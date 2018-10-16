@@ -20,6 +20,7 @@
           <e p="CrabMovement.cs" t="Include" />
           <e p="CrabSpawner.cs" t="Include" />
         </e>
+        <e p="Crosshair.cs" t="Include" />
         <e p="DestroySystem.cs" t="Include" />
         <e p="Effects" t="Include">
           <e p="Shared" t="Include">

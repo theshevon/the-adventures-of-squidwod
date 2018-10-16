@@ -17,6 +17,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject CrabBurrow;
     public Camera MainCamera;
     public GameObject EggPrefab;
+    public GameObject Crosshair;
 
     public Vector3 centre;
     public int diameter;
@@ -193,7 +194,7 @@ public class GameManagerScript : MonoBehaviour {
         player.GetComponent<bossControls>().enabled = true;
         player.GetComponent<movement>().enabled = true;
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
-
+        Crosshair.SetActive(true);
         canSpawnCrab = true;
         DestroyEgg();
     }
@@ -218,7 +219,7 @@ public class GameManagerScript : MonoBehaviour {
         player.GetComponent<movement>().enabled = false;
 
         seagullHealthManager.damageTaken = 0;
-
+        Crosshair.SetActive(false);
         canSpawnCrab = false;
         DestroyCrabs();
     }

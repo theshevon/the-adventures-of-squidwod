@@ -22,7 +22,7 @@ public class BossFightThirdPersonCameraController : MonoBehaviour {
 
     void OnEnable () {
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.visible = false;
     }
     
     void LateUpdate () {

@@ -75,6 +75,11 @@ public class SeagullFlightController : MonoBehaviour
         movement = Player.GetComponent<movement>();
         audioSrc = GetComponent<AudioSource>();
     }
+
+    void OnEnable()
+    {
+        laser.material = laserMaterial;
+    }
     
     void OnDisable()
     {

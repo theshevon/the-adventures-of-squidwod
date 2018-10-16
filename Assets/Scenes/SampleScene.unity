@@ -1019,6 +1019,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &660321958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 660321960}
+  - component: {fileID: 660321959}
+  m_Layer: 0
+  m_Name: Crosshair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &660321959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660321958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc4854cb060256489c8e788e06a97e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairImage: {fileID: 2800000, guid: 90c84dc50741c43a1bbab2f84481730c, type: 3}
+--- !u!4 &660321960
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660321958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677384383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1094,7 @@ MonoBehaviour:
   CrabBurrow: {fileID: 1420928920975584, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}
   MainCamera: {fileID: 282840813}
   EggPrefab: {fileID: 1709261887271770, guid: 355fd08a8f770bb44b8e050fec0d6e55, type: 2}
+  Crosshair: {fileID: 660321958}
   centre: {x: 0, y: 0, z: 0}
   diameter: 120
   audioSrc: {fileID: 677384386}
