@@ -30,7 +30,7 @@ public class LaserController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if ((col.gameObject.CompareTag("Terrain") || col.gameObject.CompareTag("Player")) && isExploded)
+        if ((col.gameObject.CompareTag("Terrain") || col.gameObject.CompareTag("Player")) && !isExploded)
         {
             isExploded = true;
             Destroy(gameObject);

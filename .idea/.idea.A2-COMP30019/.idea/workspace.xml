@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/ThirdPersonCameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/cameraTintMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/cameraTintMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DestroySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DestroySystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManagerScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Laser/LaserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Laser/LaserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/squidwardMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/squidwardMaterial.mat" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,13 +31,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="26350" />
+          <entry key="cs" value="26351" />
           <entry key="shader" value="1211" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="26350" />
+          <entry key="C#" value="26351" />
           <entry key="ShaderLab" value="1211" />
         </counts>
       </usages-collector>
@@ -161,15 +152,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Laser/LaserController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+            <state relative-caret-position="601">
+              <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
               <folding>
-                <marker date="1539664797870" expanded="true" signature="0:200" ph="/* Code to control the lasers fired by the Giant Seagull in the game developed ... */" />
-                <marker date="1539664797870" expanded="true" signature="266:1309" ph="{...}" />
-                <marker date="1539664797870" expanded="true" signature="593:854" ph="{...}" />
-                <marker date="1539664797870" expanded="true" signature="804:848" ph="{...}" />
-                <marker date="1539664797870" expanded="true" signature="893:1307" ph="{...}" />
-                <marker date="1539664797870" expanded="true" signature="1004:1301" ph="{...}" />
+                <marker date="1539664922357" expanded="true" signature="0:200" ph="/* Code to control the lasers fired by the Giant Seagull in the game developed ... */" />
+                <marker date="1539664922357" expanded="true" signature="266:1310" ph="{...}" />
+                <marker date="1539664922357" expanded="true" signature="593:854" ph="{...}" />
+                <marker date="1539664922357" expanded="true" signature="804:848" ph="{...}" />
+                <marker date="1539664922357" expanded="true" signature="893:1308" ph="{...}" />
+                <marker date="1539664922357" expanded="true" signature="1005:1302" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -565,12 +556,12 @@
       <workItem from="1539481040291" duration="4467000" />
       <workItem from="1539502730008" duration="7511000" />
       <workItem from="1539517107239" duration="4472000" />
-      <workItem from="1539654475644" duration="9690000" />
+      <workItem from="1539654475644" duration="9814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153755000" />
+    <option name="totallyTimeSpent" value="153879000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1025,15 +1016,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Laser/LaserController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="601">
+          <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
           <folding>
-            <marker date="1539664797870" expanded="true" signature="0:200" ph="/* Code to control the lasers fired by the Giant Seagull in the game developed ... */" />
-            <marker date="1539664797870" expanded="true" signature="266:1309" ph="{...}" />
-            <marker date="1539664797870" expanded="true" signature="593:854" ph="{...}" />
-            <marker date="1539664797870" expanded="true" signature="804:848" ph="{...}" />
-            <marker date="1539664797870" expanded="true" signature="893:1307" ph="{...}" />
-            <marker date="1539664797870" expanded="true" signature="1004:1301" ph="{...}" />
+            <marker date="1539664922357" expanded="true" signature="0:200" ph="/* Code to control the lasers fired by the Giant Seagull in the game developed ... */" />
+            <marker date="1539664922357" expanded="true" signature="266:1310" ph="{...}" />
+            <marker date="1539664922357" expanded="true" signature="593:854" ph="{...}" />
+            <marker date="1539664922357" expanded="true" signature="804:848" ph="{...}" />
+            <marker date="1539664922357" expanded="true" signature="893:1308" ph="{...}" />
+            <marker date="1539664922357" expanded="true" signature="1005:1302" ph="{...}" />
           </folding>
         </state>
       </provider>
