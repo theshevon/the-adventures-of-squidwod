@@ -75,6 +75,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject credits;
     public Color cameraVictoryColour;
     [Range(0,1)] public float victorySaturationValue;
+
     
 
     void Start()
@@ -178,7 +179,7 @@ public class GameManagerScript : MonoBehaviour {
             }
         }
 
-        if (seagullHealthManager.seagullHealth <= 0 || Input.GetKeyDown(KeyCode.M))
+        if ((seagullHealthManager.seagullHealth <= 0 || Input.GetKeyDown(KeyCode.M)) && !gameEnded)
         {
             canSpawnCrab = false;
             DestroyCrabs();
@@ -196,6 +197,7 @@ public class GameManagerScript : MonoBehaviour {
             
             if (SBC.IsIdle())
             {
+                gameEnded = true;
                 EndGame();
             }
         }
@@ -301,7 +303,6 @@ public class GameManagerScript : MonoBehaviour {
         healthText.SetActive(false);
         scoreText.SetActive(false);
         seagullText.SetActive(false);
-        
         Seagull.GetComponent<SeagullBossController>().enabled = false;
         Seagull.GetComponent<Animator>().SetTrigger("IdleToDie");
         Crosshair.SetActive(false);

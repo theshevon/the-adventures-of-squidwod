@@ -45,6 +45,9 @@ public class bossControls : MonoBehaviour
 	// sound effects
 	private AudioSource audioSrc;
 	public AudioClip throwEgg;
+
+	public GameObject gameManager;
+	private GameManagerScript GMS;
 	
 	// Use this for initialization
 	void Start ()
@@ -60,6 +63,7 @@ public class bossControls : MonoBehaviour
 		GetComponent<movement>().enabled = true;
 		cam.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
 		audioSrc = GetComponent<AudioSource>();
+		GMS = gameManager.GetComponent<GameManagerScript>();
 	}
 	
 	// Update is called once per frame
@@ -79,6 +83,11 @@ public class bossControls : MonoBehaviour
 			transform.position = centerPosition + fromCenterToPlayer;
 		}
 
+//		if (GMS.TotalScore < 1)
+//		{
+//			canAttack = false;
+//		}
+		
 		if (canAttack)
 		{
 			if (Input.GetMouseButtonDown(0))
@@ -151,6 +160,7 @@ public class bossControls : MonoBehaviour
 				//rb.transform.LookAt(position);
 				rb.velocity = aimDirection * throwSpeed;
 				animator.SetTrigger("ThrowAction");
+				GMS.TotalScore--;
 			}
 
 			if (!Input.GetMouseButton(0))
