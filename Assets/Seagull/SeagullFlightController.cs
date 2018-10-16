@@ -56,6 +56,8 @@ public class SeagullFlightController : MonoBehaviour
     LineRenderer laser;
     movement movement;
 
+    private int attackNumber;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -96,8 +98,24 @@ public class SeagullFlightController : MonoBehaviour
             transform.Rotate(Vector3.up, delta / (Mathf.PI * 2) * 360 * orbitSpeed, Space.Self);
             
             // fire lasers from the seagull's eyes
-            if (difficulty == 1) {Level1();}
-            if (difficulty == 2) {Level2();}
+            switch (difficulty)
+            {
+                case 1:
+                    Level1();
+                    break;
+                case 2:
+                    Level2();
+                    break;
+                case 3:
+                    Level3();
+                    break;
+                case 4:
+                    Level4();
+                    break;
+                case 5:
+                    Level5();
+                    break;
+            }
             
         } else
         {
@@ -125,20 +143,33 @@ public class SeagullFlightController : MonoBehaviour
 
     void Level2()
     {
+        if (fireCountDown >= 0)
+        {
+            GetLongLaserTarget();
+        }
+        if ((fireCountDown >= -2) & (fireCountDown <= 0))
+        {
+            // during the specified countdown during the laser should fire, call the method
+            ShootLongLaser();
+        }
+        if (fireCountDown <= -2)
+        {
+            // at the end of the duration
+            // stop the sound effect
+            audioSrc.Stop();
+            // set the number of line positions to 0, removing the line
+            laser.positionCount = 0;
+            // reset the countdown
+            fireCountDown = fireDelay;
+            ShootLaser();
+        }
+    }
+    
+    void Level3()
+    {
         if (fireCountDown >= -1)
         {
-            // pick the initial start point of the laser
-            // slightly in front of the players forward direction
-            laserTarget = target.transform.position + target.transform.forward*30;
-            laserTarget.y = 0;
-            // pick a random direction
-            laserDirection = Random.insideUnitCircle;
-            // this value is in 2d, need to swap y and z
-            laserDirection.z = laserDirection.y;
-            laserDirection.y = 0;
-            // set the start and counter to the current time
-            startTime = Time.time;
-            counterTime = Time.time;
+            GetLongLaserTarget();
         }
         if ((fireCountDown >= -3) & (fireCountDown <= -1))
         {
@@ -155,11 +186,88 @@ public class SeagullFlightController : MonoBehaviour
             // reset the countdown
             fireCountDown = fireDelay;
             ShootLaser();
-            StartCoroutine(ShootFireballs(3));
+            StartCoroutine(ShootFireballs(3, 0.5f, 0.5f));
         }
     }
     
+    void Level4()
+    {
+        if (fireCountDown >= -1)
+        {
+            GetLongLaserTarget();
+        }
+        if ((fireCountDown >= -3) & (fireCountDown <= -1))
+        {
+            // during the specified countdown during the laser should fire, call the method
+            ShootLongLaser();
+        }
+        if (fireCountDown <= -3)
+        {
+            // at the end of the duration
+            // stop the sound effect
+            audioSrc.Stop();
+            // set the number of line positions to 0, removing the line
+            laser.positionCount = 0;
+            // reset the countdown
+            fireCountDown = fireDelay;
+            StartCoroutine(ShootLasers(3, 0.2f));
+            StartCoroutine(ShootFireballs(3, 0.3f, 1.0f));
+        }
+    }
 
+    void Level5()
+    {
+        if (fireCountDown >= -1)
+        {
+            GetLongLaserTarget();
+        }
+        if ((fireCountDown >= -3) & (fireCountDown <= -1))
+        {
+            // during the specified countdown during the laser should fire, call the method
+            ShootLongLaser();
+        }
+        if ((fireCountDown >= -3.5) & (fireCountDown <= -3))
+        {
+            GetLongLaserTarget();
+            // stop the sound effect
+            audioSrc.Stop();
+            // set the number of line positions to 0, removing the line
+            laser.positionCount = 0;
+        }
+        if ((fireCountDown >= -5.5) & (fireCountDown <= -3.5))
+        {
+            // during the specified countdown during the laser should fire, call the method
+            ShootLongLaser();
+        }
+        if (fireCountDown <= -5.5)
+        {
+            // at the end of the duration
+            // stop the sound effect
+            audioSrc.Stop();
+            // set the number of line positions to 0, removing the line
+            laser.positionCount = 0;
+            // reset the countdown
+            fireCountDown = fireDelay;
+            StartCoroutine(ShootLasers(5, 0.2f));
+            StartCoroutine(ShootFireballs(3, 0.3f, 1.0f));
+        }
+    }
+
+    void GetLongLaserTarget()
+    {
+        // pick the initial start point of the laser
+        // slightly in front of the players forward direction
+        laserTarget = target.transform.position + target.transform.forward*30;
+        laserTarget.y = 0;
+        // pick a random direction
+        laserDirection = Random.insideUnitCircle;
+        // this value is in 2d, need to swap y and z
+        laserDirection.z = laserDirection.y;
+        laserDirection.y = 0;
+        // set the start and counter to the current time
+        startTime = Time.time;
+        counterTime = Time.time;
+    }
     void ShootLaser()
     {
         audioSrc.PlayOneShot(laserSound, 0.6f);
@@ -223,18 +331,28 @@ public class SeagullFlightController : MonoBehaviour
             fire.transform.position = laserPosition;
         }
     }
+    
 
-    IEnumerator ShootFireballs(int count)
+    IEnumerator ShootFireballs(int count, float delay, float initialDelay)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(initialDelay);
         for (int i = 0; i<count; i++)
         {
+            yield return new WaitForSeconds(delay);
             audioSrc.PlayOneShot(fireballSound, 0.4f);
-            yield return new WaitForSeconds(0.5f);
             Vector3 direction = laserTarget - mouth.position;
             GameObject fire = Instantiate(fireball, mouth.position, 
                                           Quaternion.LookRotation(direction));
             fire.GetComponent<flameCollision>().direction = direction;
+        }
+    }
+
+    IEnumerator ShootLasers(int count, float delay)
+    {
+        for (int i = 0; i<count; i++)
+        {
+            yield return new WaitForSeconds(delay);
+            ShootLaser();
         }
     }
 

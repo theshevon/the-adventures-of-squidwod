@@ -65,7 +65,7 @@ public class GameManagerScript : MonoBehaviour {
     void Start()
     {
         FirstEggCollected = false;
-        //SpawnEgg(new Vector3(0, eggHeight, 0));
+        SpawnEgg(new Vector3(0, eggHeight, 0));
         cameraTintMaterial.SetColor("_Color", Color.white);
         cameraTintMaterial.SetFloat("_DesaturationValue", 0);
         seagullAudio = Seagull.GetComponent<AudioSource>();
@@ -160,8 +160,7 @@ public class GameManagerScript : MonoBehaviour {
     {
         FirstEggCollected = true;
         Seagull.gameObject.SetActive(true);
-        audioSrc.clip = battleAudio;
-        audioSrc.Play();
+        StartCoroutine(ChangeMusic(battleAudio));
     }
     
     void StartBattle()
@@ -270,8 +269,7 @@ public class GameManagerScript : MonoBehaviour {
     private void PlayerDeath()
     {
         seagullAudio.mute = true;
-        audioSrc.clip = deathAudio;
-        audioSrc.Play();
+        StartCoroutine(ChangeMusic(deathAudio));
         Instantiate(explosion, player.transform);
         playerMaterial.SetColor("_Color", Color.white);
         cameraTintMaterial.SetColor("_Color", cameraDeathColour);
@@ -290,6 +288,23 @@ public class GameManagerScript : MonoBehaviour {
         for(int i=0; i < crabs.Length; i++)
         {
             Destroy(crabs[i]);
+        }
+    }
+
+    IEnumerator ChangeMusic(AudioClip newMusic)
+    {
+        float startVolume = audioSrc.volume;
+        while (audioSrc.volume > 0)
+        {
+            audioSrc.volume -= startVolume * Time.deltaTime / 0.5f;
+            yield return null;
+        }
+        
+        if (audioSrc.volume <= 0)
+        {
+            audioSrc.volume = startVolume;
+            audioSrc.clip = newMusic;
+            audioSrc.Play();
         }
     }
 }

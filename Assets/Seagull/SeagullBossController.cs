@@ -231,16 +231,16 @@ public class SeagullBossController : MonoBehaviour
                 switch (nextAttack)
                 {
                     case 0:
-                        UseGrenade();
+                        UseGust();
                         break;
                     case 1:
-                        UseFlameThrower();
+                        UseGrenade();
                         break;
                     case 2:
                         UseLaserBeam();
                         break;
                     case 3:
-                        UseGust();
+                        UseFlameThrower();
                         break;
                 }
 
