@@ -18,10 +18,12 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject CrabBurrow;
     public Camera MainCamera;
     public GameObject EggPrefab;
+    public GameObject healthTokenPrefab;
     public GameObject Crosshair;
 
-    public Vector3 centre;
-    public int diameter;
+    const int radius = 60;
+    const int innerRadius = 25;
+    const int outerRadius = 65;
     public AudioSource audioSrc;
     public TextMeshProUGUI scoreValue;
 
@@ -35,21 +37,23 @@ public class GameManagerScript : MonoBehaviour {
 
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
+    const float healthTokenHeight = 2;
 
     // stage
     const int fightThreshold = 10;
     const int healthThreshold = 20;
-    private const int maxLevels = 5;
+    const int maxLevels = 5;
     SeagullHealthManager seagullHealthManager;
     public bool inBossFight;
     bool battleStarted;
-    private bool inCutscene;
+    bool inCutscene;
     float countdown = 5f;
     bool canSpawnCrab = true;
     public int currentLevel = 1;
-    
+
     // player health
-    private int health;
+    //const int maxHealth = 100;
+    //int health = maxHealth;
     public Material playerMaterial;
     
     // death screen
@@ -85,7 +89,7 @@ public class GameManagerScript : MonoBehaviour {
 
     void Update ()
     {
-        if (player.GetComponent<interaction>().health <= 0 && !gameEnded)
+        if (player.GetComponent<interaction>().GetPlayerHealth() <= 0 && !gameEnded)
         {
             PlayerDeath();
             gameEnded = true;
@@ -113,8 +117,13 @@ public class GameManagerScript : MonoBehaviour {
             countdown = Random.Range(5, 10);
         }
 
+        // randomly but rarely spawn health tokens
+        if (Random.Range(0, Int32.MaxValue)%2 == 0 && Random.Range(0,1000)%17 == 0 && FirstEggCollected){
+            SpawnHealthToken();
+        }
+
         /* ============================================ SEAGULL CONTROL ============================================ */
-        
+
         // start boss battle if score threshold satisfied
         // hotkey added for testing purposes
         if (((CurrentScore > 0 && CurrentScore % fightThreshold == 0) || Input.GetKeyDown(KeyCode.B)) && !inBossFight)
@@ -301,7 +310,7 @@ public class GameManagerScript : MonoBehaviour {
     // spawn a crab in a random location
     public void SpawnCrab()
     {
-        Vector3 pos = centre + new Vector3(Random.Range(-diameter / 2, diameter / 2), crabHeight, Random.Range(-diameter / 2, diameter / 2));
+        Vector3 pos = new Vector3(Random.Range(-radius, radius), crabHeight, Random.Range(-radius, radius));
         Quaternion rotation = Quaternion.identity;
         rotation.eulerAngles = new Vector3(-90, 0, 0);
         Instantiate(CrabBurrow, pos + new Vector3(0,crabHeight,0), rotation);
@@ -324,7 +333,20 @@ public class GameManagerScript : MonoBehaviour {
     // spawn an egg in a random location
     public void SpawnEgg()
     {
-        Vector3 pos = centre + new Vector3(Random.Range(-diameter / 2, diameter / 2), eggHeight, Random.Range(-diameter / 2, diameter / 2));
+        Vector3 pos;
+
+        if (!inBossFight)
+        {
+            pos = new Vector3(Random.Range(-radius, radius), eggHeight, Random.Range(-radius, radius));
+        }
+        else
+        {
+            pos = new Vector3(Random.Range(-innerRadius, innerRadius), eggHeight, Random.Range(-innerRadius, innerRadius));
+            int offset = Random.Range(1, outerRadius - innerRadius);
+            pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
+            pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
+        }
+
         Instantiate(EggPrefab, pos, Quaternion.identity);
     }
 
@@ -334,7 +356,25 @@ public class GameManagerScript : MonoBehaviour {
         Instantiate(EggPrefab, pos, Quaternion.identity);
     }
 
-    private void PlayerDeath()
+    // spawn a Health token in a random location
+    public void SpawnHealthToken()
+    {
+        Vector3 pos;
+
+        if (!inBossFight)
+        {
+            pos = new Vector3(Random.Range(-radius+20, radius-20), healthTokenHeight, Random.Range(-radius+20, radius-20));
+        } else{
+            pos = new Vector3(Random.Range(-innerRadius, innerRadius), healthTokenHeight, Random.Range(-innerRadius, innerRadius));
+            int offset = Random.Range(1, (outerRadius - innerRadius)/2);
+            pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
+            pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
+        }
+
+        Instantiate(healthTokenPrefab, pos, Quaternion.identity);
+    }
+
+    void PlayerDeath()
     {
         seagullAudio.mute = true;
         StartCoroutine(ChangeMusic(deathAudio, 0.5f));

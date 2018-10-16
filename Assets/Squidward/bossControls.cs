@@ -33,9 +33,9 @@ public class bossControls : MonoBehaviour
 	private Ray ray;
 	public bool canAttack = true;
 	
-	private float outerRadius = 65;
-	private float innerRadius = 25;
-	private Vector3 centerPosition = new Vector3(0, 2, 0);
+	const float outerRadius = 65;
+	const float innerRadius = 25;
+    readonly Vector3 centerPosition = new Vector3(0, 2, 0);
 	private float distanceToCenter;
 
 	public float throwSpeed;

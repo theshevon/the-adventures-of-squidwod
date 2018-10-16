@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Terrain
   - Egg
-  - LoseLife
   - Flame
   - Crab
   - Fireball
@@ -14,8 +13,13 @@ TagManager:
   - Critical
   - Normal
   - Seagull
+<<<<<<< Updated upstream
   - Burrow
   - Grenade
+=======
+  - Laser
+  - HealthToken
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
