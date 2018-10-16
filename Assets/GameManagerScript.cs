@@ -47,7 +47,8 @@ public class GameManagerScript : MonoBehaviour {
     public bool inBossFight;
     bool battleStarted;
     bool inCutscene;
-    float countdown = 5f;
+    float healthTokenSpawnCountdown;
+    float crabSpawnCountdown = 5f;
     bool canSpawnCrab = true;
     public int currentLevel = 1;
 
@@ -85,10 +86,13 @@ public class GameManagerScript : MonoBehaviour {
         cameraTintMaterial.SetFloat("_DesaturationValue", 0);
         seagullAudio = Seagull.GetComponent<AudioSource>();
         seagullHealthManager = Seagull.GetComponent<SeagullHealthManager>();
+        healthTokenSpawnCountdown = Random.Range(5, 20);
     }
 
     void Update ()
     {
+        float delta = Time.deltaTime;
+
         if (player.GetComponent<interaction>().GetPlayerHealth() <= 0 && !gameEnded)
         {
             PlayerDeath();
@@ -110,16 +114,18 @@ public class GameManagerScript : MonoBehaviour {
         }
 
         // randomly spawn crabs
-        countdown -= Time.deltaTime;
-        if (countdown <= 0 && FirstEggCollected && canSpawnCrab)
+        crabSpawnCountdown -= delta;
+        if (crabSpawnCountdown <= 0 && FirstEggCollected && canSpawnCrab)
         {
             SpawnCrab();
-            countdown = Random.Range(5, 10);
+            crabSpawnCountdown = Random.Range(5, 10);
         }
 
-        // randomly but rarely spawn health tokens
-        if (Random.Range(0, Int32.MaxValue)%2 == 0 && Random.Range(0,1000)%17 == 0 && FirstEggCollected){
+        // randomly spawn health tokens
+        healthTokenSpawnCountdown -= delta;
+        if (FirstEggCollected && healthTokenSpawnCountdown <= 0){
             SpawnHealthToken();
+            healthTokenSpawnCountdown = Random.Range(5, 30);
         }
 
         /* ============================================ SEAGULL CONTROL ============================================ */
@@ -363,7 +369,7 @@ public class GameManagerScript : MonoBehaviour {
 
         if (!inBossFight)
         {
-            pos = new Vector3(Random.Range(-radius+20, radius-20), healthTokenHeight, Random.Range(-radius+20, radius-20));
+            pos = new Vector3(Random.Range(-radius, radius), healthTokenHeight, Random.Range(-radius, radius));
         } else{
             pos = new Vector3(Random.Range(-innerRadius, innerRadius), healthTokenHeight, Random.Range(-innerRadius, innerRadius));
             int offset = Random.Range(1, (outerRadius - innerRadius)/2);
