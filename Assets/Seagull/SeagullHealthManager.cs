@@ -12,10 +12,13 @@ public class SeagullHealthManager : MonoBehaviour {
     public TextMeshProUGUI seagullHealthValue;
     private bool isDamaged;
     public int damageTaken;
+    private AudioSource audioSrc;
+    public AudioClip[] seagullHurt;
 
     void Start()
     {
         seagullHealth = 100;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -39,6 +42,7 @@ public class SeagullHealthManager : MonoBehaviour {
 
     IEnumerator TakeDamage(int damage)
     {
+        PlayHurtSound();
         seagullHealth -= damage;
         damageTaken += damage;
         seagullMaterial.SetColor("_Color", damageColour);
@@ -46,5 +50,12 @@ public class SeagullHealthManager : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         seagullMaterial.SetColor("_Color", Color.white);
         isDamaged = false;
+    }
+    
+    void PlayHurtSound()
+    {
+        int index = Random.Range(0, seagullHurt.Length);
+        Debug.Log(index);
+        audioSrc.PlayOneShot(seagullHurt[index]);
     }
 }

@@ -31,6 +31,7 @@ public class bossControls : MonoBehaviour
 	private float currentStep;
 	private RaycastHit hit;
 	private Ray ray;
+	public bool canAttack = true;
 	
 	private float outerRadius = 65;
 	private float innerRadius = 25;
@@ -77,99 +78,106 @@ public class bossControls : MonoBehaviour
 			fromCenterToPlayer *= innerRadius / distanceToCenter;
 			transform.position = centerPosition + fromCenterToPlayer;
 		}
-		
-		if (Input.GetMouseButtonDown(0))
+
+		if (canAttack)
 		{
-			currentStep = 0;
-			animator.SetTrigger("StartThrow");
-			
-		}
-		if (Input.GetMouseButton(0))
-		{
-			
-			transform.LookAt(new Vector3(0, 1, 0));
-			if (currentStep >= panSteps)
+			if (Input.GetMouseButtonDown(0))
 			{
-				
+				currentStep = 0;
+				animator.SetTrigger("StartThrow");
+
 			}
-			else
+
+			if (Input.GetMouseButton(0))
 			{
-				currentStep += Time.deltaTime;
-				cam.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
-				GetComponent<movement>().enabled = false;
-				//cam.transform.position = Vector3.MoveTowards(cam.transform.position, 
-				//	aimCam.transform.position,  Time.deltaTime * smooth);
-				
-				cam.transform.position = Vector3.Lerp(cam.transform.position,
-					aimCamPos.transform.position,currentStep);
-				cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, aimCamPos.rotation, currentStep);
-				//cam.transform.LookAt(target);
-			}
-			
-			
-			if (countUp) count += Time.deltaTime;
+
+				transform.LookAt(new Vector3(0, 1, 0));
+				if (currentStep >= panSteps)
+				{
+
+				}
+				else
+				{
+					currentStep += Time.deltaTime;
+					cam.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+					GetComponent<movement>().enabled = false;
+					//cam.transform.position = Vector3.MoveTowards(cam.transform.position, 
+					//	aimCam.transform.position,  Time.deltaTime * smooth);
+
+					cam.transform.position = Vector3.Lerp(cam.transform.position,
+						aimCamPos.transform.position, currentStep);
+					cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, aimCamPos.rotation, currentStep);
+					//cam.transform.LookAt(target);
+				}
+
+
+				if (countUp) count += Time.deltaTime;
 				else count -= Time.deltaTime;
-			if (count >= aimTime) countUp = false;
-			if (count <= 0) countUp = true;
-			Mathf.Clamp(count, 0, 1);
-			
-			ray = cam.ScreenPointToRay(Input.mousePosition);
-        
-			if (Physics.Raycast(ray, out hit)) {
-				lineRenderer.positionCount = 2;
-				lineRenderer.SetPosition(0, startPoint.position + (4 * cam.transform.forward));
-				lineRenderer.SetPosition(1, hit.point);
-				aimDirection = (hit.point - (startPoint.position + 4 * cam.transform.forward)).normalized;
-				// Do something with the object that was hit by the raycast.
-			}
-			
-			/*aimTarget = new Vector3(target.transform.position.x, -4 + count*50,
-				target.transform.position.z);
-			lineRenderer.SetPosition(0, aimTarget);
-			lineRenderer.SetPosition(1, startPoint.position);*/
-			
-			
-		}
-		if (Input.GetMouseButtonUp(0))
-		{
-			//GetComponent<movement>().enabled = true;
-			//cam.GetComponent<ThirdPersonCameraController>().enabled = true;
-			currentStep = 0;
-			lineRenderer.positionCount = 0;
-			GetComponent<movement>().enabled = true;
-			audioSrc.PlayOneShot(throwEgg);
-            GameObject throwableEgg = Instantiate(egg, startPoint.position + (4 * cam.transform.forward), Quaternion.identity);
-            //egg.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 2000));
-            Rigidbody rb = throwableEgg.GetComponent<Rigidbody>();
-            //rb.transform.LookAt(position);
-            rb.velocity = aimDirection * throwSpeed;
-			animator.SetTrigger("ThrowAction");
-		}
+				if (count >= aimTime) countUp = false;
+				if (count <= 0) countUp = true;
+				Mathf.Clamp(count, 0, 1);
 
-		if (!Input.GetMouseButton(0))
-		{
-			if (currentStep >= 1)
+				ray = cam.ScreenPointToRay(Input.mousePosition);
+
+				if (Physics.Raycast(ray, out hit))
+				{
+					lineRenderer.positionCount = 2;
+					lineRenderer.SetPosition(0, startPoint.position + (4 * cam.transform.forward));
+					lineRenderer.SetPosition(1, hit.point);
+					aimDirection = (hit.point - (startPoint.position + 4 * cam.transform.forward)).normalized;
+					// Do something with the object that was hit by the raycast.
+				}
+
+				/*aimTarget = new Vector3(target.transform.position.x, -4 + count*50,
+					target.transform.position.z);
+				lineRenderer.SetPosition(0, aimTarget);
+				lineRenderer.SetPosition(1, startPoint.position);*/
+
+
+			}
+
+			if (Input.GetMouseButtonUp(0))
 			{
-				//cam.GetComponent<ThirdPersonCameraController>().enabled = true;
 				//GetComponent<movement>().enabled = true;
-				//Debug.Log("moved back!");
-				//moveBack = false;
-			}
-			else
-			{
-				cam.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
-				currentStep += Time.deltaTime;
-				//cam.transform.position = Vector3.MoveTowards(cam.transform.position, 
-				//	aimCam.transform.position,  Time.deltaTime * smooth);
-				cam.transform.position = Vector3.Lerp(cam.transform.position,
-					prevCamPos.position,currentStep);
-				cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, prevCamPos.rotation, currentStep);
-				//cam.transform.LookAt(target);
+				//cam.GetComponent<ThirdPersonCameraController>().enabled = true;
+				currentStep = 0;
+				lineRenderer.positionCount = 0;
+				GetComponent<movement>().enabled = true;
+				audioSrc.PlayOneShot(throwEgg);
+				GameObject throwableEgg = Instantiate(egg, startPoint.position + (4 * cam.transform.forward),
+					Quaternion.identity);
+				//egg.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 2000));
+				Rigidbody rb = throwableEgg.GetComponent<Rigidbody>();
+				//rb.transform.LookAt(position);
+				rb.velocity = aimDirection * throwSpeed;
+				animator.SetTrigger("ThrowAction");
 			}
 
-			if (cam.transform.position == prevCamPos.position)
+			if (!Input.GetMouseButton(0))
 			{
-				cam.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+				if (currentStep >= 1)
+				{
+					//cam.GetComponent<ThirdPersonCameraController>().enabled = true;
+					//GetComponent<movement>().enabled = true;
+					//Debug.Log("moved back!");
+					//moveBack = false;
+				}
+				else
+				{
+					cam.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
+					currentStep += Time.deltaTime;
+					//cam.transform.position = Vector3.MoveTowards(cam.transform.position, 
+					//	aimCam.transform.position,  Time.deltaTime * smooth);
+					cam.transform.position = Vector3.Lerp(cam.transform.position,
+						prevCamPos.position, currentStep);
+					cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, prevCamPos.rotation, currentStep);
+					//cam.transform.LookAt(target);
+				}
+
+				if (cam.transform.position == prevCamPos.position)
+				{
+					cam.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+				}
 			}
 		}
 	}

@@ -121,6 +121,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114663770844821976, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: seagullHurt.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4318938270835094, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -256,6 +261,21 @@ Prefab:
       propertyPath: flameThrowerSound
       value: 
       objectReference: {fileID: 8300000, guid: 8d8993938ab6f584c8a4832f65720aa2, type: 3}
+    - target: {fileID: 114663770844821976, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: seagullHurt.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e912bbd3365ec594398dc153035a5a57, type: 3}
+    - target: {fileID: 114663770844821976, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: seagullHurt.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52bae902de146af48ba651ccbc674294, type: 3}
+    - target: {fileID: 114663770844821976, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: seagullHurt.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5633e2d951b063549800f85c13baf7b4, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
   m_IsPrefabParent: 0

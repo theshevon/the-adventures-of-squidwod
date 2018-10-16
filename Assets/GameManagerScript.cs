@@ -133,13 +133,19 @@ public class GameManagerScript : MonoBehaviour {
         
         // trigger the end battle sequence
         // need to change the conditions
-        if ((seagullHealthManager.damageTaken > healthThreshold || Input.GetKeyDown(KeyCode.N)) && inBossFight && currentLevel < maxLevels)
+        if ((seagullHealthManager.damageTaken >= healthThreshold || Input.GetKeyDown(KeyCode.N)) && inBossFight && currentLevel < maxLevels)
         {
             Debug.Log("ending battle");
             SeagullBossController SBC = Seagull.GetComponent<SeagullBossController>();
-    
+            bossControls BC = player.GetComponent<bossControls>();
+            
             if (!SBC.attacksLocked){
                 SBC.attacksLocked = true;
+            }
+
+            if (BC.canAttack)
+            {
+                BC.canAttack = false;
             }
 
             if (SBC.IsIdle()){
@@ -193,6 +199,7 @@ public class GameManagerScript : MonoBehaviour {
         inCutscene = false;
         player.GetComponent<bossControls>().enabled = true;
         player.GetComponent<movement>().enabled = true;
+        player.GetComponent<bossControls>().canAttack = true;
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
         Crosshair.SetActive(true);
         canSpawnCrab = true;
@@ -218,6 +225,7 @@ public class GameManagerScript : MonoBehaviour {
         player.GetComponent<bossControls>().enabled = false;
         player.GetComponent<movement>().enabled = false;
 
+        seagullHealthManager.seagullHealth += seagullHealthManager.damageTaken - healthThreshold;
         seagullHealthManager.damageTaken = 0;
         Crosshair.SetActive(false);
         canSpawnCrab = false;

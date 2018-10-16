@@ -79,6 +79,7 @@ public class SeagullFlightController : MonoBehaviour
     void OnDisable()
     {
         isFlying = false;
+        laser.positionCount = 0;
     }
 
     void Update()
@@ -316,6 +317,7 @@ public class SeagullFlightController : MonoBehaviour
         Vector3 laserPosition = Vector3.Lerp(laserTarget, laserDirection * laserMoveLength, disCovered / length);
         // set number of line vertices
         laser.positionCount = 4;
+        laser.material = laserMaterial;
         // draw a line between these points
         laser.SetPosition(0, laserPosition);
         laser.SetPosition(1, rightEye.position);
