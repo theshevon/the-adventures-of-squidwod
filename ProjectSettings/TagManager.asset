@@ -14,6 +14,7 @@ TagManager:
   - Critical
   - Normal
   - Seagull
+  - Burrow
   layers:
   - Default
   - TransparentFX

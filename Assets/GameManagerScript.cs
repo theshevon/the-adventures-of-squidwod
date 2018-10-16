@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour {
@@ -59,9 +60,16 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject deathText;
     public GameObject scoreText;
     public GameObject healthText;
+    public GameObject seagullText;
     public GameObject explosion;
     private AudioSource seagullAudio;
     public AudioClip deathAudio;
+    
+    // victory screen
+    public AudioClip victoryAudio;
+    public GameObject credits;
+    public Color cameraVictoryColour;
+    [Range(0,1)] public float victorySaturationValue;
     
 
     void Start()
@@ -133,7 +141,8 @@ public class GameManagerScript : MonoBehaviour {
         
         // trigger the end battle sequence
         // need to change the conditions
-        if ((seagullHealthManager.damageTaken >= healthThreshold || Input.GetKeyDown(KeyCode.N)) && inBossFight && currentLevel < maxLevels)
+        if ((seagullHealthManager.damageTaken >= healthThreshold || Input.GetKeyDown(KeyCode.N)) && inBossFight && currentLevel < maxLevels
+                && seagullHealthManager.seagullHealth >= 0)
         {
             Debug.Log("ending battle");
             SeagullBossController SBC = Seagull.GetComponent<SeagullBossController>();
@@ -154,6 +163,28 @@ public class GameManagerScript : MonoBehaviour {
             }
         }
 
+        if (seagullHealthManager.seagullHealth <= 0 || Input.GetKeyDown(KeyCode.M))
+        {
+            canSpawnCrab = false;
+            DestroyCrabs();
+            SeagullBossController SBC = Seagull.GetComponent<SeagullBossController>();
+            bossControls BC = player.GetComponent<bossControls>();
+            
+            if (!SBC.attacksLocked){
+                SBC.attacksLocked = true;
+            }
+
+            if (BC.canAttack)
+            {
+                BC.canAttack = false;
+            }
+            
+            if (SBC.IsIdle())
+            {
+                EndGame();
+            }
+        }
+
         // once the seagull has returned to the sky, call OnBattleEnd to reenable movement and camera
         if (Seagull.GetComponent<SeagullFlightController>().isFlying && battleStarted)
         {
@@ -169,7 +200,7 @@ public class GameManagerScript : MonoBehaviour {
     {
         FirstEggCollected = true;
         Seagull.gameObject.SetActive(true);
-        StartCoroutine(ChangeMusic(battleAudio));
+        StartCoroutine(ChangeMusic(battleAudio, 0.5f));
     }
     
     void StartBattle()
@@ -247,6 +278,26 @@ public class GameManagerScript : MonoBehaviour {
         SpawnEgg();
     }
 
+    void EndGame()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ChangeMusic(victoryAudio, 0.5f));
+        
+        healthText.SetActive(false);
+        scoreText.SetActive(false);
+        seagullText.SetActive(false);
+        
+        Seagull.GetComponent<SeagullBossController>().enabled = false;
+        Seagull.GetComponent<Animator>().SetTrigger("IdleToDie");
+        Crosshair.SetActive(false);
+
+        player.GetComponent<movement>().enabled = false;
+        player.GetComponent<interaction>().enabled = false;
+        player.GetComponent<Animator>().SetFloat("motion", 0);
+
+        StartCoroutine(ShowCredits());
+    }
+
     // spawn a crab in a random location
     public void SpawnCrab()
     {
@@ -286,7 +337,7 @@ public class GameManagerScript : MonoBehaviour {
     private void PlayerDeath()
     {
         seagullAudio.mute = true;
-        StartCoroutine(ChangeMusic(deathAudio));
+        StartCoroutine(ChangeMusic(deathAudio, 0.5f));
         Instantiate(explosion, player.transform);
         playerMaterial.SetColor("_Color", Color.white);
         cameraTintMaterial.SetColor("_Color", cameraDeathColour);
@@ -294,6 +345,7 @@ public class GameManagerScript : MonoBehaviour {
         healthText.SetActive(false);
         scoreText.SetActive(false);
         deathText.SetActive(true);
+        seagullText.SetActive(false);
         player.gameObject.SetActive(false);
         MainCamera.GetComponent<ThirdPersonCameraController>().enabled = false;
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
@@ -314,12 +366,12 @@ public class GameManagerScript : MonoBehaviour {
         Destroy(egg);
     }
 
-    IEnumerator ChangeMusic(AudioClip newMusic)
+    IEnumerator ChangeMusic(AudioClip newMusic, float rate)
     {
         float startVolume = audioSrc.volume;
         while (audioSrc.volume > 0)
         {
-            audioSrc.volume -= startVolume * Time.deltaTime / 0.5f;
+            audioSrc.volume -= startVolume * Time.deltaTime / rate;
             yield return null;
         }
         
@@ -329,5 +381,17 @@ public class GameManagerScript : MonoBehaviour {
             audioSrc.clip = newMusic;
             audioSrc.Play();
         }
+    }
+
+    IEnumerator ShowCredits()
+    {
+        yield return new WaitForSeconds(4.3f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        cameraTintMaterial.SetColor("_Color", cameraVictoryColour);
+        cameraTintMaterial.SetFloat("_DesaturationValue", victorySaturationValue);
+        credits.SetActive(true);
+        yield return new WaitForSeconds(40f);
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 199114898963631320}
   m_Layer: 0
   m_Name: CrabBurrow
-  m_TagString: Untagged
+  m_TagString: Burrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
