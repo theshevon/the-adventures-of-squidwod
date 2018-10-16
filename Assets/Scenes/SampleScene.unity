@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2cba794c33a415d9348e06e89d4792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCursor: 1
+  lockCursor: 0
   target: {fileID: 2017516278}
   mouseSensitivity: 5
   distanceFromTarget: 30
@@ -537,7 +537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &378273478
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1190,9 +1190,9 @@ MonoBehaviour:
   CrabBurrow: {fileID: 1420928920975584, guid: 1d907a92f2e7c344caaa012c330f673f, type: 2}
   MainCamera: {fileID: 282840813}
   EggPrefab: {fileID: 1709261887271770, guid: 355fd08a8f770bb44b8e050fec0d6e55, type: 2}
+  healthTokenPrefab: {fileID: 1646008188781406, guid: 32f97ab4cba3d42e9b9cf51cfd769f1d,
+    type: 2}
   Crosshair: {fileID: 660321958}
-  centre: {x: 0, y: 0, z: 0}
-  diameter: 120
   audioSrc: {fileID: 677384386}
   scoreValue: {fileID: 1207084304}
   CurrentScore: 0

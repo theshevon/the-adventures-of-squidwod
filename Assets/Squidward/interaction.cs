@@ -14,7 +14,8 @@ public class interaction : MonoBehaviour {
 	private bool isDamaged;
 	public Material playerMaterial;
 	private Color damageColour = new Color(1.0f, 0.57f, 0.57f, 1.0f);
-	public int health = 100;
+    const int maxHealth = 100;
+    int health = maxHealth;
 
 	private AudioSource audioSrc;
 	public AudioClip[] hurt;
@@ -43,16 +44,26 @@ public class interaction : MonoBehaviour {
 			audioSrc.PlayOneShot(pickup, 0.7f);
 			Destroy(col.gameObject);
 		}
-		else if (col.gameObject.CompareTag("Crab") && !isDamaged)
+
+        if (col.gameObject.CompareTag("Crab") && !isDamaged)
 		{
 			StartCoroutine(TakeDamage());
 			Destroy(col.gameObject);
 		} 
+
+        if (col.gameObject.CompareTag("HealthToken")){
+            health += 10;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
+            Destroy(col.gameObject);
+        }
 	}
 
 	void OnTriggerEnter(Collider col)
 	{
-		if ((col.gameObject.CompareTag("LoseLife") || col.gameObject.CompareTag("Flame")) && !isDamaged)
+		if ((col.gameObject.CompareTag("Laser") || col.gameObject.CompareTag("Flame")) && !isDamaged)
 		{
 			StartCoroutine(TakeDamage());
 		}
@@ -79,4 +90,8 @@ public class interaction : MonoBehaviour {
 		int index = Random.Range(0, hurt.Length);
 		audioSrc.PlayOneShot(hurt[index]);
 	}
+
+    public int GetPlayerHealth(){
+        return health;
+    }
 }
