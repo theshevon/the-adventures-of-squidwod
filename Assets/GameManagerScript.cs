@@ -222,6 +222,8 @@ public class GameManagerScript : MonoBehaviour {
     
     void StartBattle()
     {
+
+        //ENSURE REMOVAL OF EGGS AND HEALTH TOKENS (TO COMBAT HAVING ONES ON MAP THAT CANT BE REACHED)
         inCutscene = true;
         SeagullFlightController seagullFlight = Seagull.GetComponent<SeagullFlightController>();
         seagullFlight.enabled = false;
@@ -348,7 +350,7 @@ public class GameManagerScript : MonoBehaviour {
         }
         else
         {
-            pos = new Vector3(Random.Range(-innerRadius, innerRadius), eggHeight, Random.Range(-innerRadius, innerRadius));
+            pos = new Vector3(Mathf.Sin(Random.Range(0, Mathf.PI)) * innerRadius, healthTokenHeight, Mathf.Cos(Random.Range(0, Mathf.PI)) * innerRadius);
             int offset = Random.Range(1, outerRadius - innerRadius);
             pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
             pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
@@ -372,7 +374,7 @@ public class GameManagerScript : MonoBehaviour {
         {
             pos = new Vector3(Random.Range(-radius, radius), healthTokenHeight, Random.Range(-radius, radius));
         } else{
-            pos = new Vector3(Random.Range(-innerRadius, innerRadius), healthTokenHeight, Random.Range(-innerRadius, innerRadius));
+            pos = new Vector3(Mathf.Sin(Random.Range(0,Mathf.PI))*innerRadius, healthTokenHeight, Mathf.Cos(Random.Range(0, Mathf.PI))*innerRadius);
             int offset = Random.Range(1, (outerRadius - innerRadius)/2);
             pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
             pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
