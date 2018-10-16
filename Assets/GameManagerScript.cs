@@ -65,7 +65,7 @@ public class GameManagerScript : MonoBehaviour {
     void Start()
     {
         FirstEggCollected = false;
-        //SpawnEgg(new Vector3(0, eggHeight, 0));
+        SpawnEgg(new Vector3(0, eggHeight, 0));
         cameraTintMaterial.SetColor("_Color", Color.white);
         cameraTintMaterial.SetFloat("_DesaturationValue", 0);
         seagullAudio = Seagull.GetComponent<AudioSource>();
