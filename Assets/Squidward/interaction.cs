@@ -16,8 +16,12 @@ public class interaction : MonoBehaviour {
 	private Color damageColour = new Color(1.0f, 0.57f, 0.57f, 1.0f);
 	public int health = 100;
 
+	private AudioSource audioSrc;
+	public AudioClip[] hurt;
+
 	void Start()
 	{
+		audioSrc = GetComponent<AudioSource>();
 		GameManagerObject = GameObject.FindWithTag("GameController");
 		GameManager = GameManagerObject.GetComponent<GameManagerScript>();
 	}
@@ -54,11 +58,19 @@ public class interaction : MonoBehaviour {
 
 	IEnumerator TakeDamage()
 	{
+		PlayHurtSound();
 		health -= 10;
 		playerMaterial.SetColor("_Color", damageColour);
 		isDamaged = true;
 		yield return new WaitForSeconds(0.5f);
 		playerMaterial.SetColor("_Color", Color.white);
 		isDamaged = false;
+	}
+
+	void PlayHurtSound()
+	{
+		int index = Random.Range(0, hurt.Length);
+		Debug.Log(index);
+		audioSrc.PlayOneShot(hurt[index]);
 	}
 }

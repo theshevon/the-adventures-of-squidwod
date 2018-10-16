@@ -40,7 +40,7 @@ public class SeagullBossController : MonoBehaviour
     const float maxHeightChange = 25.0f;
 
     // boss fight animation params 
-    public int NUM_OF_ATTACKS =0;
+    public int NUM_OF_ATTACKS = 0;
     int nextAttack;
     float nextAttackDelay;
     readonly float[] attackDelays = { 5.0f, 6.0f, 4.0f, 8.0f }; // index 1 is time to wait after first attack starts,
@@ -93,6 +93,12 @@ public class SeagullBossController : MonoBehaviour
     const float ringRadius = 25;
     const float maxRingIncrease = 60;
     const int angleStepFire = 10;
+    
+    // sound effects
+    public AudioClip flap;
+    public AudioClip grenadeThrow;
+    public AudioClip laserSound;
+    public AudioClip flameThrowerSound;
 
     void Start()
     {
@@ -155,6 +161,8 @@ public class SeagullBossController : MonoBehaviour
                     laserUseTime = 0;
                     lineRenderer.positionCount = 0;
                     stepper = 0.1f;
+
+                    audioSrc.Stop();
 
                     leftEnd = leftLaserStart.position;
                     rightEnd = rightLaserStart.position;
@@ -323,6 +331,7 @@ public class SeagullBossController : MonoBehaviour
 
     void ReleaseHell()
     {
+        audioSrc.PlayOneShot(flameThrowerSound);
         GameObject ft = Instantiate(flameThrowerPrefab, fireSource.transform.position, transform.rotation);
         FlameThrowerController ftScript = ft.GetComponent<FlameThrowerController>();
         ftScript.source = fireSource;
@@ -353,6 +362,7 @@ public class SeagullBossController : MonoBehaviour
 
     void ThrowToIdle()
     {
+        audioSrc.PlayOneShot(grenadeThrow);
         animator.SetTrigger("ThrowToIdle");
         isAttacking = false;
         rotationLocked = false;
@@ -365,6 +375,7 @@ public class SeagullBossController : MonoBehaviour
 
     void UseLaserBeam()
     {
+        audioSrc.PlayOneShot(laserSound);
         animator.SetTrigger("IdleToLean");
         lineRenderer.material = laserMaterial;
         laserInUse = true;
@@ -405,6 +416,7 @@ public class SeagullBossController : MonoBehaviour
 
     void UseGust()
     {
+        audioSrc.PlayOneShot(flap);
         usingGust = true;
         rotationLocked = true;
         animator.SetTrigger("IdleToWingflap");

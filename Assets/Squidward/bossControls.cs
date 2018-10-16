@@ -10,7 +10,6 @@ using UnityEngine;
 
 public class bossControls : MonoBehaviour
 {
-
 	public GameObject target;
 	public GameObject egg;
 	public Transform startPoint;
@@ -42,6 +41,9 @@ public class bossControls : MonoBehaviour
 
 	public Animator animator;
 	
+	// sound effects
+	private AudioSource audioSrc;
+	public AudioClip throwEgg;
 	
 	// Use this for initialization
 	void Start ()
@@ -56,6 +58,7 @@ public class bossControls : MonoBehaviour
 		
 		GetComponent<movement>().enabled = true;
 		cam.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
+		audioSrc = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -134,7 +137,7 @@ public class bossControls : MonoBehaviour
 			currentStep = 0;
 			lineRenderer.positionCount = 0;
 			GetComponent<movement>().enabled = true;
-
+			audioSrc.PlayOneShot(throwEgg);
             GameObject throwableEgg = Instantiate(egg, startPoint.position + (4 * cam.transform.forward), Quaternion.identity);
             //egg.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 2000));
             Rigidbody rb = throwableEgg.GetComponent<Rigidbody>();

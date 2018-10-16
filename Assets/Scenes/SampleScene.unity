@@ -236,6 +236,26 @@ Prefab:
       propertyPath: NUM_OF_ATTACKS
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: flap
+      value: 
+      objectReference: {fileID: 8300000, guid: 7885ec9d3ddaed34fb9e4c0db4b8ac52, type: 3}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: grenadeThrow
+      value: 
+      objectReference: {fileID: 8300000, guid: 20a2077fdfdc68d4fa528bf0b2cc5348, type: 3}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: laserSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b5503f97602386c4d834f4c08822148f, type: 3}
+    - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
+        type: 2}
+      propertyPath: flameThrowerSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d8993938ab6f584c8a4832f65720aa2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 325d93cda9a28b74abd9d2225fd9e4ab, type: 2}
   m_IsPrefabParent: 0
@@ -724,6 +744,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114412458137541504, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4651983089563764, guid: f2a2cbd7cb0a95f40a015be463b0b94e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -790,6 +820,41 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b2c4083d663c92e4aaf3ce02994190c2, type: 3}
+    - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c6a89ec1d8f26e448c0fd4ff2d2fd1b, type: 3}
+    - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b59d116bb5c648c4ba037534ad0da319, type: 3}
+    - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: throwEgg
+      value: 
+      objectReference: {fileID: 8300000, guid: 20a2077fdfdc68d4fa528bf0b2cc5348, type: 3}
+    - target: {fileID: 114412458137541504, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b2c4083d663c92e4aaf3ce02994190c2, type: 3}
+    - target: {fileID: 114412458137541504, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c6a89ec1d8f26e448c0fd4ff2d2fd1b, type: 3}
+    - target: {fileID: 114412458137541504, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: hurt.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b59d116bb5c648c4ba037534ad0da319, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2a2cbd7cb0a95f40a015be463b0b94e, type: 2}
   m_IsPrefabParent: 0
@@ -2421,6 +2486,101 @@ Transform:
   m_PrefabParentObject: {fileID: 4651983089563764, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
     type: 2}
   m_PrefabInternal: {fileID: 454337462}
+--- !u!82 &1710200689
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1710200681}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1908354088
 GameObject:
   m_ObjectHideFlags: 0
