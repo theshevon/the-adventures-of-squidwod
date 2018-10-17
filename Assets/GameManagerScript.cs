@@ -180,6 +180,7 @@ public class GameManagerScript : MonoBehaviour {
             }
         }
 
+        // if game hasn't ended, seagull alive and you press M
         if ((seagullHealthManager.seagullHealth <= 0 || Input.GetKeyDown(KeyCode.M)) && !gameEnded)
         {
             canSpawnCrab = false;
