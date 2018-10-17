@@ -255,7 +255,8 @@ public class GameManagerScript : MonoBehaviour {
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = true;
         Crosshair.SetActive(true);
         canSpawnCrab = true;
-        DestroyEgg();
+        DestroyEggs();
+        DestroyHealthTokens();
     }
     
     void EndBattle()
@@ -411,10 +412,17 @@ public class GameManagerScript : MonoBehaviour {
         }
     }
 
-    private void DestroyEgg()
+    void DestroyEggs()
     {
         GameObject egg = GameObject.FindWithTag("Egg");
         Destroy(egg);
+    }
+
+    void DestroyHealthTokens(){
+        GameObject[] tokens = GameObject.FindGameObjectsWithTag("HealthToken");
+        for (int i; i < tokens.Length; i++){
+            Destroy(tokens[i]);
+        }
     }
 
     IEnumerator ChangeMusic(AudioClip newMusic, float rate)
