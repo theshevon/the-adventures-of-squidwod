@@ -1073,6 +1073,17 @@ GameObject:
   m_PrefabParentObject: {fileID: 1741567503634430, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
     type: 2}
   m_PrefabInternal: {fileID: 150916815}
+--- !u!114 &605606696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605606695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52745c3b36ec342ad855d71279d53be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &609387360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1352,7 @@ GameObject:
   - component: {fileID: 677384385}
   - component: {fileID: 677384384}
   - component: {fileID: 677384386}
+  - component: {fileID: 677384387}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -1499,6 +1511,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &677384387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677384383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52745c3b36ec342ad855d71279d53be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &816153794
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3139,17 @@ GameObject:
   m_PrefabParentObject: {fileID: 1042355256690024, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
     type: 2}
   m_PrefabInternal: {fileID: 454337462}
+--- !u!114 &1710200682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1710200681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52745c3b36ec342ad855d71279d53be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1710200688 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4651983089563764, guid: f2a2cbd7cb0a95f40a015be463b0b94e,

@@ -7,19 +7,20 @@ using UnityEngine.UI;
 public class interaction : MonoBehaviour {
 
 	public GameManagerScript gameManager;
-	private GameObject GameManagerObject;
-	private GameManagerScript GameManager;
+	GameObject GameManagerObject;
+	GameManagerScript GameManager;
+    int damage;
 	
 	public TextMeshProUGUI healthValue;
     public Image playerHealthBar;
 
-	private bool isDamaged;
+	bool isDamaged;
 	public Material playerMaterial;
-	private Color damageColour = new Color(1.0f, 0.57f, 0.57f, 1.0f);
+	Color damageColour = new Color(1.0f, 0.57f, 0.57f, 1.0f);
     const int maxHealth = 100;
     int health = maxHealth;
 
-	private AudioSource audioSrc;
+	AudioSource audioSrc;
 	public AudioClip[] hurt;
 	public AudioClip pickup;
 
@@ -28,7 +29,9 @@ public class interaction : MonoBehaviour {
 		audioSrc = GetComponent<AudioSource>();
 		GameManagerObject = GameObject.FindWithTag("GameController");
 		GameManager = GameManagerObject.GetComponent<GameManagerScript>();
-	}
+
+        damage = gameObject.GetComponent<GameSettings>().GetDifficulty() == 0 ? 5 : 10;
+    }
 
 	void Update()
 	{
@@ -86,7 +89,7 @@ public class interaction : MonoBehaviour {
 	IEnumerator TakeDamage()
 	{
 		PlayHurtSound();
-		health -= 10;
+		health -= damage;
 		playerMaterial.SetColor("_Color", damageColour);
 		isDamaged = true;
 		yield return new WaitForSeconds(0.5f);

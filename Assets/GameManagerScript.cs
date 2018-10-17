@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour {
-
 
     public GameObject player;
     public GameObject Seagull;
@@ -49,6 +44,7 @@ public class GameManagerScript : MonoBehaviour {
     public bool inBossFight;
     bool battleStarted;
     bool inCutscene;
+    float healthSpawnTimeThreshold;
     float healthTokenSpawnCountdown;
     float crabSpawnCountdown = 5f;
     bool canSpawnCrab = true;
@@ -61,7 +57,7 @@ public class GameManagerScript : MonoBehaviour {
     
     // death screen
     public Material cameraTintMaterial;
-    private bool gameEnded = false;
+    bool gameEnded = false;
     public Color cameraDeathColour;
     [Range(0,1)] public float deathSaturationValue;
     public GameObject deathText;
@@ -89,7 +85,11 @@ public class GameManagerScript : MonoBehaviour {
         cameraTintMaterial.SetFloat("_DesaturationValue", 0);
         seagullAudio = Seagull.GetComponent<AudioSource>();
         seagullHealthManager = Seagull.GetComponent<SeagullHealthManager>();
+
+        // the first health token will spawn within 5 and 20s regardless of game mode
         healthTokenSpawnCountdown = Random.Range(5, 20);
+
+        healthSpawnTimeThreshold = gameObject.GetComponent<GameSettings>().GetDifficulty() == 0 ? 20 : 30;
     }
 
     void Update ()
@@ -134,7 +134,7 @@ public class GameManagerScript : MonoBehaviour {
         healthTokenSpawnCountdown -= delta;
         if (FirstEggCollected && healthTokenSpawnCountdown <= 0){
             SpawnHealthToken();
-            healthTokenSpawnCountdown = Random.Range(5, 30);
+            healthTokenSpawnCountdown = Random.Range(5, healthSpawnTimeThreshold);
         }
 
         /* ============================================ SEAGULL CONTROL ============================================ */

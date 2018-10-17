@@ -9,11 +9,13 @@ public class SeagullHealthManager : MonoBehaviour {
     public int seagullHealth;
     public GameObject egg;
     public Material seagullMaterial;
-    private Color damageColour = new Color(1.0f, 0.57f, 0.57f, 1.0f);
+    Color damageColour = new Color(1.0f, 0.57f, 0.57f, 1.0f);
     public TextMeshProUGUI seagullHealthValue;
-    private bool isDamaged;
+    bool isDamaged;
     public int damageTaken;
-    private AudioSource audioSrc;
+    int criticalDamage;
+    int stdDamage;
+    AudioSource audioSrc;
     public AudioClip[] seagullHurt;
     public Image seagullHealthBar;
 
@@ -21,6 +23,16 @@ public class SeagullHealthManager : MonoBehaviour {
     {
         seagullHealth = 100;
         audioSrc = GetComponent<AudioSource>();
+        switch (gameObject.GetComponent<GameSettings>().GetDifficulty()){
+            case 0:
+                criticalDamage = 10;
+                stdDamage = 7;
+                break;
+            case 1:
+                criticalDamage = 5;
+                stdDamage = 3;
+                break;
+        }
     }
 
     void Update()
@@ -34,11 +46,11 @@ public class SeagullHealthManager : MonoBehaviour {
         if (isCritical && !isDamaged)
         {
             Debug.Log("critical hit");
-            StartCoroutine(TakeDamage(5));
+            StartCoroutine(TakeDamage(criticalDamage));
         } else if (!isCritical && !isDamaged)
         {
             Debug.Log("hit");
-            StartCoroutine(TakeDamage(3));
+            StartCoroutine(TakeDamage(stdDamage));
         }
         
     }
