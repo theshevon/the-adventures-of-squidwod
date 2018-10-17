@@ -421,7 +421,7 @@ public class SeagullBossController : MonoBehaviour
         usingGust = true;
         rotationLocked = true;
         animator.SetTrigger("IdleToWingflap");
-        lineRenderer.material = gustMaterial;
+        lineRenderer.material = laserMaterial;
         lineRenderer.positionCount = 360/angleStepGust;
     }
 

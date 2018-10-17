@@ -40,8 +40,14 @@ public class interaction : MonoBehaviour {
 	{
 		if (col.gameObject.CompareTag("Egg"))
 		{
+            GameManagerScript GMS = GameManager.GetComponent<GameManagerScript>();
 			if (!GameManager.FirstEggCollected) gameManager.OnFirstEggCollect();
             if (!GameManager.inBossFight) gameManager.SpawnEgg();
+            if (GameManager.inBossFight)
+            {
+                GMS.extraEggSpawned = false;
+                GetComponent<bossControls>().canAttack = true;
+            }
 			GameManager.TotalScore += 1;
 			GameManager.CurrentScore += 1;
 			audioSrc.PlayOneShot(pickup, 0.7f);

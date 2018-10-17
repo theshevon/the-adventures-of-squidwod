@@ -440,7 +440,7 @@ MonoBehaviour:
   lockCursor: 0
   target: {fileID: 1710200688}
   rotationTarget: {fileID: 843195486}
-  mouseSensitivity: 5
+  mouseSensitivity: 1
   distanceFromTarget: 30
   pitchMin: 10
   pitchMax: 80
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockCursor: 1
   target: {fileID: 2017516278}
-  mouseSensitivity: 5
+  mouseSensitivity: 2
   distanceFromTarget: 30
   pitchMin: -45
   pitchMax: 80
@@ -1374,6 +1374,7 @@ MonoBehaviour:
   TotalScore: 0
   FirstEggCollected: 0
   battleAudio: {fileID: 8300000, guid: 6d6fdd612553c9847982dc49b2044566, type: 3}
+  extraEggSpawned: 0
   inBossFight: 0
   currentLevel: 1
   playerMaterial: {fileID: 2100000, guid: f8e76c2d404d5574cb381c562f764787, type: 2}
