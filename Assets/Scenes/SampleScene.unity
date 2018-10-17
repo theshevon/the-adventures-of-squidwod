@@ -209,7 +209,7 @@ Prefab:
         type: 2}
       propertyPath: gustMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 081b3cd859128409ea7eb7a45e82c118, type: 2}
+      objectReference: {fileID: 2100000, guid: 974b33ccbd786464a825203eb88b8dab, type: 2}
     - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
         type: 2}
       propertyPath: lockAttacks
