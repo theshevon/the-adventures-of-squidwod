@@ -209,7 +209,7 @@ Prefab:
         type: 2}
       propertyPath: gustMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 081b3cd859128409ea7eb7a45e82c118, type: 2}
+      objectReference: {fileID: 2100000, guid: 974b33ccbd786464a825203eb88b8dab, type: 2}
     - target: {fileID: 114472387120605650, guid: 325d93cda9a28b74abd9d2225fd9e4ab,
         type: 2}
       propertyPath: lockAttacks
@@ -2296,15 +2296,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 743c8893f6d31b44f80548db55e0790b, type: 2}
+  m_sharedMaterial: {fileID: 21406274897177340, guid: 743c8893f6d31b44f80548db55e0790b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293835598
+  m_fontColor: {r: 0.3058824, g: 0.73542863, b: 0.93333334, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -2321,13 +2322,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 53
+  m_fontSizeBase: 53
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 257
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
