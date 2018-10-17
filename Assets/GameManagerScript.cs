@@ -39,6 +39,7 @@ public class GameManagerScript : MonoBehaviour {
     const float eggHeight = 7.37f;
     const float crabHeight = 2;
     const float healthTokenHeight = 2;
+    public bool extraEggSpawned;
 
     // stage
     const int fightThreshold = 10;
@@ -94,6 +95,12 @@ public class GameManagerScript : MonoBehaviour {
     void Update ()
     {
         float delta = Time.deltaTime;
+
+        if (TotalScore < 1 && inBossFight && !extraEggSpawned && seagullHealthManager.damageTaken < healthThreshold)
+        {
+            extraEggSpawned = true;
+            SpawnEgg();
+        }
 
         if (player.GetComponent<interaction>().GetPlayerHealth() <= 0 && !gameEnded)
         {
@@ -296,6 +303,7 @@ public class GameManagerScript : MonoBehaviour {
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
         player.GetComponent<bossControls>().enabled = false;
 
+        DestroyEgg();
         canSpawnCrab = true;
         SpawnEgg();
     }
@@ -353,10 +361,15 @@ public class GameManagerScript : MonoBehaviour {
         }
         else
         {
-            pos = new Vector3(Mathf.Sin(Random.Range(0, Mathf.PI)) * innerRadius, healthTokenHeight, Mathf.Cos(Random.Range(0, Mathf.PI)) * innerRadius);
-            int offset = Random.Range(1, outerRadius - innerRadius);
-            pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
-            pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
+            Vector3 randomCirclePoint = Random.insideUnitCircle.normalized;
+            randomCirclePoint.z = randomCirclePoint.y;
+            randomCirclePoint.y = 0;
+            randomCirclePoint *= Random.Range(innerRadius + 5, outerRadius);
+            pos = randomCirclePoint;
+            //pos = new Vector3(Mathf.Sin(Random.Range(0, Mathf.PI)) * innerRadius, healthTokenHeight, Mathf.Cos(Random.Range(0, Mathf.PI)) * innerRadius);
+            //int offset = Random.Range(1, outerRadius - innerRadius);
+            //pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
+            //pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
         }
 
         Instantiate(EggPrefab, pos, Quaternion.identity);
@@ -376,11 +389,16 @@ public class GameManagerScript : MonoBehaviour {
         if (!inBossFight)
         {
             pos = new Vector3(Random.Range(-radius, radius), healthTokenHeight, Random.Range(-radius, radius));
-        } else{
-            pos = new Vector3(Mathf.Sin(Random.Range(0,Mathf.PI))*innerRadius, healthTokenHeight, Mathf.Cos(Random.Range(0, Mathf.PI))*innerRadius);
-            int offset = Random.Range(1, (outerRadius - innerRadius)/2);
-            pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
-            pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
+        } else {
+            Vector3 randomCirclePoint = Random.insideUnitCircle.normalized;
+            randomCirclePoint.z = randomCirclePoint.y;
+            randomCirclePoint.y = 0;
+            randomCirclePoint *= Random.Range(innerRadius+5, outerRadius);
+            pos = randomCirclePoint;
+            //pos = new Vector3(Mathf.Sin(Random.Range(0,Mathf.PI))*innerRadius, healthTokenHeight, Mathf.Cos(Random.Range(0, Mathf.PI))*innerRadius);
+            //int offset = Random.Range(1, (outerRadius - innerRadius)/2);
+            //pos.x = pos.x >= 0 ? pos.x += offset : pos.x -= offset;
+            //pos.z = pos.z >= 0 ? pos.z += offset : pos.z -= offset;
         }
 
         Instantiate(healthTokenPrefab, pos, Quaternion.identity);
