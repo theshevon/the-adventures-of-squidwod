@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class TutorialSlidesScript : MonoBehaviour {
 
     public Sprite[] images;
-    int index = 0;
+    int index;
 	
 
 	void Update () {
+
         if (Input.anyKeyDown){
             index += 1;
             if (index == images.Length){
@@ -17,5 +18,6 @@ public class TutorialSlidesScript : MonoBehaviour {
             }
             gameObject.GetComponent<Image>().sprite = images[index];
         }
+
 	}
 }

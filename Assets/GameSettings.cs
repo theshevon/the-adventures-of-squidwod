@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    static int difficulty = 0; // 0 for easy
+                               // 1 for hard
+
+    public void SetDifficulty(int value){
+        difficulty = value;
+        Debug.Log(difficulty == 0 ? "Easy" : "Hard");
+    }
+
+    public int GetDifficulty(){
+        return difficulty;
+    }
 }
