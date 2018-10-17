@@ -25,6 +25,7 @@ public class GameManagerScript : MonoBehaviour {
     const int innerRadius = 25;
     const int outerRadius = 65;
     public AudioSource audioSrc;
+
     public TextMeshProUGUI scoreValue;
 
     public int CurrentScore;

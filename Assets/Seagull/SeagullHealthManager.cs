@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SeagullHealthManager : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class SeagullHealthManager : MonoBehaviour {
     public int damageTaken;
     private AudioSource audioSrc;
     public AudioClip[] seagullHurt;
+    public Image seagullHealthBar;
 
     void Start()
     {
@@ -24,6 +26,7 @@ public class SeagullHealthManager : MonoBehaviour {
     void Update()
     {
         seagullHealthValue.SetText(seagullHealth.ToString());
+        seagullHealthBar.fillAmount = seagullHealth / 100f;
     }
 
     public void Hit(bool isCritical)
