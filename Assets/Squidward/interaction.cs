@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class interaction : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class interaction : MonoBehaviour {
 	private GameManagerScript GameManager;
 	
 	public TextMeshProUGUI healthValue;
+    public Image playerHealthBar;
 
 	private bool isDamaged;
 	public Material playerMaterial;
@@ -31,6 +33,7 @@ public class interaction : MonoBehaviour {
 	void Update()
 	{
 		healthValue.SetText(health.ToString());
+        playerHealthBar.fillAmount = health / 100f;
 	}
 	
 	void OnCollisionEnter(Collision col)
