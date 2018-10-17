@@ -31,7 +31,13 @@ public class movement : MonoBehaviour
 	public float slopeLimit = 45;
 	public float slideFriction = 0.3f;
 	public Vector2 inputDir;
-	
+
+    public float fallMultiplier = 2f;
+    public float lowJumpMultiplier = 1.5f;
+
+    Rigidbody rb;
+
+    bool isJump;
 
 	private Animator animator;
 	
@@ -44,6 +50,7 @@ public class movement : MonoBehaviour
 		cam = GetComponent<Camera>();
 		animator = GetComponent<Animator>();
 		cc = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
 	}
 	// Update is called once per frame
 	void Update ()
@@ -79,22 +86,29 @@ public class movement : MonoBehaviour
 
 		cc.Move(transform.forward * currentSpeed * Time.deltaTime);*/
 		grounded = Physics.Raycast(transform.position, Vector3.down, 0.2f, LayerMask.NameToLayer("Terrain"));
-		if (grounded)
-		{
-			moveDirection = new Vector3(0, 0, 0);
-			if (Input.GetButtonDown("Jump"))
-			{
-				moveDirection.y = jumpSpeed;
-				if (inputDir == Vector2.zero)
-				{
-					animator.SetTrigger("ToJump");
-				}
-			}
-		}
-		else
-		{
-			//moveDirection.y -= gravity * Time.deltaTime;
-		}
+        if (grounded)
+        {
+        moveDirection = new Vector3(0, 0, 0);
+            if (Input.GetButtonDown("Jump"))
+            {
+                moveDirection.y = jumpSpeed;
+                //moveDirection.y += Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+
+                if (inputDir == Vector2.zero)
+                {
+                    animator.SetTrigger("ToJump");
+                }
+            }
+
+        } else if (moveDirection.y < 0)
+        {
+            moveDirection.y -= gravity * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (moveDirection.y > 0 && !Input.GetButton("Jump"))
+        {
+        	moveDirection.y -= gravity * (lowJumpMultiplier-1) * Time.deltaTime;
+        }
+
 		moveDirection.y -= gravity * Time.deltaTime;
 		if (isOnSlope)
 		{

@@ -303,7 +303,7 @@ public class GameManagerScript : MonoBehaviour {
         MainCamera.GetComponent<BossFightThirdPersonCameraController>().enabled = false;
         player.GetComponent<bossControls>().enabled = false;
 
-        DestroyEgg();
+        DestroyEggs();
         canSpawnCrab = true;
         SpawnEgg();
     }
@@ -438,7 +438,7 @@ public class GameManagerScript : MonoBehaviour {
 
     void DestroyHealthTokens(){
         GameObject[] tokens = GameObject.FindGameObjectsWithTag("HealthToken");
-        for (int i; i < tokens.Length; i++){
+        for (int i=0; i < tokens.Length; i++){
             Destroy(tokens[i]);
         }
     }
