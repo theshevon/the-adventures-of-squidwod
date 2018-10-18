@@ -89,7 +89,7 @@ public class GameManagerScript : MonoBehaviour {
         // the first health token will spawn within 5 and 20s regardless of game mode
         healthTokenSpawnCountdown = Random.Range(5, 20);
 
-        healthSpawnTimeThreshold = gameObject.GetComponent<GameSettings>().GetDifficulty() == 0 ? 20 : 30;
+        healthSpawnTimeThreshold = gameObject.GetComponent<GameSettings>().GetDifficulty() == 0 ? 20 : 40;
     }
 
     void Update ()
@@ -132,7 +132,7 @@ public class GameManagerScript : MonoBehaviour {
 
         // randomly spawn health tokens
         healthTokenSpawnCountdown -= delta;
-        if (FirstEggCollected && healthTokenSpawnCountdown <= 0){
+        if (FirstEggCollected && healthTokenSpawnCountdown <= 0 && !gameEnded){
             SpawnHealthToken();
             healthTokenSpawnCountdown = Random.Range(5, healthSpawnTimeThreshold);
         }
@@ -227,6 +227,9 @@ public class GameManagerScript : MonoBehaviour {
         FirstEggCollected = true;
         Seagull.gameObject.SetActive(true);
         StartCoroutine(ChangeMusic(battleAudio, 0.5f));
+        seagullText.SetActive(true);
+        healthText.SetActive(true);
+        scoreText.SetActive(true);
     }
     
     void StartBattle()
@@ -320,6 +323,7 @@ public class GameManagerScript : MonoBehaviour {
         Seagull.GetComponent<Animator>().SetTrigger("IdleToDie");
         Crosshair.SetActive(false);
 
+        player.GetComponent<bossControls>().enabled = false;
         player.GetComponent<movement>().enabled = false;
         player.GetComponent<interaction>().enabled = false;
         player.GetComponent<Animator>().SetFloat("motion", 0);

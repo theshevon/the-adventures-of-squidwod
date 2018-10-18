@@ -909,6 +909,11 @@ Prefab:
       propertyPath: playerHealthBar
       value: 
       objectReference: {fileID: 556546352}
+    - target: {fileID: 114682339730432000, guid: f2a2cbd7cb0a95f40a015be463b0b94e,
+        type: 2}
+      propertyPath: Crosshair
+      value: 
+      objectReference: {fileID: 660321958}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2a2cbd7cb0a95f40a015be463b0b94e, type: 2}
   m_IsPrefabParent: 0
@@ -928,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &556546351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1538,7 +1543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &816153795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1972,7 +1977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &977093130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2394,11 +2399,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

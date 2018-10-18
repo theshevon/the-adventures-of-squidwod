@@ -49,6 +49,7 @@
         <e p="FlameThrowerCollision.cs" t="Include" />
         <e p="FlameThrowerController.cs" t="Include" />
         <e p="GameManagerScript.cs" t="Include" />
+        <e p="GameSettings.cs" t="Include" />
         <e p="GrenadeScript.cs" t="Include" />
         <e p="Laser" t="Include">
           <e p="LaserController.cs" t="Include" />
@@ -67,6 +68,7 @@
           <e p="interaction.cs" t="Include" />
           <e p="movement.cs" t="Include" />
         </e>
+        <e p="StartButtonScript.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Resources" t="Include">
             <e p="LineBreaking Following Characters.txt" t="Include" />
@@ -95,6 +97,7 @@
         <e p="throwableEgg" t="Include">
           <e p="eggController.cs" t="Include" />
         </e>
+        <e p="TutorialSlidesScript.cs" t="Include" />
         <e p="WingflapBehaviour.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />

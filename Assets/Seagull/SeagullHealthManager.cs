@@ -45,11 +45,11 @@ public class SeagullHealthManager : MonoBehaviour {
     {
         if (isCritical && !isDamaged)
         {
-            Debug.Log("critical hit");
+            //Debug.Log("critical hit");
             StartCoroutine(TakeDamage(criticalDamage));
         } else if (!isCritical && !isDamaged)
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             StartCoroutine(TakeDamage(stdDamage));
         }
         

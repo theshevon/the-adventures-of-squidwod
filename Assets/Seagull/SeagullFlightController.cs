@@ -56,6 +56,8 @@ public class SeagullFlightController : MonoBehaviour
     LineRenderer laser;
     movement movement;
 
+    private float distanceFromPlayer;
+
     private int attackNumber;
 
     void Start()
@@ -74,6 +76,15 @@ public class SeagullFlightController : MonoBehaviour
 
         movement = Player.GetComponent<movement>();
         audioSrc = GetComponent<AudioSource>();
+
+        switch (gameObject.GetComponent<GameSettings>().GetDifficulty()){
+            case 0:
+                distanceFromPlayer = 50;
+                break;
+            case 1:
+                distanceFromPlayer = 30;
+                break;
+        }
     }
     
     void OnDisable()
@@ -258,7 +269,7 @@ public class SeagullFlightController : MonoBehaviour
     {
         // pick the initial start point of the laser
         // slightly in front of the players forward direction
-        laserTarget = target.transform.position + target.transform.forward*30;
+        laserTarget = target.transform.position + target.transform.forward * distanceFromPlayer;
         laserTarget.y = 0;
         // pick a random direction
         laserDirection = Random.insideUnitCircle;

@@ -35,8 +35,6 @@ public class movement : MonoBehaviour
     public float fallMultiplier = 2f;
     public float lowJumpMultiplier = 1.5f;
 
-    Rigidbody rb;
-
     bool isJump;
 
 	private Animator animator;
@@ -50,7 +48,6 @@ public class movement : MonoBehaviour
 		cam = GetComponent<Camera>();
 		animator = GetComponent<Animator>();
 		cc = GetComponent<CharacterController>();
-        rb = GetComponent<Rigidbody>();
 	}
 	// Update is called once per frame
 	void Update ()
@@ -88,7 +85,8 @@ public class movement : MonoBehaviour
 		grounded = Physics.Raycast(transform.position, Vector3.down, 0.2f, LayerMask.NameToLayer("Terrain"));
         if (grounded)
         {
-        moveDirection = new Vector3(0, 0, 0);
+	        animator.speed = 1;
+			moveDirection = new Vector3(0, 0, 0);
             if (Input.GetButtonDown("Jump"))
             {
                 moveDirection.y = jumpSpeed;
@@ -98,13 +96,16 @@ public class movement : MonoBehaviour
                 {
                     animator.SetTrigger("ToJump");
                 }
+                else
+                {
+	                animator.speed = 0.1f;
+                }
             }
 
         } else if (moveDirection.y < 0)
         {
             moveDirection.y -= gravity * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (moveDirection.y > 0 && !Input.GetButton("Jump"))
+        } else if (moveDirection.y > 0 && !Input.GetButton("Jump"))
         {
         	moveDirection.y -= gravity * (lowJumpMultiplier-1) * Time.deltaTime;
         }

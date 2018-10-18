@@ -32,6 +32,7 @@ public class bossControls : MonoBehaviour
 	private RaycastHit hit;
 	private Ray ray;
 	public bool canAttack = true;
+	public GameObject Crosshair;
 	
 	const float outerRadius = 65;
 	const float innerRadius = 25;
@@ -48,6 +49,8 @@ public class bossControls : MonoBehaviour
 
 	public GameObject gameManager;
 	private GameManagerScript GMS;
+
+	private float attackCooldown = 1.5f;
 	
 	// Use this for initialization
 	void Start ()
@@ -90,6 +93,7 @@ public class bossControls : MonoBehaviour
 		
 		if (canAttack)
 		{
+			Crosshair.GetComponent<Crosshair>().isActive = true;
 			if (Input.GetMouseButtonDown(0))
 			{
 				currentStep = 0;
@@ -161,6 +165,7 @@ public class bossControls : MonoBehaviour
 				rb.velocity = aimDirection * throwSpeed;
 				animator.SetTrigger("ThrowAction");
 				GMS.TotalScore--;
+				StartCoroutine(Cooldown());
 			}
 
 			if (!Input.GetMouseButton(0))
@@ -190,5 +195,16 @@ public class bossControls : MonoBehaviour
 				}
 			}
 		}
+		else
+		{
+			Crosshair.GetComponent<Crosshair>().isActive = false;
+		}
+	}
+
+	IEnumerator Cooldown()
+	{
+		canAttack = false;
+		yield return new WaitForSeconds(attackCooldown);
+		canAttack = true;
 	}
 }
