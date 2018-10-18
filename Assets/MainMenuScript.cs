@@ -10,6 +10,7 @@ public class MainMenuScript : MonoBehaviour {
     public Sprite img2;
     public GameObject mainMenu;
     public GameObject difficultyMenu;
+    public GameObject cutscene;
 
     /// <summary>
     /// Starts the game.
@@ -68,7 +69,13 @@ public class MainMenuScript : MonoBehaviour {
     /// </summary>
     public void PlayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        cutscene.SetActive(true);
+        GetComponentInParent<AudioSource>().mute = true;
+        if (cutscene.GetComponent<PlayVideo>().videoPlayer.isPlaying)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+        
     }
 
     public void QuitGame()

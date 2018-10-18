@@ -10,6 +10,7 @@ public class LaserController : MonoBehaviour
 
     public GameObject smallExplosionPrefab;
     public GameObject largeExplosionPrefab;
+    public GameObject flame;
     public Vector3 direction;
     public int explosionType; // 0 for small explosion (default)
                               // 1 for large explosion
@@ -35,8 +36,11 @@ public class LaserController : MonoBehaviour
             isExploded = true;
             Destroy(gameObject);
             GameObject explosion;
+            GameObject laserFlame;
             explosion = explosionType == 0 ? Instantiate(smallExplosionPrefab) : Instantiate(largeExplosionPrefab);
             explosion.transform.position = transform.position;
+            laserFlame = Instantiate(flame);
+            laserFlame.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
     }
 }

@@ -49,6 +49,7 @@ public class GameManagerScript : MonoBehaviour {
     float crabSpawnCountdown = 5f;
     bool canSpawnCrab = true;
     public int currentLevel = 1;
+    private Coroutine currentCrabSpawn;
 
     // player health
     //const int maxHealth = 100;
@@ -89,7 +90,7 @@ public class GameManagerScript : MonoBehaviour {
         // the first health token will spawn within 5 and 20s regardless of game mode
         healthTokenSpawnCountdown = Random.Range(5, 20);
 
-        healthSpawnTimeThreshold = gameObject.GetComponent<GameSettings>().GetDifficulty() == 0 ? 20 : 40;
+        healthSpawnTimeThreshold = gameObject.GetComponent<GameSettings>().GetDifficulty() == 0 ? 25 : 60;
     }
 
     void Update ()
@@ -338,14 +339,14 @@ public class GameManagerScript : MonoBehaviour {
         Quaternion rotation = Quaternion.identity;
         rotation.eulerAngles = new Vector3(-90, 0, 0);
         Instantiate(CrabBurrow, pos + new Vector3(0,crabHeight,0), rotation);
-        StartCoroutine(WaitToSpawn(pos));
+        currentCrabSpawn = StartCoroutine(WaitToSpawn(pos));
     }
 
     // spawn a crab in a specific location
     public void SpawnCrab(Vector3 pos)
     {
         Instantiate(CrabBurrow, pos + new Vector3(0, crabHeight, 0), Quaternion.LookRotation(transform.position, Vector3.up));
-        StartCoroutine(WaitToSpawn(pos));
+        currentCrabSpawn = StartCoroutine(WaitToSpawn(pos));
     }
 
     IEnumerator WaitToSpawn(Vector3 pos)
@@ -432,6 +433,7 @@ public class GameManagerScript : MonoBehaviour {
         {
             Destroy(crabs[i]);
         }
+        StopCoroutine(currentCrabSpawn);
     }
 
     void DestroyEggs()

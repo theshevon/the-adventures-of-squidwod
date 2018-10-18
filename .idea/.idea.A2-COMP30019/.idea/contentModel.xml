@@ -24,15 +24,6 @@
         <e p="DestroySystem.cs" t="Include" />
         <e p="Effects" t="Include">
           <e p="Shared" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="DecalDestroyer.cs" t="Include" />
-              <e p="ExtinguishableFire.cs" t="Include" />
-              <e p="GunAim.cs" t="Include" />
-              <e p="GunShoot.cs" t="Include" />
-              <e p="ParticleCollision.cs" t="Include" />
-              <e p="ParticleExamples.cs" t="Include" />
-              <e p="ParticleMenu.cs" t="Include" />
-            </e>
             <e p="Shaders" t="Include">
               <e p="SurfaceShader_VC.shader" t="Include" />
             </e>
@@ -55,6 +46,7 @@
           <e p="LaserController.cs" t="Include" />
         </e>
         <e p="MainMenuScript.cs" t="Include" />
+        <e p="PlayVideo.cs" t="Include" />
         <e p="Seagull" t="Include">
           <e p="SeagullBossController.cs" t="Include" />
           <e p="SeagullFlightController.cs" t="Include" />

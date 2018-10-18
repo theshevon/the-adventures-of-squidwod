@@ -8,7 +8,7 @@ public class movement : MonoBehaviour
 {
 	public float speed = 3;
 	public float gravity = 20.0f;
-	public float jumpSpeed = 20.0f;
+	public float jumpSpeed;
 	private bool grounded;
 
 	private Vector3 moveDirection = Vector3.zero;
@@ -38,6 +38,8 @@ public class movement : MonoBehaviour
     bool isJump;
 
 	private Animator animator;
+	private AudioSource audioSrc;
+	public AudioClip jumpSound;
 	
 	
 	// Use this for initialization
@@ -48,6 +50,7 @@ public class movement : MonoBehaviour
 		cam = GetComponent<Camera>();
 		animator = GetComponent<Animator>();
 		cc = GetComponent<CharacterController>();
+		audioSrc = GetComponent<AudioSource>();
 	}
 	// Update is called once per frame
 	void Update ()
@@ -89,6 +92,7 @@ public class movement : MonoBehaviour
 			moveDirection = new Vector3(0, 0, 0);
             if (Input.GetButtonDown("Jump"))
             {
+	            audioSrc.PlayOneShot(jumpSound, 0.8f);
                 moveDirection.y = jumpSpeed;
                 //moveDirection.y += Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 

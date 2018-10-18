@@ -241,6 +241,7 @@ MonoBehaviour:
     type: 2}
   largeExplosionPrefab: {fileID: 1832707365330184, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 2}
+  flame: {fileID: 1267743359004650, guid: 95d8c349855f73e478cba9b04596c9b5, type: 2}
   direction: {x: 0, y: 0, z: 0}
   explosionType: 0
 --- !u!136 &136275724360195006
