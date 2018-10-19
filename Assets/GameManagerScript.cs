@@ -17,6 +17,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject healthTokenPrefab;
     public GameObject Crosshair;
     public GameObject StatCounter;
+    public GameObject gameOverMenu;
 
     const int radius = 60;
     const int innerRadius = 25;
@@ -71,7 +72,8 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject explosion;
     AudioSource seagullAudio;
     public AudioClip deathAudio;
-    
+    float activateMenuCountdown = 3;
+
     // victory screen
     public AudioClip victoryAudio;
     public GameObject credits;
@@ -108,6 +110,13 @@ public class GameManagerScript : MonoBehaviour {
     {
         float delta = Time.deltaTime;
 
+        if (gameEnded){
+            activateMenuCountdown -= delta;
+            if (activateMenuCountdown <= 0 && !gameOverMenu.activeSelf){
+                gameOverMenu.SetActive(true);
+            }
+        }
+
         if (TotalScore < 1 && inBossFight && !extraEggSpawned && seagullHealthManager.damageTaken < healthThreshold)
         {
             extraEggSpawned = true;
@@ -118,6 +127,8 @@ public class GameManagerScript : MonoBehaviour {
         {
             PlayerDeath();
             gameEnded = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         scoreValue.text = TotalScore.ToString();
