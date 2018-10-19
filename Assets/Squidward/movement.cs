@@ -40,6 +40,8 @@ public class movement : MonoBehaviour
 	private Animator animator;
 	private AudioSource audioSrc;
 	public AudioClip jumpSound;
+
+	public GameObject StatCounter;
 	
 	
 	// Use this for initialization
@@ -92,6 +94,7 @@ public class movement : MonoBehaviour
 			moveDirection = new Vector3(0, 0, 0);
             if (Input.GetButtonDown("Jump"))
             {
+	            StatCounter.GetComponent<StatCounterScript>().numberJumps++;
 	            audioSrc.PlayOneShot(jumpSound, 0.8f);
                 moveDirection.y = jumpSpeed;
                 //moveDirection.y += Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;

@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class bossControls : MonoBehaviour
 {
+	public GameObject StatCounter;
 	public GameObject target;
 	public GameObject egg;
 	public Transform startPoint;
@@ -165,6 +166,7 @@ public class bossControls : MonoBehaviour
 				rb.velocity = aimDirection * throwSpeed;
 				animator.SetTrigger("ThrowAction");
 				GMS.TotalScore--;
+				StatCounter.GetComponent<StatCounterScript>().eggsThrown++;
 				StartCoroutine(Cooldown());
 			}
 
@@ -198,6 +200,7 @@ public class bossControls : MonoBehaviour
 		else
 		{
 			Crosshair.GetComponent<Crosshair>().isActive = false;
+
 		}
 	}
 

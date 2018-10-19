@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
@@ -15,6 +16,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject EggPrefab;
     public GameObject healthTokenPrefab;
     public GameObject Crosshair;
+    public GameObject StatCounter;
 
     const int radius = 60;
     const int innerRadius = 25;
@@ -32,7 +34,7 @@ public class GameManagerScript : MonoBehaviour {
     Vector3 battleCameraPosition = new Vector3(0.04f, 24.2f, 96);
 
     const float eggHeight = 7.37f;
-    const float crabHeight = 2;
+    const float crabHeight = 1;
     const float healthTokenHeight = 2;
     public bool extraEggSpawned;
 
@@ -50,6 +52,7 @@ public class GameManagerScript : MonoBehaviour {
     bool canSpawnCrab = true;
     public int currentLevel = 1;
     private Coroutine currentCrabSpawn;
+    public Boolean CameraMovingBack;
 
     // player health
     //const int maxHealth = 100;
@@ -74,6 +77,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject credits;
     public Color cameraVictoryColour;
     [Range(0,1)] public float victorySaturationValue;
+    
 
     
 
@@ -314,6 +318,8 @@ public class GameManagerScript : MonoBehaviour {
 
     void EndGame()
     {
+        StatCounter.GetComponent<StatCounterScript>().finalEggCount = TotalScore;
+        StatCounter.GetComponent<StatCounterScript>().gameEnded = true;
         StopAllCoroutines();
         StartCoroutine(ChangeMusic(victoryAudio, 0.5f));
         

@@ -125,6 +125,7 @@ public class SeagullBossController : MonoBehaviour
     void OnDisable()
     {
         isOnGround = false;
+        audioSrc.Stop();
         DestroyFireballs();
     }
 

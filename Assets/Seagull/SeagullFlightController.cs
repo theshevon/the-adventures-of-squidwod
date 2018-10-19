@@ -45,7 +45,6 @@ public class SeagullFlightController : MonoBehaviour
     Animator animator;
     public bool isFlying = true;
     private Vector3 flyPosition = new Vector3(0, 150, 120);
-    readonly Vector3 battlePosition = new Vector3(0,2,0);
     
     // miscellaneous
     Vector3 laserTarget;

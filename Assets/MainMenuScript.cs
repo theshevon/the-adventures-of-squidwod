@@ -11,6 +11,7 @@ public class MainMenuScript : MonoBehaviour {
     public GameObject mainMenu;
     public GameObject difficultyMenu;
     public GameObject cutscene;
+    public GameObject tutorial;
 
     /// <summary>
     /// Starts the game.
@@ -76,6 +77,11 @@ public class MainMenuScript : MonoBehaviour {
             SceneManager.LoadScene("SampleScene");
         }
         
+    }
+
+    public void ShowInstructions()
+    {
+        tutorial.SetActive(true);
     }
 
     public void QuitGame()

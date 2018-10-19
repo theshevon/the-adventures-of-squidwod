@@ -70,7 +70,6 @@ public class SeagullHealthManager : MonoBehaviour {
     void PlayHurtSound()
     {
         int index = Random.Range(0, seagullHurt.Length);
-        Debug.Log(index);
         audioSrc.PlayOneShot(seagullHurt[index]);
     }
 }

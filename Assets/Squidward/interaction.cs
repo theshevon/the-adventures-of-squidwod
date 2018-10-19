@@ -8,6 +8,7 @@ public class interaction : MonoBehaviour {
 
 	public GameManagerScript gameManager;
 	GameObject GameManagerObject;
+	public GameObject StatCounter;
 	GameManagerScript GameManager;
     int damage;
 	
@@ -23,6 +24,7 @@ public class interaction : MonoBehaviour {
 	AudioSource audioSrc;
 	public AudioClip[] hurt;
 	public AudioClip pickup;
+	public AudioClip eat;
 
 	void Start()
 	{
@@ -46,11 +48,14 @@ public class interaction : MonoBehaviour {
             GameManagerScript GMS = GameManager.GetComponent<GameManagerScript>();
 			if (!GameManager.FirstEggCollected) gameManager.OnFirstEggCollect();
             if (!GameManager.inBossFight) gameManager.SpawnEgg();
+			
             if (GameManager.inBossFight)
             {
                 GMS.extraEggSpawned = false;
                 GetComponent<bossControls>().canAttack = true;
             }
+
+			StatCounter.GetComponent<StatCounterScript>().eggsCollected += 1;
 			GameManager.TotalScore += 1;
 			GameManager.CurrentScore += 1;
 			audioSrc.PlayOneShot(pickup, 0.7f);
@@ -65,6 +70,7 @@ public class interaction : MonoBehaviour {
 
         if (col.gameObject.CompareTag("HealthToken")){
             health += 10;
+	        audioSrc.PlayOneShot(eat, 1.5f);
             if (health > maxHealth)
             {
                 health = maxHealth;
@@ -88,6 +94,7 @@ public class interaction : MonoBehaviour {
 	
 	IEnumerator TakeDamage()
 	{
+		StatCounter.GetComponent<StatCounterScript>().damageTaken += damage;
 		PlayHurtSound();
 		health -= damage;
 		playerMaterial.SetColor("_Color", damageColour);
