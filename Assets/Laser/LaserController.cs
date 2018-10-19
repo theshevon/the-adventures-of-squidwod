@@ -16,7 +16,7 @@ public class LaserController : MonoBehaviour
                               // 1 for large explosion
 
     const float velocity = 2.0f;
-    private bool isExploded;
+    bool isExploded;
     
     void Update()
     {
@@ -39,8 +39,12 @@ public class LaserController : MonoBehaviour
             GameObject laserFlame;
             explosion = explosionType == 0 ? Instantiate(smallExplosionPrefab) : Instantiate(largeExplosionPrefab);
             explosion.transform.position = transform.position;
-            laserFlame = Instantiate(flame);
-            laserFlame.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
+            if (explosionType == 0)
+            {
+                laserFlame = Instantiate(flame);
+                laserFlame.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            }
         }
     }
 }

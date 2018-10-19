@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4649783065339504}
   - component: {fileID: 54332332003214566}
+  - component: {fileID: 114249980128358312}
   m_Layer: 0
   m_Name: krabbypatty
   m_TagString: HealthToken
@@ -142,6 +143,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.580891, y: 9.95332, z: 12.321163}
   m_Center: {x: 0.09084058, y: 5.1119766, z: 2.1384819}
+--- !u!114 &114249980128358312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646008188781406}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e75c7a5961ab469eb9578b17426b796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114867677779125042
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -51,7 +51,7 @@ public class GameManagerScript : MonoBehaviour {
     float crabSpawnCountdown = 5f;
     bool canSpawnCrab = true;
     public int currentLevel = 1;
-    private Coroutine currentCrabSpawn;
+    Coroutine currentCrabSpawn;
     public Boolean CameraMovingBack;
 
     // player health
@@ -61,7 +61,7 @@ public class GameManagerScript : MonoBehaviour {
     
     // death screen
     public Material cameraTintMaterial;
-    bool gameEnded = false;
+    bool gameEnded;
     public Color cameraDeathColour;
     [Range(0,1)] public float deathSaturationValue;
     public GameObject deathText;
@@ -69,7 +69,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject healthText;
     public GameObject seagullText;
     public GameObject explosion;
-    private AudioSource seagullAudio;
+    AudioSource seagullAudio;
     public AudioClip deathAudio;
     
     // victory screen
@@ -77,9 +77,6 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject credits;
     public Color cameraVictoryColour;
     [Range(0,1)] public float victorySaturationValue;
-    
-
-    
 
     void Start()
     {
@@ -94,7 +91,17 @@ public class GameManagerScript : MonoBehaviour {
         // the first health token will spawn within 5 and 20s regardless of game mode
         healthTokenSpawnCountdown = Random.Range(5, 20);
 
-        healthSpawnTimeThreshold = gameObject.GetComponent<GameSettings>().GetDifficulty() == 0 ? 25 : 60;
+        if (gameObject.GetComponent<GameSettings>().GetDifficulty() == 0)
+        {
+            healthSpawnTimeThreshold = 25;
+            healthTokenPrefab.GetComponent<DespawnScript>().enabled = false;
+        }
+        else
+        {
+            healthSpawnTimeThreshold = 60;
+            healthTokenPrefab.GetComponent<DespawnScript>().enabled = true;
+
+        }
     }
 
     void Update ()
@@ -145,15 +152,14 @@ public class GameManagerScript : MonoBehaviour {
         /* ============================================ SEAGULL CONTROL ============================================ */
 
         // start boss battle if score threshold satisfied
-        // hotkey added for testing purposes
-        if (((CurrentScore > 0 && CurrentScore % fightThreshold == 0) || Input.GetKeyDown(KeyCode.B)) && !inBossFight)
+        if (CurrentScore > 0 && CurrentScore % fightThreshold == 0 && !inBossFight)
         {
             Debug.Log("starting battle");
             CurrentScore = 0;
             inBossFight = true;
             StartBattle();
         }
-        
+
         // run battle start initiation method when Seagull reaches the ground
         if (Seagull.GetComponent<SeagullBossController>().IsOnGround() && !battleStarted)
         {
@@ -170,7 +176,7 @@ public class GameManagerScript : MonoBehaviour {
         
         // trigger the end battle sequence
         // need to change the conditions
-        if ((seagullHealthManager.damageTaken >= healthThreshold || Input.GetKeyDown(KeyCode.N)) && inBossFight && currentLevel < maxLevels
+        if (seagullHealthManager.damageTaken >= healthThreshold && inBossFight && currentLevel < maxLevels
                 && seagullHealthManager.seagullHealth >= 0)
         {
             Debug.Log("ending battle");
@@ -192,8 +198,7 @@ public class GameManagerScript : MonoBehaviour {
             }
         }
 
-        // if game hasn't ended, seagull alive and you press M
-        if ((seagullHealthManager.seagullHealth <= 0 || Input.GetKeyDown(KeyCode.M)) && !gameEnded)
+        if (seagullHealthManager.seagullHealth <= 0 && !gameEnded)
         {
             canSpawnCrab = false;
             DestroyCrabs();
