@@ -2851,7 +2851,7 @@ MonoBehaviour:
   CurrentScore: 0
   TotalScore: 0
   FirstEggCollected: 0
-  battleAudio: {fileID: 8300000, guid: 6d6fdd612553c9847982dc49b2044566, type: 3}
+  battleAudio: {fileID: 8300000, guid: 5155db78ffc445d4c8dc68ed6640a921, type: 3}
   extraEggSpawned: 0
   inBossFight: 0
   currentLevel: 1
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   healthText: {fileID: 556546350}
   seagullText: {fileID: 816153794}
   explosion: {fileID: 1832707365330184, guid: acf39d9f4addf294d93fa56fa373961b, type: 2}
-  deathAudio: {fileID: 8300000, guid: 85c123e8a19276b4894f639b17f6412c, type: 3}
+  deathAudio: {fileID: 8300000, guid: 2c4f73a1a4ee46d459fc219c3eb27810, type: 3}
   victoryAudio: {fileID: 8300000, guid: 8d34d40f335b1314ba2980c72ddb6c02, type: 3}
   credits: {fileID: 1778275379}
   cameraVictoryColour: {r: 0.53099996, g: 0.49651945, b: 0.24825971, a: 0.13333334}
@@ -2892,7 +2892,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0295199868b4dd94e828c818b3079d14, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d31ae06645d6f644f9c1b4d1d5029802, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
