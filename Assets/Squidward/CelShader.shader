@@ -5,19 +5,19 @@
 //
 // Based off tutorial by user _Beta
 // https://www.youtube.com/watch?v=TIupEOkFG2s
-// Outline logic from shader by Ippokratis Bournellis
+// Outline logic referenced from shader by Ippokratis Bournellis
+// https://assetstore.unity.com/packages/vfx/shaders/toon-shader-free-21288
 
 Shader "Custom/CelShader"
 {
 	Properties
 	{
-		
-		_Color("Color", Color) = (1,1,1,1) //Color multiplied to the texture
-		_MainTex("Albedo (RGB)", 2D) = "white" {} //Texture
-		_BumpTex("Normal", 2D) = "transparent" {} //Texture
+		_Color("Color", Color) = (1,1,1,1)
+		_MainTex("Albedo (RGB)", 2D) = "white" {}
+		_BumpTex("Normal", 2D) = "transparent" {}
 		_HighlightStrength("Highlight Strength", Float) = 1.6
 		_ShadowStrength("Shadow Strength", Float) = 1.2
-		_BlurWidth("Shader Blur Width", Range(0,2)) = 0.2 //Blur between thresholds
+		_BlurWidth("Shader Blur Width", Range(0,2)) = 0.2
 		_OutlineColor ("Outline Color", Color) = (0.5,0.5,0.5,1.0)	
 		_Outline ("Outline width", Float) = 0.01	
 	}
@@ -25,7 +25,7 @@ Shader "Custom/CelShader"
 	{
 	    Pass
 	    {
-	        // only show outline
+	        // only show backwards facing polygons
             Cull Front
             ZWrite On
             
@@ -75,7 +75,7 @@ Shader "Custom/CelShader"
 
         CGPROGRAM
 
-        #pragma surface surf Toon fullforwardshadows 
+        #pragma surface surf Cel fullforwardshadows 
         #pragma target 3.0
 
         sampler2D _MainTex;
@@ -95,13 +95,14 @@ Shader "Custom/CelShader"
 
         void surf(Input IN, inout SurfaceOutput o) 
         {
+            // get texture
             fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;
             o.Alpha = c.a;
             //o.Normal = UnpackNormal (tex2D (_BumpTex, IN.uv_BumpTex));
         }
         
-        fixed4 LightingToon(SurfaceOutput s, fixed3 lightDir, fixed atten)
+        fixed4 LightingCel(SurfaceOutput s, fixed3 lightDir, fixed atten)
         {
             // calculate normal
             half NdotL = dot(s.Normal, lightDir);
