@@ -109,6 +109,11 @@ public class movement : MonoBehaviour
                 }
             }
 
+	        if (Input.GetKeyDown(KeyCode.F))
+	        {
+		        animator.SetTrigger("DAB");
+	        }
+
         } else if (moveDirection.y < 0)
         {
             moveDirection.y -= gravity * (fallMultiplier - 1) * Time.deltaTime;

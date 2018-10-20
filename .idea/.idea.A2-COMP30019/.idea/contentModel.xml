@@ -13,7 +13,6 @@
         <e p="Camera" t="Include">
           <e p="BossFightThirdPersonCameraController.cs" t="Include" />
           <e p="cameraTintShader.shader" t="Include" />
-          <e p="NewSurfaceShader.shader" t="Include" />
           <e p="ThirdPersonCameraController.cs" t="Include" />
           <e p="tintImageEffectScript.cs" t="Include" />
         </e>
@@ -50,9 +49,6 @@
         </e>
         <e p="MainMenuScript.cs" t="Include" />
         <e p="PlayVideo.cs" t="Include" />
-        <e p="Scenes" t="Include">
-          <e p="NewUnlitShader.shader" t="Include" />
-        </e>
         <e p="Seagull" t="Include">
           <e p="SeagullBossController.cs" t="Include" />
           <e p="SeagullFlightController.cs" t="Include" />
