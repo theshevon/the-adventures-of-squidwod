@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.A2-COMP30019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManagerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainMenuScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainMenuScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Motion/attack.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Motion/attack.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Motion/crabs.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Motion/crabs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Motion/egg_collection.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Motion/egg_collection.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Motion/flamethrower.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Motion/flamethrower.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Motion/seagull_explosion.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Motion/seagull_explosion.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/downgrade.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/downgrade.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullFlightController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Seagull/SeagullHealthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Seagull/SeagullHealthManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/bossControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/interaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/interaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Squidward/movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Squidward/movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TutorialSlidesScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TutorialSlidesScript.cs" afterDir="false" />
-    </list>
+    <list default="true" id="09b980aa-0893-4aa6-ad07-ccfaf8da8266" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +12,7 @@
     <session id="-1046372865">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="28" />
+          <entry key="project.closed" value="29" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="5" />
@@ -242,8 +218,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+            <state relative-caret-position="134">
+              <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
               <folding>
                 <marker date="1539954983798" expanded="false" signature="6:113" ph="..." />
                 <marker date="1539954983798" expanded="true" signature="156:2919" ph="{...}" />
@@ -349,10 +325,10 @@
       <find>canattack</find>
       <find>moveBack</find>
       <find>mainac</find>
-      <find>canatta</find>
-      <find>moveback</find>
       <find>crab</find>
       <find>crabheight</find>
+      <find>canatta</find>
+      <find>moveback</find>
     </findStrings>
     <replaceStrings>
       <replace>MainCamera</replace>
@@ -585,12 +561,12 @@
       <workItem from="1539824177228" duration="3999000" />
       <workItem from="1539854194345" duration="4398000" />
       <workItem from="1539868106827" duration="1855000" />
-      <workItem from="1539947378162" duration="7377000" />
+      <workItem from="1539947378162" duration="7595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196740000" />
+    <option name="totallyTimeSpent" value="196958000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -603,7 +579,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18176973" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -995,20 +970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/StatCounterScript.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
-          <folding>
-            <marker date="1539952582569" expanded="true" signature="6:105" ph="..." />
-            <marker date="1539952582569" expanded="true" signature="153:1243" ph="{...}" />
-            <marker date="1539952582569" expanded="true" signature="643:669" ph="{...}" />
-            <marker date="1539952582569" expanded="true" signature="723:1241" ph="{...}" />
-            <marker date="1539952582569" expanded="true" signature="782:1238" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Seagull/SeagullBossController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1076,41 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="180" column="17" selection-start-line="180" selection-start-column="17" selection-end-line="180" selection-end-column="17" />
-          <folding>
-            <marker date="1539954252726" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
-            <marker date="1539954252726" expanded="false" signature="183:269" ph="..." />
-            <marker date="1539954252726" expanded="true" signature="312:6232" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="1387:1895" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="1950:6107" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2068:2263" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2304:2499" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2526:2556" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2576:6031" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2672:2743" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2776:4293" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2859:2872" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="2881:3454" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="3055:3188" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
-            <marker date="1539954252726" expanded="true" signature="3735:4076" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="4082:4286" ph="/* aimTarget = new Vector3(target.transform.position.x, -4 + count*50, ... */" />
-            <marker date="1539954252726" expanded="true" signature="4328:5096" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="4338:4450" ph="/* GetComponent&lt;movement&gt;().enabled = true; ... */" />
-            <marker date="1539954252726" expanded="true" signature="5130:6027" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="5161:5350" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="5173:5344" ph="/* cam.GetComponent&lt;ThirdPersonCameraController&gt;().enabled = true; ... */" />
-            <marker date="1539954252726" expanded="true" signature="5359:5876" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="5486:5619" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
-            <marker date="1539954252726" expanded="true" signature="5932:6022" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="6038:6104" ph="{...}" />
-            <marker date="1539954252726" expanded="true" signature="6132:6230" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/GameManagerScript.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -1172,10 +1098,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/StatCounterScript.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+          <folding>
+            <marker date="1539952582569" expanded="true" signature="6:105" ph="..." />
+            <marker date="1539952582569" expanded="true" signature="153:1243" ph="{...}" />
+            <marker date="1539952582569" expanded="true" signature="643:669" ph="{...}" />
+            <marker date="1539952582569" expanded="true" signature="723:1241" ph="{...}" />
+            <marker date="1539952582569" expanded="true" signature="782:1238" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Squidward/bossControls.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="180" column="17" selection-start-line="180" selection-start-column="17" selection-end-line="180" selection-end-column="17" />
+          <folding>
+            <marker date="1539954252726" expanded="true" signature="0:175" ph="/* Code to control the Giant Seagull in the game developed by ... */" />
+            <marker date="1539954252726" expanded="false" signature="183:269" ph="..." />
+            <marker date="1539954252726" expanded="true" signature="312:6232" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="1387:1895" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="1950:6107" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2068:2263" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2304:2499" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2526:2556" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2576:6031" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2672:2743" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2776:4293" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2859:2872" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="2881:3454" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="3055:3188" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
+            <marker date="1539954252726" expanded="true" signature="3735:4076" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="4082:4286" ph="/* aimTarget = new Vector3(target.transform.position.x, -4 + count*50, ... */" />
+            <marker date="1539954252726" expanded="true" signature="4328:5096" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="4338:4450" ph="/* GetComponent&lt;movement&gt;().enabled = true; ... */" />
+            <marker date="1539954252726" expanded="true" signature="5130:6027" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="5161:5350" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="5173:5344" ph="/* cam.GetComponent&lt;ThirdPersonCameraController&gt;().enabled = true; ... */" />
+            <marker date="1539954252726" expanded="true" signature="5359:5876" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="5486:5619" ph="/* cam.transform.position = Vector3.MoveTowards(cam.transform.position, ... */" />
+            <marker date="1539954252726" expanded="true" signature="5932:6022" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="6038:6104" ph="{...}" />
+            <marker date="1539954252726" expanded="true" signature="6132:6230" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Squidward/interaction.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        <state relative-caret-position="134">
+          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
           <folding>
             <marker date="1539954983798" expanded="false" signature="6:113" ph="..." />
             <marker date="1539954983798" expanded="true" signature="156:2919" ph="{...}" />
