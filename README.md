@@ -1,6 +1,6 @@
 # The Adventures of Squidwod
 
-A Unity game that involves collecting Eggs from a giant fire-breathing, laser-eyed, grenade-tossing Seagull's nest while dodging its attacks. 
+A Unity game that involves collecting Eggs from a giant fire-breathing, laser-eyed, grenade-tossing Seagull's nest while dodging its attacks. Game Preview: https://www.youtube.com/watch?v=cl5terITNiY
 
 Made for Project B of COMP30019: Graphics & Interaction.
 
